@@ -1,3 +1,10 @@
+$primary-color: #111518;
+$secondary-text-color: #b9b9b9;
+$third-text-color: #3d3d3d;
+$accent-color: #ff6b09;
+$white-color: #ffffff;
+$primary-bcg-color: #ffffff;
+
 html {
   box-sizing: border-box;
 }
@@ -9,6 +16,75 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: $primary-bcg-color;
+  color: $primary-color;
+  font-family: Montserrat, sans-serif;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+}
+
+textarea {
+  resize: none;
+}
+
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  // @media screen and (min-width: 576px) {
+  //   width: 576px;
+  // }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
+
+    padding-left: 70px;
+    padding-right: 70px;
+  }
 }
