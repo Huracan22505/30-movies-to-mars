@@ -1,0 +1,26 @@
+.rights {
+  height: 100px;
+
+  padding-top: 30px;
+
+  text-align: center;
+
+  background-color: #f7f7f7;
+
+  .text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #545454;
+  }
+
+  .link {
+    text-decoration: underline;
+  }
+}
+
+.rights__text {
+  margin-bottom: 10px;
+}
