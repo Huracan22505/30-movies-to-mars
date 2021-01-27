@@ -11,13 +11,22 @@
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 1.14;
 
     color: #545454;
   }
 
   .link {
     text-decoration: underline;
+  }
+
+  @media screen and (min-width: 768px) {
+    .text {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 1.19;
+    }
   }
 }
 
