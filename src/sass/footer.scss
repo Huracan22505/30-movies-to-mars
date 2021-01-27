@@ -1,6 +1,10 @@
 .rights {
   height: 100px;
 
+  @media screen and (min-width: 768px) {
+    height: 77px;
+  }
+
   padding-top: 30px;
 
   text-align: center;
@@ -22,6 +26,8 @@
 
   @media screen and (min-width: 768px) {
     .text {
+      display: inline;
+
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
