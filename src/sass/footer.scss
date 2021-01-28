@@ -5,7 +5,7 @@
 
   text-align: center;
 
-  background-color: #f7f7f7;
+  background-color: rgba(78, 96, 254, 0.45);
 
   @media screen and (min-width: 768px) {
     height: 77px;
@@ -18,7 +18,7 @@
   font-size: 14px;
   line-height: 1.14;
 
-  color: #545454;
+  color: #330099;
 
   @media screen and (min-width: 768px) {
     display: inline;
@@ -34,4 +34,8 @@
 
 .rights__link {
   text-decoration: underline;
+
+  &:hover {
+    color: #ffff00;
+  }
 }
