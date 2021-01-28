@@ -8,11 +8,11 @@
    text-align: center;
    &:before {
    top: 0;
-   border-color: #FFEFD7 #FFEFD7 #F1B6A8 #FFEFD7;
+   border-color: #e9e96ab4 #e9e96ab4 #ffff00a8 #e9e96ab4;
 }
     &:after {
    bottom: 0;
-   border-color: #F1B6A8 #F1B6A8 #FFEFD7 #F1B6A8;
+   border-color: #ffff00a8 #ffff00a8 #e9e96ab4 #ffff00a8;
 }
 }
 .title_bg:before, .title_bg:after {
@@ -25,11 +25,11 @@
 
 .team_title_card {
    margin: 0;
-   color: #FFEFD7;
+   color: #330099 ;
    font-family: 'Roboto', sans-serif;
    font-weight: normal;
    font-size: 40px;
-   background: #F1B6A8;
+   background: #ffff00a8;
 }
 .team_gallery {
    display: flex;
@@ -56,3 +56,9 @@
 .team_links_item, .team_card {
    list-style: none;
 }
+
+$primary-color: #330099  ;
+$secondary-color : #545454 ;
+$accent-color: #FFFF00 ;
+$white-color : #ffffff ;
+
