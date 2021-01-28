@@ -1,0 +1,64 @@
+.card__section {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.card__img {
+  max-width: 100%;
+}
+
+.card__title {
+  margin-top: 30px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.card__mainInfo {
+  margin-top: 20px;
+}
+
+.card__mainInfo__item {
+  display: flex;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.card__mainInfo__itemTitle {
+  flex-basis: 45%;
+  color: $secondary-text-color;
+}
+
+.card__aboutInfo {
+  margin-top: 20px;
+}
+
+.card__aboutInfo__title {
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card__aboutInfo__text {
+  line-height: 1.66;
+}
+
+.card__button__list {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 40px;
+}
+
+.button {
+  border-radius: 4px;
+  padding: 10px 12px;
+  min-width: 130px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
