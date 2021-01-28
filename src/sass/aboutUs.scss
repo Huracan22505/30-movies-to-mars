@@ -1,0 +1,33 @@
+.title_bg {
+   position: relative;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   padding: 50px 0;
+   overflow: hidden;
+   background: #F1B6A8;
+   text-align: center;
+   &:before {
+   top: 0;
+   border-color: #FFEFD7 #FFEFD7 #F1B6A8 #FFEFD7;
+}
+    &:after {
+   bottom: 0;
+   border-color: #F1B6A8 #F1B6A8 #FFEFD7 #F1B6A8;
+}
+}
+.title_bg:before, .title_bg:after {
+   content: "";
+   position: absolute;
+   left: 0;
+   border-width: 0 0 50px 100vw;
+   border-style: solid;
+}
+
+.team_title_card {
+   margin: 0;
+   color: #FFEFD7;
+   font-family: 'Playfair Display', serif;
+   font-weight: normal;
+   font-size: 40px;
+   background: #F1B6A8;
+}
