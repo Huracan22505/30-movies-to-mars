@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+// Styles for h1 - title of the page
 .title_bg {
    position: relative;
    margin-top: 50px;
@@ -38,8 +40,8 @@
 
 .team_title_card {
    color: black ;
-   font-weight: normal;
-   font-style: inherit;
+   font-family: 'Raleway', Arial, sans-serif;
+   font-weight: 800;
    padding: 15px ;
     @media screen and (max-width: 319) {
       font-size: 14px;
@@ -55,12 +57,12 @@
    }
 
 };
+// Styles for cards & container
 .team_gallery {
-   outline: 2px solid green;
-      margin-left: auto;
+   margin-left: auto;
    margin-right: auto;
    display: flex;
-  flex-direction: column;
+   flex-direction: column;
      @media screen and (max-width: 319) {
       max-width: 180px;
    };
@@ -75,7 +77,6 @@
 
 }
 .team_card {
-    outline: 2px solid blue;
    max-width: 450px;
 	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
 	border-radius: 0px 0px 4px 4px;
@@ -99,37 +100,36 @@
       width: 450px;
    }
 }
-
+.team_desription {
+   color: black ;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+}
+// Styles for social links
 .team_links {
    display: flex;
     justify-content: center;
     align-items: center;
-
-}
-.team_links_item, .team_card {
-   list-style: none;
-}
-
-$primary-color: #330099  ;
-$secondary-color : #545454 ;
-$accent-color: #FFFF00 ;
-$white-color : #ffffff ;
-
-   .team_links_item {
+    &_item {
 
 	margin: 10px;
 	height: 45px;
 	width: 45px;
-	background-color: $accent-color;
+	background-color: #FFF000;
 	border-radius: 50%;
 	background-position: center;
 	fill: black ;
    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
    &:hover{
       background-color: black;
-      	fill: $accent-color ;
+      	fill: #FFF000 ;
    }
     };
+}
+.team_links_item, .team_card {
+   list-style: none;
+}
+
 .team_icon {
    width: 25px;
    height: 25px; 
@@ -141,93 +141,97 @@ $white-color : #ffffff ;
    
 }
 
+// Styles for card hover
+figure.team_card_hover {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 220px;
+  max-width: 310px;
+  max-height: 220px;
+  width: 100%;
+  background: #000000;
+  color: #FFF000;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  &* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+   & picture {
+  max-width: 100%;
+  position: relative;
+  opacity: 0.4;
+   }
+   & figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+& h2 {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  display: inline-block;
+  background: black;
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  padding: 12px 5px;
+  margin: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+& span {
+  font-weight: 800;
+}
+&:before {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  background: #ffffff;
+  position: absolute;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: rotate(110deg) translateY(-50%);
+  transform: rotate(110deg) translateY(-50%);
+}
+& a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+& img {
+  display: inline-block;
+}
 
-// .team_card .picture {
-// position: relative;
-//   overflow: hidden;
-//   margin: 10px;
-//   min-width: 220px;
-//   max-width: 310px;
-//   max-height: 220px;
-//   width: 100%;
-//   background: #000000;
-//   color: #ffffff;
-//   text-align: center;
-//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-//   box-sizing: border-box;
-//   transition: all 0.4s ease-in-out;
-//   &:before {
-//   height: 100%;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-//   content: '';
-//   background: #ffffff;
-//   position: absolute;
-//   -webkit-transition: all 0.3s ease-in-out;
-//   transition: all 0.3s ease-in-out;
-//   -webkit-transform: rotate(110deg) translateY(-50%);
-//   transform: rotate(110deg) translateY(-50%);
-// }
-// };
-// .team_card img {
-//      max-width: 100%;
-//   position: relative;
-//   opacity: 0.4;
-// }
-// .team_title {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-// }
-//  h3 {
-//   position: absolute;
-//   left: 40px;
-//   right: 40px;
-//   display: inline-block;
-//   background: #000000;
-//   -webkit-transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
-//   transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
-//   padding: 12px 5px;
-//   margin: 0;
-//   top: 50%;
-//   text-transform: uppercase;
-//   font-weight: 400;
-// }
+}
 
-// .picture a {
-//   left: 0;
-//   right: 0;
-//   top: 0;
-//   bottom: 0;
-//   position: absolute;
-//   z-index: 1;
-// }
-// .picture {
-//   background: #123851;
-// }
+figure.team_card_hover:hover picture,
+figure.team_card_hover.hover picture {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
-// .picture {
-//   background: #0a212f;
-// }
-// .picture:hover img,
-// .picture.hover img {
-//   opacity: 1;
-//   -webkit-transform: scale(1.1);
-//   transform: scale(1.1);
-// }
+figure.team_card_hover:hover h2,
+figure.team_card_hover.hover h2 {
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+}
 
-// .picture:hover h3,
-// .picture.hover h3 {
-//   -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
-//   transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
-// }
-
-// .picture:hover:before,
-// .picture.hover:before {
-//   -webkit-transform: rotate(110deg) translateY(-150%);
-//   transform: rotate(110deg) translateY(-150%);
-// }
-
+figure.team_card_hover:hover:before,
+.figure.team_card_hover:hover:before {
+  -webkit-transform: rotate(110deg) translateY(-150%);
+  transform: rotate(110deg) translateY(-150%);
+} 	
