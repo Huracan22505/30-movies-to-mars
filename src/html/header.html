@@ -10,7 +10,7 @@
         ><img src="../images/logo.png" alt="logo"
       /></a>
       <div class="desktopNav">
-        <ul class="list">
+        <ul class="desktopNav-list list">
           <li><a href="../index.html">Home</a></li>
           <li><a href="./library.html">My Library</a></li>
           <li><a href="./aboutUs.html">About Us</a></li>
@@ -23,22 +23,28 @@
         </svg>
       </button>
 
-      <!-- <div class="themeSwitch desktopSwitcher">
-        <div class="themeSwitch__control">
+      <a href="registration.html" class="desktopAuth">
+        <svg>
+          <use href="../images/sprite.svg#auth"></use>
+        </svg>
+      </a>
+
+      <div class="desktopSwitcher">
+        <div class="desktopSwitcher__control">
           <input
-            class="themeSwitch__toggle"
+            class="desktopSwitcher__toggle"
             type="checkbox"
             name="theme"
-            id="themeSwitch-toggle"
+            id="desktopSwitcher-toggle"
             aria-label="change color theme"
           />
           <label
             aria-hidden="true"
-            class="themeSwitch__track"
-            for="themeSwitch-toggle"
+            class="desktopSwitcher__track"
+            for="desktopSwitcher-toggle"
           >
           </label>
-          <div aria-hidden="true" class="themeSwitch__marker">
+          <div aria-hidden="true" class="desktopSwitcher__marker">
             <img
               src="../images/switcher.png"
               alt=""
@@ -46,7 +52,7 @@
             />
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- input for mobile version -->
       <div class="inputPanel">
@@ -96,9 +102,9 @@
               </div>
             </div>
           </div>
-          <div class="authorization">
+          <a href="registration.html" class="authorization">
             <p>Sign in/Sign up</p>
-          </div>
+          </a>
           <ul class="modalMenu list">
             <li class="modalItem"><a href="../index.html">Home</a></li>
             <li class="modalItem"><a href="./library.html">My Library</a></li>
