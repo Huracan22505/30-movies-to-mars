@@ -1,0 +1,166 @@
+.login-form__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition-property: opacity;
+  overflow: scroll;
+
+  &.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.login-form__wrap {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 525px;
+  min-height: 600px;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  background-color: $primary-bcg-color;
+  @media screen and (max-width: 767px) {
+    top: 0;
+    transform: none;
+    min-height: 100vh;
+    max-width: 767px;
+  }
+}
+
+.login-form__html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
+  background: $primary-bcg-color;
+  @media screen and (max-width: 767px) {
+    padding: 60px 15px 0px 15px;
+  }
+}
+
+.login-form__signin-group,
+.login-form__signup-group {
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: all 0.4s linear;
+}
+.login-form__signin,
+.login-form__signup {
+  display: none;
+}
+.login-form__tab,
+.login-form_label,
+.login-form_button {
+  text-transform: uppercase;
+}
+.login-form__tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: color 200ms linear, border-bottom 200ms linear;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+.login-form__signin:checked + .login-form__tab,
+.login-form__signup:checked + .login-form__tab {
+  color: $accent-color;
+  border-color: $accent-color;
+}
+.login-form {
+  min-height: 345px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.login-form__field {
+  margin-bottom: 15px;
+}
+.login-form_label,
+.login-form_input,
+.login-form_button {
+  width: 100%;
+  color: $primary-color;
+  display: block;
+}
+.login-form_input,
+.login-form_button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background: $secondary-text-color;
+}
+
+.login-form_label {
+  color: $third-text-color;
+  font-size: 12px;
+}
+.login-form_button {
+  background-color: $accent-color;
+  color: $white-color;
+  transition: background-color 200ms linear;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+  }
+}
+
+.login-form__signin:checked
+  + .login-form__tab
+  + .login-form__signup
+  + .login-form__tab
+  + .login-form
+  .login-form__signin-group {
+  transform: rotate(0);
+}
+.login-form__signup:checked
+  + .login-form__tab
+  + .login-form
+  .login-form__signup-group {
+  transform: rotate(0);
+}
+.login-form__foot-lnk {
+  text-align: center;
+}
+
+.login-form__foot-lnk label {
+  color: $accent-color;
+  transition: color 200ms linear;
+  &:hover,
+  &:focus {
+    color: $primary-color;
+    cursor: pointer;
+  }
+}
+
+.forgot-password {
+  color: $accent-color;
+  text-decoration: none;
+  transition: color 200ms linear, text-decoration 200ms linear;
+  &:hover,
+  &:focus {
+    color: $primary-color;
+  }
+}
