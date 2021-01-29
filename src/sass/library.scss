@@ -1,0 +1,42 @@
+.library-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.library__filters__item + .library__filters__item {
+  margin-left: 20px;
+}
+
+.library__filters {
+  display: flex;
+  justify-content: center;
+}
+
+.library__filters__btn {
+  display: inline-block;
+
+  width: 130px;
+  height: 45px;
+
+  border-radius: 45px;
+  border-color: transparent;
+  font-size: 11px;
+  line-height: 45px;
+
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #330099;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+
+  &:hover {
+    background: #ffff00;
+    box-shadow: 0 15px 20px rgba(226, 229, 46, 0.4);
+    color: #545454;
+    border-color: #330099;
+    transform: translateY(-7px);
+  }
+}
