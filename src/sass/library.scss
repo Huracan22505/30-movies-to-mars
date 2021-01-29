@@ -5,6 +5,10 @@
 
 .library__filters__item + .library__filters__item {
   margin-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 40px;
+  }
 }
 
 .library__filters {
