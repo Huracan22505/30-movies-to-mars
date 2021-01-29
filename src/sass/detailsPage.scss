@@ -10,12 +10,19 @@
     flex-wrap: wrap;
     align-items: flex-start;
   }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 }
 
-@media screen and (min-width: 768px) {
-  .card__content {
+.card__content {
+  @media screen and (min-width: 768px) {
     margin-left: 30px;
     width: calc(100% - 324px);
+  }
+  @media screen and (min-width: 1200px) {
+    width: calc(50% - 30px);
   }
 }
 
@@ -25,6 +32,10 @@
 
   @media screen and (min-width: 768px) {
     width: 294px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 426px;
   }
 }
 
@@ -125,11 +136,19 @@
   @media screen and (min-width: 768px) {
     padding: 5px 5px;
   }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 }
 
 .card__btn__watched__icon,
 .card__btn__queue__icon {
   fill: currentColor;
+  @media screen and (min-width: 1200px) {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .card__btn__text {
