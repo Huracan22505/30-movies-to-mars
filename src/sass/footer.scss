@@ -5,7 +5,12 @@
 
   text-align: center;
 
-  background-color: rgba(78, 96, 254, 0.45);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(78, 96, 254, 0.45),
+    rgba(78, 96, 254, 0.45)
+  );
+  background-color: $white-color;
 
   @media screen and (min-width: 768px) {
     height: 77px;
