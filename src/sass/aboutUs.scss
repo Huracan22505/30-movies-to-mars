@@ -148,7 +148,6 @@ figure.team_card_hover {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
   overflow: hidden;
-//   margin: 10px;
   min-width: 220px;
   max-width: 310px;
   max-height: 220px;
@@ -218,6 +217,7 @@ figure.team_card_hover {
 }
 }
 .team_card:hover, .team_card:focus {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0px 0px 15px 10px rgb(51, 0, 153, 0.5);
     & figure.team_card_hover picture,
       & figure.team_card_hover picture {
