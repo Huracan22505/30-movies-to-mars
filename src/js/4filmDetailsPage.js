@@ -25,9 +25,9 @@ function getValue(e) {
 // отрисовка галереи
 apiService.getRating().then(result => renderGallery(result));
 function renderGallery(result) {
-  let newGenre = switchGenresList(result.genres_ids);
+  // let newGenre = switchGenresList(result.genres_ids);
   let items = galleryTemlate(result);
   galleryBox.insertAdjacentHTML('beforeend', items);
 
-  genreList.textContent = newGenre;
+  // genreList.textContent = newGenre;
 }
