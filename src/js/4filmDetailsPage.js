@@ -2,10 +2,10 @@ import apiService from './apiService.js';
 import refs from './refs.js';
 import galleryTemlate from '../templates/galleryPage.hbs';
 import switchGenresList from './getGenres.js';
-console.log(galleryTemlate);
+// console.log(galleryTemlate);
 
 const { searchForm, searchFormMobile, galleryBox, genreList } = refs;
-console.log(searchFormMobile);
+// console.log(searchFormMobile);
 // console.log(apiService.getRating());
 // console.log(apiService.getSearchResult('gifted'));
 
