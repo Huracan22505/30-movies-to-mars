@@ -1,0 +1,19 @@
+{{#each this}}
+<li class="gallery__card" id={{id}}>
+  <div class="gallery__image-wrapper">
+    <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}" class="gallery__image"
+      data-id="628534" />
+    <!-- <span class="gallery__average">9.8</span> -->
+  </div>
+  <div class="gallery__description">
+    <h3 class="gallery__title__light gallery__title__dark">
+      {{title}}
+    </h3>
+
+    <span class="gallery__film-category__light gallery__film-category__dark">{{#each genre_ids }} {{this}}
+      {{/each}}</span>
+
+    <span class="gallery__release-date__light gallery__release-date__dark">| 2021</span>
+  </div>
+</li>
+{{/each}}
