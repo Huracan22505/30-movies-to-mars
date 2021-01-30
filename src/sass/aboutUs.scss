@@ -1,8 +1,10 @@
+// * {
+//    outline: 1px solid blue;
+// }
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
 // Styles for h1 - title of the page
 .title_bg {
    position: relative;
-   margin-top: 50px;
    margin-bottom: 50px;
    
    overflow: hidden;
@@ -59,51 +61,51 @@
 };
 // Styles for cards & container
 .team_gallery {
-   margin-left: auto;
-   margin-right: auto;
    display: flex;
-   flex-direction: column;
-     @media screen and (max-width: 319) {
-      max-width: 180px;
-   };
-   @media screen and (min-width: 320) and (max-width: 767) {
-      width: 280px;
-   };
+  flex-wrap: wrap;
+  justify-content: space-between;
    @media screen and (max-width: 767) {
-      margin: 10px;
       justify-content: center;
       align-items: center;
    }
-
+  @media screen and (min-width: 768px) {
+    margin: -10px;
+  }
 }
 .team_card {
-   max-width: 450px;
-	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
-	border-radius: 0px 0px 4px 4px;
-   margin: 20px;
-   background-color: inherit;
-   display: flex;
-   flex-direction: column;
-   margin-left: auto;
-   margin-right: auto;
-   align-items: center;
-   @media screen and (max-width: 319) {
-      max-width: inherit;
-   };
-   @media screen and (min-width: 320) and (max-width: 767) {
-      width: inherit;
-   };
-    @media screen and (min-width: 768) and (max-width: 1223) {
-      width: 350px;
-   };
-    @media screen and (min-width: 1224) {
-      width: 450px;
-   }
+  background: transparent;
+  width: 280px;
+  min-height: 300px;
+  position: relative;
+  border: 1px solid transparent;
+  overflow: hidden;
+  outline: none;
+    align-items: center;
+	box-shadow: 3px 5px 7px rgba(51, 0, 153, 0.4), 3px 3px 5px rgba(51, 0, 153, 0.4);
+   border-radius: 0px 0px 4px 4px;
+  
+    &_overlay {
+      padding-top: 10px;
+      background-image: linear-gradient(to bottom, white 0%, transparent 100%);
+    }
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 767px) {
+    & + .team__card {
+      margin-top: 25px;
+    }
+}
 }
 .team_desription {
+   display: block;
    color: black ;
    font-family: 'Roboto', sans-serif;
    font-weight: 500;
+   text-align: center;
 }
 // Styles for social links
 .team_links {
@@ -146,7 +148,6 @@ figure.team_card_hover {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
   overflow: hidden;
-  margin: 10px;
   min-width: 220px;
   max-width: 310px;
   max-height: 220px;
@@ -164,7 +165,7 @@ figure.team_card_hover {
    & picture {
   max-width: 100%;
   position: relative;
-  opacity: 0.4;
+  opacity: 0.2;
    }
    & figcaption {
   position: absolute;
@@ -214,24 +215,26 @@ figure.team_card_hover {
 & img {
   display: inline-block;
 }
-
 }
-
-figure.team_card_hover:hover picture,
-figure.team_card_hover.hover picture {
+.team_card:hover, .team_card:focus {
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0px 0px 15px 10px rgb(51, 0, 153, 0.5);
+    & figure.team_card_hover picture,
+      & figure.team_card_hover picture {
   opacity: 1;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-}
+   }
 
-figure.team_card_hover:hover h2,
-figure.team_card_hover.hover h2 {
+   & figure.team_card_hover h2,
+   & figure.team_card_hover h2 {
   -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
 }
 
-figure.team_card_hover:hover:before,
-.figure.team_card_hover:hover:before {
+   & figure.team_card_hover:before,
+   & .figure.team_card_hover:before {
   -webkit-transform: rotate(110deg) translateY(-150%);
   transform: rotate(110deg) translateY(-150%);
 } 	
+}
