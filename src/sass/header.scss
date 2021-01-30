@@ -1,5 +1,9 @@
 .pageHeader {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.97),
+    rgba(51, 0, 153, 0.75)
+  );
   height: 80px;
 }
 
@@ -7,12 +11,83 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
+  width: 100%;
 }
 
 #home {
   margin: 10px auto;
+  @media screen and(min-width: 1200px) {
+    margin: auto auto auto 0;
+  }
   & img {
     height: 60px;
+    @media screen and(min-width: 1200px) {
+      height: 80px;
+    }
+  }
+}
+
+// styles for desktop version
+
+.desktopNav {
+  @media screen and(max-width: 1199px) {
+    display: none;
+  }
+}
+
+.desktopNav-list {
+  display: flex;
+  align-items: center;
+
+  & li + li {
+    margin-left: 20px;
+  }
+  & a {
+    display: inline-block;
+    width: 110px;
+    height: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    border: 2px solid;
+    border-radius: 45px;
+    transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &:hover {
+      background: #ffff00;
+      color: #545454;
+      border-color: #330099;
+      box-shadow: 0 15px 20px rgba(226, 229, 46, 0.4);
+      transform: translateY(-7px);
+    }
+  }
+}
+
+.desktopInput {
+  @media screen and(max-width: 767px) {
+    display: none;
+  }
+  width: 180px;
+  height: 40px;
+  margin-left: 30px;
+  padding-left: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: whitesmoke;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid #ffff00;
   }
 }
 
@@ -24,7 +99,7 @@
   height: 40px;
   padding: 5px;
   background-color: transparent;
-  color: silver;
+  color: #fff;
   border: 2px solid transparent;
   transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
@@ -58,7 +133,7 @@
 
   &:hover,
   &:focus {
-    border-bottom: 2px solid #ffff00;
+    border-color: #ffff00;
   }
 }
 
@@ -71,14 +146,10 @@
     left: 0;
     width: 100vw;
     height: 80px;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.97),
-      rgba(51, 0, 153, 0.75)
-    );
-  }
-  @media screen and(min-width: 768px) {
-    display: none;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(51, 0, 153));
+    @media screen and(min-width: 768px) {
+      display: none;
+    }
   }
 
   .headerForm {
@@ -104,7 +175,7 @@
     background-color: transparent;
     border: none;
     border-bottom: 2px solid silver;
-    transition: all 350ms ease-in;
+    transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
     &:focus {
       outline: none;
@@ -117,85 +188,19 @@
   }
 }
 
-.desktopNav {
-  @media screen and(max-width: 1199px) {
-    display: none;
-  }
-}
-
-.desktopNav-list {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  & li + li {
-    margin-left: 22px;
-  }
-  & a {
-    display: inline-block;
-
-    width: 120px;
-    height: 45px;
-
-    border-radius: 45px;
-    border-color: transparent;
-    font-size: 11px;
-    line-height: 45px;
-
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 3px;
-    font-weight: 600;
-    color: #ffffff;
-    background: #330099;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-
-    &:hover {
-      background: #ffff00;
-      box-shadow: 0 15px 20px rgba(226, 229, 46, 0.4);
-      color: #545454;
-      border-color: #330099;
-      transform: translateY(-7px);
-    }
-  }
-}
-
-.desktopInput {
-  @media screen and(max-width: 767px) {
-    display: none;
-  }
-  width: 200px;
-  height: 40px;
-  margin-left: 22px;
-  padding-left: 16px;
-  font-size: 16px;
-  font-family: inherit;
-  color: whitesmoke;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid silver;
-  transition: all 350ms ease-in;
-
-  &:focus {
-    outline: none;
-    border-bottom: 2px solid #ffff00;
-  }
-}
-
 .desktopAuth {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 45px;
   height: 45px;
-  border-radius: 45px;
-  border-color: transparent;
+  padding: 5px;
   text-align: center;
   vertical-align: middle;
   color: #ffffff;
-  background: #330099;
+  background: transparent;
+  border: 2px solid #ffff00;
+  border-radius: 45px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &:hover {
     background: #ffff00;
@@ -206,8 +211,8 @@
   }
 
   & svg {
-    width: 37px;
-    height: 37px;
+    width: 100%;
+    height: 100%;
     fill: currentColor;
   }
 
@@ -226,15 +231,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  transition: 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &.is-open {
     opacity: 1;
+    z-index: 120;
     pointer-events: initial;
     width: 100%;
-    background-color: rgba(51, 0, 153, 0.75);
-    z-index: 120;
-    transition: all 1000ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-color: rgba(51, 0, 153, 0.7);
+    transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   @media screen and(min-width: 1200px) {
@@ -254,6 +259,7 @@
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0.8)
   );
+  background-color: rgba(51, 0, 153, 0.85);
 }
 
 .insideBurgerBtns {
@@ -305,7 +311,7 @@
     }
 
     & a {
-      color: silver;
+      color: #fff;
       transition: all 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
       &:hover,
       &:focus {
@@ -356,34 +362,32 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  z-index: 1;
   user-select: none;
+  cursor: pointer;
+  background-color: #545454;
   border: 2px solid #333;
   border-radius: inherit;
-  z-index: 1;
-  cursor: pointer;
   transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .themeSwitch__marker,
 .desktopSwitcher__marker {
   position: relative;
-  margin-left: -3px;
-  background-color: rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  z-index: 2;
   width: 36px;
   height: 36px;
+  margin-left: -3px;
+  background-color: transparent;
   border-radius: 50%;
-  z-index: 2;
-  pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
+  transform: translateX(-3px);
   transition: transform 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
 
-.desktopSwitcher__marker {
-  background-color: rgba(84, 84, 84, 0.7);
-  width: 30px;
-  height: 30px;
+  & img {
+    filter: invert(1);
+  }
 }
 
 .themeSwitch__toggle:checked + .themeSwitch__track,
