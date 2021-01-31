@@ -10,14 +10,14 @@ const {
   galleryBox,
   genreList,
   cardModal,
+  cardOverlay,
   cardBox,
 } = refs;
-console.log(cardBox);
 
 searchForm.addEventListener('submit', getValue);
 searchFormMobile.addEventListener('submit', getValue);
 galleryBox.addEventListener('click', onGalleryClick);
-cardBox.addEventListener('click', onModalClose);
+cardOverlay.addEventListener('click', onModalClose);
 
 let filmId = '';
 
@@ -51,7 +51,7 @@ function onGalleryClick(ev) {
 
 //функция отрисовки карточки фильма по шаблону
 function renderCardFilm(res) {
-  cardModal.insertAdjacentHTML('beforeend', filmCardTemplate(res));
+  cardBox.insertAdjacentHTML('beforeend', filmCardTemplate(res));
   openModal();
 }
 
@@ -63,5 +63,8 @@ function openModal() {
 //функция закрытия модалки
 function onModalClose() {
   cardModal.classList.remove('card__modal__lightbox__is-open');
-  cardModal.innerHTML = '';
+  let cardContent = document.querySelector('.card__section__content ');
+  console.log(cardContent);
+
+  cardBox.innerHTML = '';
 }
