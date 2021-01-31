@@ -15,25 +15,22 @@ body {
 // Body & Theme style
 
 body.lightTheme {
- background-image: url('../images/space-bcg.jpg');
+ background-image: linear-gradient( 180deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 89.58%, #5a568c 99.98%
+ ), url('../images/space-bcg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: $secondary-text-color;
 }
-body.lightTheme h3 {
-   color: $primary-color;
-}
+
 body.darkTheme {
-  background-image: url('../images/space-bcg.jpg');
+  background-image: linear-gradient(180deg, #330066 0%, rgba(255, 255, 255, 0) 99.87%), url('../images/space-bcg.jpg');
     color: $dark-theme-primary-color;
    background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
-body.darktTheme h2 {
-   color: $white-color;
-}
+
 //  Tag styles
 
 

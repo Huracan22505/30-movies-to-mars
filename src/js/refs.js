@@ -4,5 +4,6 @@ export default {
   galleryBox: document.querySelector('.gallery__wrapper'),
   genreList: document.querySelector('.gallery__film-category__light'),
   bodyTheme: document.querySelector('body'),
-  iconTheme: document.querySelector('.themeSwitch__toggle'),
+  iconThemeDesktop: document.querySelector('.desktopSwitcher__toggle'),
+  iconThemeMobile: document.querySelector('.themeSwitch__toggle'),
 };
