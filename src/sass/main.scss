@@ -14,3 +14,8 @@
 @import 'library.scss';
 @import 'pagination.scss';
 @import 'footer.scss';
+
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+@import 'trailers.scss';
+@import 'basicLightbox.scss'
