@@ -1,21 +1,29 @@
 .filterBtns {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   @media screen and(min-width: 1200px) {
-    margin-top: 60px;
+    margin-top: 10px;
   }
 
   & .list {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
+    @media screen and(min-width: 1200px) {
+      justify-content: center;
+    }
     & .item {
-      width: 140px;
+      width: 33.3333%;
     }
 
-    & .item + .item {
-      margin-left: 50px;
+    @media screen and(min-width: 1200px) {
+      & .item {
+        width: 240px;
+      }
+      & .item + .item {
+        margin-left: 50px;
+      }
     }
   }
 }
@@ -23,29 +31,42 @@
 .filterBtns-button {
   display: block;
   width: 90%;
-  margin-top: 25px;
-  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 14px;
+  font-weight: 700;
   text-align: center;
   padding: 12px;
-  color: #fff;
-  background-color: rgba(84, 84, 84, 0.8);
-  border: 2px solid #330099;
+  color: #330099;
+  background-color: #ffffffcc;
+  border: transparent;
   border-radius: 45px;
+  box-shadow: -3px -5px 17px 6px rgba(0, 0, 0, 0.75) inset;
   transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
-  & .filterBtns-text {
-    font-size: 20px;
-    font-weight: 700;
-    color: inherit;
+  @media screen and(min-width: 768px) {
+    width: 70%;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
+
   &:hover,
   &:focus {
-    width: 100%;
+    width: 90%;
     background-color: #ffff00;
     color: #330099;
-    border-color: #fff;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+  }
+
+  body.lightTheme &:hover,
+  body.lightTheme &:focus {
+    box-shadow: -3px -5px 17px 6px rgba(0, 0, 0, 0.75) inset,
+      0 8px 15px rgba(0, 0, 0, 0.6);
+  }
+
+  body.darkTheme &:hover,
+  body.darkTheme &:focus {
+    box-shadow: -3px -5px 17px 6px rgba(0, 0, 0, 0.75) inset,
+      0 8px 15px rgba(255, 255, 255, 0.6);
   }
 }
