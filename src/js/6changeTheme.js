@@ -1,24 +1,28 @@
-const refs = {
-  bodyTheme: document.querySelector('body'),
-  iconTheme: document.querySelector('.themeSwitch__toggle'),
-};
+import refs from './refs.js';
+const { iconTheme, bodyTheme } = refs;
+
 const Theme = {
   LIGHT: 'lightTheme',
   DARK: 'darkTheme',
 };
+
 const STORAGE_KEY = 'theme';
+
 iconTheme.addEventListener('change', changeTheme);
 defaultTheme();
 
-function changeTheme(e) {
-  if (e.target.checked) {
-    setTheme(Theme.LIGHT, Theme.DARK);
+function defaultTheme() {
+  const theme = localStorage.getItem(STORAGE_KEY);
+  if (theme === 'true') {
+    bodyTheme.classList.add(Theme.DARK);
+    iconTheme.checked = true;
   } else {
-    setTheme(Theme.DARK, Theme.LIGHT);
+    bodyTheme.classList.add(Theme.LIGHT);
   }
 }
-function setTheme(oldTheme, newTheme) {
-  refs.bodyTheme.classList.add(newTheme);
-  refs.bodyTheme.classList.remove(oldTheme);
-  localStorage.setItem(STORAGE_KEY, newTheme);
+
+function changeTheme(evt) {
+  bodyTheme.classList.toggle(Theme.DARK);
+  bodyTheme.classList.toggle(Theme.LIGHT);
+  localStorage.setItem(STORAGE_KEY, evt.target.checked);
 }
