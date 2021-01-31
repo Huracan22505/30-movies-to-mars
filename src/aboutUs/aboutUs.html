@@ -4,9 +4,127 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Team</title>
+      <link
+      rel="shortcut icon"
+      href="./images/space-camera-favicon.png"
+      type="image/png"
+    />
   </head>
   <body>
-    <section class="team_section">
+    <header class="pageHeader">
+      <div class="container">
+        <div class="headerNavigation">
+          <button class="openBurgerMenu">
+            <svg>
+              <use href="../images/headersprite.svg#burger"></use>
+            </svg>
+          </button>
+          <a href="../index.html" id="home"
+            ><img src="../images/logo.png" alt="logo"
+          /></a>
+          <div class="desktopNav">
+            <ul class="desktopNav-list list">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./library.html">My Library</a></li>
+              <li><a href="./aboutUs.html">About Us</a></li>
+            </ul>
+          </div>
+          <input type="text" class="desktopInput" />
+          <button class="searchBtn openInputBtn">
+            <svg>
+              <use href="../images/headersprite.svg#search"></use>
+            </svg>
+          </button>
+
+          <a href="registration.html" class="desktopAuth">
+            <svg>
+              <use href="../images/headersprite.svg#auth"></use>
+            </svg>
+          </a>
+
+          <div class="desktopSwitcher">
+            <div class="desktopSwitcher__control">
+              <input
+                class="desktopSwitcher__toggle"
+                type="checkbox"
+                name="theme"
+                id="desktopSwitcher-toggle"
+                aria-label="change color theme"
+              />
+              <label
+                aria-hidden="true"
+                class="desktopSwitcher__track"
+                for="desktopSwitcher-toggle"
+              >
+              </label>
+              <div aria-hidden="true" class="desktopSwitcher__marker">
+                <img src="../images/switcher.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <!-- input for mobile version -->
+          <div class="inputPanel">
+            <div class="headerForm">
+              <input type="text" class="mobileInput" />
+              <button class="closeInputBtn">
+                <svg>
+                  <use href="../images/sprite.svg#inputClose"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- menu for mobile and tablet versions -->
+          <div class="navBar">
+            <div class="modal">
+              <div class="insideBurgerBtns">
+                <button class="closeBurgerMenu">
+                  <svg>
+                    <use href="../images/headersprite.svg#close"></use>
+                  </svg>
+                </button>
+
+                <!-- theme switcher -->
+                <div class="themeSwitch mobileSwitcher">
+                  <div class="themeSwitch__control">
+                    <input
+                      class="themeSwitch__toggle"
+                      type="checkbox"
+                      name="theme"
+                      id="themeSwitch-toggle"
+                      aria-label="change color theme"
+                    />
+                    <label
+                      aria-hidden="true"
+                      class="themeSwitch__track"
+                      for="themeSwitch-toggle"
+                    >
+                    </label>
+                    <div aria-hidden="true" class="themeSwitch__marker">
+                      <img src="../images/switcher.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="registration.html" class="authorization">
+                <p>Sign in/Sign up</p>
+              </a>
+              <ul class="modalMenu list">
+                <li class="modalItem"><a href="../index.html">Home</a></li>
+                <li class="modalItem">
+                  <a href="../library/library.html">My Library</a>
+                </li>
+                <li class="modalItem">
+                  <a href="../aboutUs/aboutUs.html">About Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>    <section class="team_section">
       <div class="title_bg">
         <h1 class="team_title_card">Our Galaxy Team</h1>
       </div>
@@ -30,7 +148,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Team Lead</p>
+            <div class="team_card_overlay">
+              <p class="team_desription">Team Lead</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -78,6 +197,7 @@
                 </a>
               </li>
             </ul>
+            </div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -97,7 +217,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Scrum Master</p>
+           <div class="team_card_overlay">
+              <p class="team_desription">Scrum Master</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -145,6 +266,7 @@
                 </a>
               </li>
             </ul>
+           </div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -164,7 +286,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Tech Lead</p>
+            <div class="team_card_overlay">
+              <p class="team_desription">Tech Lead</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -212,6 +335,7 @@
                 </a>
               </li>
             </ul>
+            </div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -231,7 +355,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Leading developer</p>
+          <div class="team_card_overlay">
+              <p class="team_desription">Leading developer</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -279,6 +404,7 @@
                 </a>
               </li>
             </ul>
+          </div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -298,7 +424,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Leading developer</p>
+          <div class="team_card_overlay">
+              <p class="team_desription">Leading developer</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -346,6 +473,7 @@
                 </a>
               </li>
             </ul>
+          </div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -365,7 +493,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Leading developer</p>
+          <div class="team_card_overlay">
+              <p class="team_desription">Leading developer</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -413,6 +542,7 @@
                 </a>
               </li>
             </ul>
+          </div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -432,7 +562,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Leading developer</p>
+            <div class="team_card_overlay">           
+               <p class="team_desription">Leading developer</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -479,7 +610,7 @@
                   </svg>
                 </a>
               </li>
-            </ul>
+            </ul></div>
           </li>
           <li class="team_card">
             <figure class="team_card_hover">
@@ -499,7 +630,8 @@
               </figcaption>
               <a href="#"></a>
             </figure>
-            <p class="team_desription">Leading developer</p>
+            <div class="team_card_overlay">
+                          <p class="team_desription">Leading developer</p>
             <ul class="team_links">
               <li class="team_links_item">
                 <a
@@ -547,9 +679,25 @@
                 </a>
               </li>
             </ul>
+            </div>
           </li>
         </ul>
       </div>
-    </section>
+    </section></main>    
+        <footer>
+      <div class="rights">
+        <p class="rights__text">
+          &copy; 2021 <span>|</span> All Rights Reserved <span>|</span>
+        </p>
+        <p class="rights__text">
+          Developed by
+          <a
+            href="https://github.com/Huracan22505/30-movies-to-mars/tree/main"
+            class="rights__link"
+            >30 movies to Mars</a
+          >
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
