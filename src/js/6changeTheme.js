@@ -19,7 +19,7 @@ function defaultThemeMobile() {
     bodyTheme.classList.add(Theme.DARK);
     iconThemeMobile.checked = true;
   } else {
-    bodyTheme.classList.add(Theme.DARK);
+    bodyTheme.classList.add(Theme.LIGHT);
   }
 }
 
@@ -38,7 +38,7 @@ function defaultThemeDesktop() {
     bodyTheme.classList.add(Theme.DARK);
     iconThemeDesktop.checked = true;
   } else {
-    bodyTheme.classList.add(Theme.DARK);
+    bodyTheme.classList.add(Theme.LIGHT);
   }
 }
 function changeThemeDesktop(e) {

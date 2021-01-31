@@ -7,28 +7,27 @@ $primary-bcg-color: #ffffff;
 $dark-theme-primary-color: #000;
 
 body {
+  background-image: linear-gradient( 180deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 89.58%, #5a568c 99.98%
+ ), url('../images/space-bcg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   margin: 0;
   font-family: Roboto, sans-serif;
   transition: color 150ms var(--timing-function),
-    background-image 150ms var(--timing-function);
+  background-image 150ms var(--timing-function);
 }
 // Body & Theme style
 
 body.lightTheme {
  background-image: linear-gradient( 180deg, #ffffff 0%, rgba(255, 255, 255, 0.4) 89.58%, #5a568c 99.98%
  ), url('../images/space-bcg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
   color: $secondary-text-color;
 }
 
 body.darkTheme {
   background-image: linear-gradient(180deg, #330066 0%, rgba(255, 255, 255, 0) 99.87%), url('../images/space-bcg.jpg');
     color: $dark-theme-primary-color;
-   background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 //  Tag styles
@@ -37,7 +36,9 @@ body.darkTheme {
 body.modal-open {
   overflow: hidden;
 }
-
+main {
+  box-shadow: 0px 22px 43px -6px rgba(255,255,255,0.7) inset;
+}
 .list {
   padding: 0;
   margin: 0;
