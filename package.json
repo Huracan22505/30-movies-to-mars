@@ -66,6 +66,7 @@
     "axios": "^0.21.0",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "core-js": "^3.7.0",
+    "firebase": "^8.2.5",
     "tui-pagination": "^3.4.0"
   }
 }

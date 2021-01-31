@@ -1,9 +1,38 @@
-.card__section {
+.card__modal__lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration) var(--timing-function);
+}
+
+.card__modal__lightbox__is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.card__section__content {
   padding-top: 20px;
   padding-bottom: 40px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
+  background-color: white;
+  transform: scale(1);
 
   @media screen and (min-width: 768px) {
     display: flex;

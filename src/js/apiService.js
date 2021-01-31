@@ -18,10 +18,19 @@ export default {
   getSearchResult() {
     const params = `search/movie?api_key=${myApiKey}&language=en-US&page=1&include_adult=false&query=${this.searchQuery}`;
     let url = baseUrl + params;
-    console.log(url);
     return fetch(url)
       .then(response => response.json())
       .then(data => console.log(data));
+  },
+
+  // находит фильм по id
+  getFilmById(filmId) {
+    console.log(filmId);
+    const params = `movie/${filmId}?api_key=${myApiKey}&language=en-US`;
+    let url = baseUrl + params;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => data);
   },
 
   //получение img

@@ -232,6 +232,25 @@
     <!-- //= ./html/hero.html -->
 
     <main>
+      <div class="filterBtns">
+        <ul class="list">
+          <li class="item">
+            <button type="radio" class="filterBtns-button">
+              <span class="text">Popular</span>
+            </button>
+          </li>
+          <li class="item">
+            <button type="radio" class="filterBtns-button">
+              <span class="text">Latest</span>
+            </button>
+          </li>
+          <li class="item">
+            <button type="radio" class="filterBtns-button">
+              <span class="text">Upcoming</span>
+            </button>
+          </li>
+        </ul>
+      </div>
       <section class="gallery__section">
         <div class="container">
           <ul class="gallery__wrapper"></ul>
@@ -241,7 +260,11 @@
             <button class="pagination__button-left"></button>
           </div>
         </div>
-        <div class="gallery__modal container"></div>
+        <!-- modal cardFilm details -->
+        <div class="card__modal__lightbox container">
+          <div class="card__overlay"></div>
+          <div class="card__box"></div>
+        </div>
       </section>
     </main>
     <footer>

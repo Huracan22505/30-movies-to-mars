@@ -6,4 +6,7 @@ export default {
   bodyTheme: document.querySelector('body'),
   iconThemeDesktop: document.querySelector('.desktopSwitcher__toggle'),
   iconThemeMobile: document.querySelector('.themeSwitch__toggle'),
+  cardModal: document.querySelector('.card__modal__lightbox'),
+  cardOverlay: document.querySelector('.card__overlay'),
+  cardBox: document.querySelector('.card__box'),
 };
