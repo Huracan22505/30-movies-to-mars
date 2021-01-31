@@ -1,0 +1,16 @@
+{{#each this}}
+<div class="slider-card" data-action='{{id}}'>
+  <div class="thumb">
+    <div class="btn-id">
+      <button data-id='{{id}}' class="btn-slider">
+        <div class="overlay-btn-text" data-id='{{id}}'>
+          <h2 class="btn-text-slider" data-id='{{id}}'>Trailer</h2>
+        </div>
+      </button>
+    </div>
+    <img class="slider-image" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}} {{name}}"
+      data-id="{{id}}" onerror="this.onerror=null;this.src='../images/glideSlider/errorFilm.jpg';" />
+    <span class="rating-slide">{{vote_average}}</span>
+  </div>
+</div>
+{{/each}}
