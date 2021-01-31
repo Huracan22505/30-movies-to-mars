@@ -1,0 +1,112 @@
+.btn-slider {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 275px;
+  height: 40px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  transform: translateY(-50%);
+}
+
+.btn-text {
+  position: absolute;
+  z-index: 5;
+  margin: 0;
+
+  color: #c4302b;
+  cursor: pointer;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.card__film .overlay-btn-text {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+
+  top: 3px;
+  left: 180px;
+
+  height: 25px;
+  width: 230px;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
+  border-radius: 5px;
+  opacity: 0;
+
+  transition: all 400ms ease-in;
+}
+
+.card__film:hover .overlay-btn-text {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox__button {
+  position: fixed;
+  display: flex;
+
+  top: 0;
+
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+  margin: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+
+  background-image: url('../images/glideSlider/icon-close.svg');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+
+  transition: background-color 200ms ease-in-out;
+}
+
+.lightbox__button:hover,
+.lightbox__button:focus {
+  background-color: $primary-color;
+}
+
+@media screen and (min-width: 300px) and (max-width: 692px) {
+  .lightbox__button {
+    top: 90px;
+    right: calc(((100vw - 324px) / 2));
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .lightbox__button {
+    top: 100px;
+    right: calc(((100vw - 668px) / 2));
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .lightbox__button {
+    top: 100px;
+    right: calc(((100vw - 824px) / 2));
+  }
+}
