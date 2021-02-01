@@ -30,8 +30,10 @@ function getValue(e) {
 }
 
 // отрисовка галереи по шаблону
-apiService.getRating().then(result => renderGallery(result));
+// apiService.getRating().then(result => renderGallery(result));
 function renderGallery(result) {
+  console.log('result: ', result);
+
   // apiService.getRating().then(result => renderGallery(result));
   // let newGenre = switchGenresList(result.genres_ids);
   let items = galleryTemlate(result);

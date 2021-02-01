@@ -6,3 +6,5 @@ import '../js/apiService.js';
 import '../js/4filmDetailsPage.js';
 import '../js/3navigation.js';
 import '../js/6changeTheme.js';
+import '../js/7filter.js';
+import '../js/pagination.js';
