@@ -255,75 +255,81 @@
           </div>
         </div>
       </div>
-
-      <main>
-        <!-- GLIDE SLIDER https://glidejs.com/docs/setup#using-es-modules -->
-        <div class="slider-wrapper">
-          <section class="container hero">
-            <h2 class="slider-title">Trending movies</h2>
-            <div class="glide">
-              <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides js-slider-container">
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                  <li class="glide__slide"></li>
-                </ul>
-              </div>
-              <!-- <div class="glide__arrows" data-glide-el="controls"> -->
-              <!-- <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                prev
-              </button> -->
-              <!-- <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                next
-              </button> -->
-            </div>
-          </section>
+    <main>
+    <!-- GLIDE SLIDER https://glidejs.com/docs/setup#using-es-modules -->
+    <div class="slider-wrapper">
+      <section class="container hero">
+        <h2 class="slider-title">Trending movies</h2>
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides js-slider-container">
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+              <li class="glide__slide"></li>
+            </ul>
+          </div>
+          <!-- <div class="glide__arrows" data-glide-el="controls"> -->
+            <!-- <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+              prev
+            </button> -->
+            <!-- <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+              next
+            </button> -->
+          </div>
         </div>
+      </section>
+    </div>
+    <main>
+      <div class="filterBtns">
+        <ul class="list">
+          <li class="item">
+            <button type="radio" class="filterBtns-button popularBtn">
+              <span class="text">Top Rated</span>
+            </button>
+          </li>
+          <li class="item">
+            <button type="radio" class="filterBtns-button latestBtn">
+              <span class="text">Latest</span>
+            </button>
+          </li>
+          <li class="item">
+            <button type="radio" class="filterBtns-button upcomingBtn">
+              <span class="text">Upcoming</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <section class="gallery__section">
+        <div class="container">
+          <ul class="gallery__wrapper"></ul>
 
-        <div class="filterBtns">
-          <ul class="list">
-            <li class="item">
-              <button type="radio" class="filterBtns-button">
-                <span class="text">Popular</span>
-              </button>
-            </li>
-            <li class="item">
-              <button type="radio" class="filterBtns-button">
-                <span class="text">Latest</span>
-              </button>
-            </li>
-            <li class="item">
-              <button type="radio" class="filterBtns-button">
-                <span class="text">Upcoming</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <section class="gallery__section">
-          <div class="container">
-            <ul class="gallery__wrapper"></ul>
-
-            <div class="pagination__wrapper">
-              <button class="pagination__button-right"></button>
-              <button class="pagination__button-left"></button>
-            </div>
+          <div class="pagination__wrapper">
+            <!-- <button class="pagination__arrow-left">&#8592;</button> -->
+            <!-- <button class="pagination__button" data-button-id="1">1</button>
+            <button class="pagination__button" data-button-id="2">2</button>
+            <button class="pagination__button" data-button-id="3">3</button>
+            <button class="pagination__button" data-button-id="4">4</button>
+            <button class="pagination__button" data-button-id="5">5</button>
+            <button class="pagination__button">...</button>
+            <button class="pagination__button">500</button> -->
+            <!-- <button class="pagination__arrow-right">&#8594;</button> -->
           </div>
           <!-- modal cardFilm details -->
           <div class="card__modal__lightbox container">

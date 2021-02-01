@@ -1,14 +1,11 @@
 import apiService from './apiService.js';
 import refs from './refs.js';
-import galleryTemlate from '../templates/galleryPage.hbs';
 import filmCardTemplate from '../templates/filmDetails.hbs';
-// import switchGenresList from './getGenres.js';
 
 const {
   searchForm,
   searchFormMobile,
   galleryBox,
-  genreList,
   cardModal,
   cardOverlay,
   cardBox,
@@ -27,15 +24,6 @@ function getValue(e) {
   let queryValue = e.target.elements.query.value;
   apiService.searchQuery = queryValue;
   apiService.getSearchResult();
-}
-
-// отрисовка галереи по шаблону
-apiService.getRating().then(result => renderGallery(result));
-function renderGallery(result) {
-  // let newGenre = switchGenresList(result.genres_ids);
-  let items = galleryTemlate(result);
-  galleryBox.insertAdjacentHTML('beforeend', items);
-  // genreList.textContent = newGenre;
 }
 
 // функция клика по элементу в галерее и
@@ -61,9 +49,6 @@ function openModal() {
 
 //функция закрытия модалки
 function onModalClose() {
-  cardModal.classList.remove('card__modal__lightbox__is-open');
-  let cardContent = document.querySelector('.card__section__content ');
-  console.log(cardContent);
-
   cardBox.innerHTML = '';
+  cardModal.classList.remove('card__modal__lightbox__is-open');
 }
