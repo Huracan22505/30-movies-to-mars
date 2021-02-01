@@ -32,7 +32,6 @@ function getValue(e) {
 // отрисовка галереи по шаблону
 apiService.getRating().then(result => renderGallery(result));
 function renderGallery(result) {
-  apiService.getRating().then(result => renderGallery(result));
   // let newGenre = switchGenresList(result.genres_ids);
   let items = galleryTemlate(result);
   galleryBox.insertAdjacentHTML('beforeend', items);

@@ -13,313 +13,340 @@
   </head>
 
   <body>
-    <header class="pageHeader">
+    <div class="preloading-container">
       <div class="container">
-        <div class="headerNavigation">
-          <button class="openBurgerMenu">
-            <svg>
-              <use href="../images/headersprite.svg#burger"></use>
-            </svg>
-          </button>
-          <a href="../index.html" id="home"
-            ><img src="../images/logo.png" alt="logo"
-          /></a>
-          <div class="desktopNav">
-            <ul class="desktopNav-list list">
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="./library.html">My Library</a></li>
-              <li><a href="./aboutUs.html">About Us</a></li>
-            </ul>
+        <div class="body">
+          <span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <div class="base">
+            <span></span>
+            <div class="face"></div>
           </div>
-          <form id="searchForm">
-            <input type="text" name="query" class="desktopInput" />
-          </form>
+        </div>
+        <div class="longfazers">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <h1>30 movies to Mars</h1>
+      </div>
+    </div>
 
-          <button class="searchBtn openInputBtn">
-            <svg>
-              <use href="../images/headersprite.svg#search"></use>
-            </svg>
-          </button>
+    <div class="hide-main-container">
+      <header class="pageHeader">
+        <div class="container">
+          <div class="headerNavigation">
+            <button class="openBurgerMenu">
+              <svg>
+                <use href="../images/headersprite.svg#burger"></use>
+              </svg>
+            </button>
+            <a href="../index.html" id="home"
+              ><img src="../images/logo.png" alt="logo"
+            /></a>
+            <div class="desktopNav">
+              <ul class="desktopNav-list list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./library.html">My Library</a></li>
+                <li><a href="./aboutUs.html">About Us</a></li>
+              </ul>
+            </div>
+            <form id="searchForm">
+              <input type="text" name="query" class="desktopInput" />
+            </form>
 
-          <a href="registration.html" class="desktopAuth">
-            <svg>
-              <use href="../images/headersprite.svg#auth"></use>
-            </svg>
-          </a>
+            <button class="searchBtn openInputBtn">
+              <svg>
+                <use href="../images/headersprite.svg#search"></use>
+              </svg>
+            </button>
 
-          <div class="desktopSwitcher">
-            <div class="desktopSwitcher__control">
-              <input
-                class="desktopSwitcher__toggle"
-                type="checkbox"
-                name="theme"
-                id="desktopSwitcher-toggle"
-                aria-label="change color theme"
-              />
-              <label
-                aria-hidden="true"
-                class="desktopSwitcher__track"
-                for="desktopSwitcher-toggle"
-              >
-              </label>
-              <div aria-hidden="true" class="desktopSwitcher__marker">
-                <img src="../images/switcher.png" alt="" />
+            <a href="registration.html" class="desktopAuth">
+              <svg>
+                <use href="../images/headersprite.svg#auth"></use>
+              </svg>
+            </a>
+
+            <div class="desktopSwitcher">
+              <div class="desktopSwitcher__control">
+                <input
+                  class="desktopSwitcher__toggle"
+                  type="checkbox"
+                  name="theme"
+                  id="desktopSwitcher-toggle"
+                  aria-label="change color theme"
+                />
+                <label
+                  aria-hidden="true"
+                  class="desktopSwitcher__track"
+                  for="desktopSwitcher-toggle"
+                >
+                </label>
+                <div aria-hidden="true" class="desktopSwitcher__marker">
+                  <img src="../images/switcher.png" alt="" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- input for mobile version -->
-          <div class="inputPanel">
-            <div class="headerForm">
-              <form id="searchFormMobile">
-                <input
-                  type="text"
-                  name="query"
-                  class="mobileInput"
-                  id="searchFormMobile"
-                />
-              </form>
+            <!-- input for mobile version -->
+            <div class="inputPanel">
+              <div class="headerForm">
+                <form id="searchFormMobile">
+                  <input
+                    type="text"
+                    name="query"
+                    class="mobileInput"
+                    id="searchFormMobile"
+                  />
+                </form>
 
-              <button class="closeInputBtn">
-                <svg>
-                  <use href="../images/sprite.svg#inputClose"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- menu for mobile and tablet versions -->
-          <div class="navBar">
-            <div class="modal">
-              <div class="insideBurgerBtns">
-                <button class="closeBurgerMenu">
+                <button class="closeInputBtn">
                   <svg>
-                    <use href="../images/headersprite.svg#close"></use>
+                    <use href="../images/sprite.svg#inputClose"></use>
                   </svg>
                 </button>
+              </div>
+            </div>
 
-                <!-- theme switcher -->
-                <div class="themeSwitch mobileSwitcher">
-                  <div class="themeSwitch__control">
-                    <input
-                      class="themeSwitch__toggle"
-                      type="checkbox"
-                      name="theme"
-                      id="themeSwitch-toggle"
-                      aria-label="change color theme"
-                    />
-                    <label
-                      aria-hidden="true"
-                      class="themeSwitch__track"
-                      for="themeSwitch-toggle"
-                    >
-                    </label>
-                    <div aria-hidden="true" class="themeSwitch__marker">
-                      <img src="../images/switcher.png" alt="" />
+            <!-- menu for mobile and tablet versions -->
+            <div class="navBar">
+              <div class="modal">
+                <div class="insideBurgerBtns">
+                  <button class="closeBurgerMenu">
+                    <svg>
+                      <use href="../images/headersprite.svg#close"></use>
+                    </svg>
+                  </button>
+
+                  <!-- theme switcher -->
+                  <div class="themeSwitch mobileSwitcher">
+                    <div class="themeSwitch__control">
+                      <input
+                        class="themeSwitch__toggle"
+                        type="checkbox"
+                        name="theme"
+                        id="themeSwitch-toggle"
+                        aria-label="change color theme"
+                      />
+                      <label
+                        aria-hidden="true"
+                        class="themeSwitch__track"
+                        for="themeSwitch-toggle"
+                      >
+                      </label>
+                      <div aria-hidden="true" class="themeSwitch__marker">
+                        <img src="../images/switcher.png" alt="" />
+                      </div>
                     </div>
                   </div>
                 </div>
+                <a href="registration.html" class="authorization">
+                  <p>Sign in/Sign up</p>
+                </a>
+                <ul class="modalMenu list">
+                  <li class="modalItem"><a href="../index.html">Home</a></li>
+                  <li class="modalItem">
+                    <a href="../library/library.html">My Library</a>
+                  </li>
+                  <li class="modalItem">
+                    <a href="../aboutUs/aboutUs.html">About Us</a>
+                  </li>
+                </ul>
               </div>
-              <a href="registration.html" class="authorization">
-                <p>Sign in/Sign up</p>
-              </a>
-              <ul class="modalMenu list">
-                <li class="modalItem"><a href="../index.html">Home</a></li>
-                <li class="modalItem">
-                  <a href="../library/library.html">My Library</a>
-                </li>
-                <li class="modalItem">
-                  <a href="../aboutUs/aboutUs.html">About Us</a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <div class="login-form__backdrop is-hidden">
-      <div class="login-form__wrap">
-        <div class="login-form__html">
-          <input
-            id="sign-in"
-            type="radio"
-            name="tab"
-            class="login-form__signin"
-            checked
-          /><label for="sign-in" class="login-form__tab">Sign In</label>
-          <input
-            id="sign-up"
-            type="radio"
-            name="tab"
-            class="login-form__signup"
-          /><label for="sign-up" class="login-form__tab">Sign Up</label>
-          <div class="login-form">
-            <div class="login-form__signin-group">
-              <div class="login-form__field">
-                <label for="user" class="login-form_label">Username</label>
-                <input id="user" type="text" class="login-form_input" />
+      <div class="login-form__backdrop is-hidden">
+        <div class="login-form__wrap">
+          <div class="login-form__html">
+            <input
+              id="sign-in"
+              type="radio"
+              name="tab"
+              class="login-form__signin"
+              checked
+            /><label for="sign-in" class="login-form__tab">Sign In</label>
+            <input
+              id="sign-up"
+              type="radio"
+              name="tab"
+              class="login-form__signup"
+            /><label for="sign-up" class="login-form__tab">Sign Up</label>
+            <div class="login-form">
+              <div class="login-form__signin-group">
+                <div class="login-form__field">
+                  <label for="user" class="login-form_label">Username</label>
+                  <input id="user" type="text" class="login-form_input" />
+                </div>
+                <div class="login-form__field">
+                  <label for="pass" class="login-form_label">Password</label>
+                  <input
+                    id="pass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                  />
+                </div>
+                <div class="login-form__field">
+                  <input
+                    type="submit"
+                    class="login-form_button"
+                    value="Sign In"
+                  />
+                </div>
+                <div class="login-form__foot-lnk">
+                  <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
               </div>
-              <div class="login-form__field">
-                <label for="pass" class="login-form_label">Password</label>
-                <input
-                  id="pass"
-                  type="password"
-                  class="login-form_input"
-                  data-type="password"
-                />
+              <div class="login-form__signup-group">
+                <div class="login-form__field">
+                  <label for="user" class="login-form_label">Username</label>
+                  <input id="user" type="text" class="login-form_input" />
+                </div>
+                <div class="login-form__field">
+                  <label for="pass" class="login-form_label">Password</label>
+                  <input
+                    id="pass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                  />
+                </div>
+                <div class="login-form__field">
+                  <label for="pass" class="login-form_label"
+                    >Repeat Password</label
+                  >
+                  <input
+                    id="pass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                  />
+                </div>
+                <div class="login-form__field">
+                  <label for="pass" class="login-form_label"
+                    >Email Address</label
+                  >
+                  <input id="pass" type="text" class="login-form_input" />
+                </div>
+                <div class="login-form__field">
+                  <input
+                    type="submit"
+                    class="login-form_button"
+                    value="Sign Up"
+                  />
+                </div>
+                <div class="login-form__foot-lnk">
+                  <label for="sign-in">Already Registered?</label>
+                </div>
               </div>
-              <div class="login-form__field">
-                <input
-                  type="submit"
-                  class="login-form_button"
-                  value="Sign In"
-                />
-              </div>
-              <div class="login-form__foot-lnk">
-                <a href="#" class="forgot-password">Forgot Password?</a>
-              </div>
-            </div>
-            <div class="login-form__signup-group">
-              <div class="login-form__field">
-                <label for="user" class="login-form_label">Username</label>
-                <input id="user" type="text" class="login-form_input" />
-              </div>
-              <div class="login-form__field">
-                <label for="pass" class="login-form_label">Password</label>
-                <input
-                  id="pass"
-                  type="password"
-                  class="login-form_input"
-                  data-type="password"
-                />
-              </div>
-              <div class="login-form__field">
-                <label for="pass" class="login-form_label"
-                  >Repeat Password</label
-                >
-                <input
-                  id="pass"
-                  type="password"
-                  class="login-form_input"
-                  data-type="password"
-                />
-              </div>
-              <div class="login-form__field">
-                <label for="pass" class="login-form_label">Email Address</label>
-                <input id="pass" type="text" class="login-form_input" />
-              </div>
-              <div class="login-form__field">
-                <input
-                  type="submit"
-                  class="login-form_button"
-                  value="Sign Up"
-                />
-              </div>
-              <div class="login-form__foot-lnk">
-                <label for="sign-in">Already Registered?</label>
-              </div>
-            </div>
-            <!-- <div class="login-form__social-container">
+              <!-- <div class="login-form__social-container">
               <p>Or Login With</p>
               <div class="login-form__social-icons"></div>
             </div> -->
+            </div>
           </div>
         </div>
       </div>
+
+      <main>
+        <!-- GLIDE SLIDER https://glidejs.com/docs/setup#using-es-modules -->
+        <div class="slider-wrapper">
+          <section class="container hero">
+            <h2 class="slider-title">Trending movies</h2>
+            <div class="glide">
+              <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides js-slider-container">
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                  <li class="glide__slide"></li>
+                </ul>
+              </div>
+              <!-- <div class="glide__arrows" data-glide-el="controls"> -->
+              <!-- <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                prev
+              </button> -->
+              <!-- <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                next
+              </button> -->
+            </div>
+          </section>
+        </div>
+
+        <div class="filterBtns">
+          <ul class="list">
+            <li class="item">
+              <button type="radio" class="filterBtns-button">
+                <span class="text">Popular</span>
+              </button>
+            </li>
+            <li class="item">
+              <button type="radio" class="filterBtns-button">
+                <span class="text">Latest</span>
+              </button>
+            </li>
+            <li class="item">
+              <button type="radio" class="filterBtns-button">
+                <span class="text">Upcoming</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <section class="gallery__section">
+          <div class="container">
+            <ul class="gallery__wrapper"></ul>
+
+            <div class="pagination__wrapper">
+              <button class="pagination__button-right"></button>
+              <button class="pagination__button-left"></button>
+            </div>
+          </div>
+          <!-- modal cardFilm details -->
+          <div class="card__modal__lightbox container">
+            <div class="card__overlay"></div>
+            <div class="card__box"></div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="rights">
+          <p class="rights__text">
+            &copy; 2021 <span>|</span> All Rights Reserved <span>|</span>
+          </p>
+          <p class="rights__text">
+            Developed by
+            <a
+              href="https://github.com/Huracan22505/30-movies-to-mars/tree/main"
+              class="rights__link"
+              >30 movies to Mars</a
+            >
+          </p>
+        </div>
+      </footer>
     </div>
-
-    <!-- GLIDE SLIDER https://glidejs.com/docs/setup#using-es-modules -->
-    <div class="slider-wrapper">
-      <section class="container hero">
-        <h2 class="slider-title">Trending movies</h2>
-        <div class="glide">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides js-slider-container">
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-              <li class="glide__slide"></li>
-            </ul>
-          </div>
-          <!-- <div class="glide__arrows" data-glide-el="controls"> -->
-            <!-- <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-              prev
-            </button> -->
-            <!-- <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-              next
-            </button> -->
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <main>
-      <div class="filterBtns">
-        <ul class="list">
-          <li class="item">
-            <button type="radio" class="filterBtns-button">
-              <span class="text">Popular</span>
-            </button>
-          </li>
-          <li class="item">
-            <button type="radio" class="filterBtns-button">
-              <span class="text">Latest</span>
-            </button>
-          </li>
-          <li class="item">
-            <button type="radio" class="filterBtns-button">
-              <span class="text">Upcoming</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <section class="gallery__section">
-        <div class="container">
-          <ul class="gallery__wrapper"></ul>
-
-          <div class="pagination__wrapper">
-            <button class="pagination__button-right"></button>
-            <button class="pagination__button-left"></button>
-          </div>
-        </div>
-        <!-- modal cardFilm details -->
-        <div class="card__modal__lightbox container">
-          <div class="card__overlay"></div>
-          <div class="card__box"></div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="rights">
-        <p class="rights__text">
-          &copy; 2021 <span>|</span> All Rights Reserved <span>|</span>
-        </p>
-        <p class="rights__text">
-          Developed by
-          <a
-            href="https://github.com/Huracan22505/30-movies-to-mars/tree/main"
-            class="rights__link"
-            >30 movies to Mars</a
-          >
-        </p>
-      </div>
-    </footer>
   </body>
 </html>
