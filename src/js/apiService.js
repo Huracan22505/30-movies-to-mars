@@ -2,11 +2,10 @@ const baseUrl = 'https://api.themoviedb.org/3/';
 const myApiKey = '2955876276611e1cc2d97a4794387b9d';
 
 export default {
-  // this.imgUrl: ,
   searchQuery: '',
   pageNumber: 1,
 
-  // вывод трендовых фильмов (начальная галерея)
+  // вывод трендовых фильмов
   getRating() {
     const params = `trending/all/day?api_key=${myApiKey}`;
     let url = baseUrl + params;
@@ -34,9 +33,7 @@ export default {
       .then(data => data);
   },
 
-  //получение img
-
-  // надоходит новые фильмы
+  // находит новые фильмы
   getLatest() {
     const params = `movie/latest?api_key=${myApiKey}&language=en-US`;
     let url = baseUrl + params;
