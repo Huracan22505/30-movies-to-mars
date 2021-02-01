@@ -1,24 +1,30 @@
 import apiService from './apiService.js';
 import refs from './refs.js';
-import galleryTemlate from '../templates/galleryPage.hbs';
 import filmCardTemplate from '../templates/filmDetails.hbs';
-// import switchGenresList from './getGenres.js';
 
 const {
   searchForm,
   searchFormMobile,
   galleryBox,
-  genreList,
   cardModal,
   cardOverlay,
   cardBox,
 } = refs;
 
+searchForm.addEventListener('submit', getValue);
 searchFormMobile.addEventListener('submit', getValue);
 galleryBox.addEventListener('click', onGalleryClick);
 cardOverlay.addEventListener('click', onModalClose);
 
 let filmId = '';
+
+// функция получения значения инпута
+function getValue(e) {
+  e.preventDefault();
+  let queryValue = e.target.elements.query.value;
+  apiService.searchQuery = queryValue;
+  apiService.getSearchResult();
+}
 
 // функция клика по элементу в галерее и
 // получение id фильма
@@ -44,7 +50,5 @@ function openModal() {
 //функция закрытия модалки
 function onModalClose() {
   cardBox.innerHTML = '';
-
   cardModal.classList.remove('card__modal__lightbox__is-open');
-  let cardContent = document.querySelector('.card__section__content ');
 }
