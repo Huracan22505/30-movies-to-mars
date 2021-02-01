@@ -6,6 +6,31 @@ $white-color: #ffffff;
 $primary-bcg-color: #ffffff;
 $dark-theme-primary-color: #000;
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.97);
+  background-color: rgba(51, 0, 153, 0.75);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: $primary-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgba(51, 0, 153, 0.95) 30%,
+    rgba(255, 255, 0, 0.9) 50%,
+    rgba(51, 0, 153, 0.95) 70%
+  );
+}
+
 body {
   background-image: linear-gradient(
       180deg,
@@ -13,7 +38,7 @@ body {
       rgba(255, 255, 255, 0.4) 89.58%,
       #5a568c 99.98%
     ),
-    url('../images/space-bcgi.jpg');
+    url('../images/space-bcg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -21,6 +46,7 @@ body {
   font-family: Roboto, sans-serif;
   transition: color 150ms var(--timing-function),
     background-image 150ms var(--timing-function);
+  scrollbar-track-color: #330099;
 }
 // Body & Theme style
 
@@ -31,7 +57,7 @@ body.lightTheme {
       rgba(255, 255, 255, 0.4) 89.58%,
       #5a568c 99.98%
     ),
-    url('../images/space-bcgi.jpg');
+    url('../images/space-bcg.jpg');
   color: $secondary-text-color;
 }
 
@@ -41,7 +67,7 @@ body.darkTheme {
       #330066 0%,
       rgba(255, 255, 255, 0) 99.87%
     ),
-    url('../images/space-bcgi.jpg');
+    url('../images/space-bcg.jpg');
   color: $dark-theme-primary-color;
 }
 
