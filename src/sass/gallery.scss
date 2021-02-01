@@ -120,16 +120,46 @@
   }
 }
 
-.pagination__button-right {
+.pagination__button {
   border: none;
   background-color: #ffff00;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
-.pagination__button-left {
+.pagination__arrow-left {
   border: none;
   background-color: #ffff00;
   width: 40px;
   height: 40px;
+  cursor: pointer;
+}
+
+.pagination__arrow-right {
+  border: none;
+  background-color: #ffff00;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.pagination__button-dots {
+  border: none;
+  background-color: #ffff00;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.pagination__button-last {
+  border: none;
+  background-color: #ffff00;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

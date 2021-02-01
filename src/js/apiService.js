@@ -34,6 +34,7 @@ export default {
       .then(data => data);
   },
 
+
   //получение img
 
   // надоходит новые фильмы
@@ -57,5 +58,10 @@ export default {
     return fetch(url)
       .then(response => response.json())
       .then(data => data.results.map(data => data));
+=======
+  // загружает все фильмы для указанной страницы
+  getAllFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
   },
 };
