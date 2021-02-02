@@ -1,8 +1,3 @@
-.library-section {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
 .library__filters__item + .library__filters__item {
   margin-left: 20px;
 
@@ -14,6 +9,8 @@
 .library__filters {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 
 .library__filters__btn {
@@ -43,4 +40,8 @@
     border-color: #330099;
     transform: translateY(-7px);
   }
+}
+
+.is__active {
+  background-color: black;
 }

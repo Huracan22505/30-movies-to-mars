@@ -108,10 +108,10 @@
               <ul class="modalMenu list">
                 <li class="modalItem"><a href="../index.html">Home</a></li>
                 <li class="modalItem">
-                  <a href="../library/library.html">My Library</a>
+                  <a href="./library.html">My Library</a>
                 </li>
                 <li class="modalItem">
-                  <a href="../aboutUs/aboutUs.html">About Us</a>
+                  <a href="./aboutUs.html">About Us</a>
                 </li>
               </ul>
             </div>
@@ -120,21 +120,38 @@
       </div>
     </header>
     <main>
-      <section class="library-section">
+      <section class="gallery__section">
         <div class="container">
           <ul class="library__filters list">
             <li class="library__filters__item">
-              <button type="button" class="library__filters__btn">
+              <button type="button" class="library__filters__btn" id="watched">
                 Watched
               </button>
             </li>
             <li class="library__filters__item">
-              <button type="button" class="library__filters__btn">Queue</button>
+              <button type="button" class="library__filters__btn" id="queue">
+                Queue
+              </button>
             </li>
           </ul>
-          <ul class="library__list list"></ul>
+          <ul class="library__list gallery__wrapper list"></ul>
         </div>
       </section>
+      <footer>
+        <div class="rights">
+          <p class="rights__text">
+            &copy; 2021 <span>|</span> All Rights Reserved <span>|</span>
+          </p>
+          <p class="rights__text">
+            Developed by
+            <a
+              href="https://github.com/Huracan22505/30-movies-to-mars/tree/main"
+              class="rights__link"
+              >30 movies to Mars</a
+            >
+          </p>
+        </div>
+      </footer>
     </main>
   </body>
 </html>

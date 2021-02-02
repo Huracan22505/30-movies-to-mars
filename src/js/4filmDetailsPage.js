@@ -1,6 +1,7 @@
 import apiService from './apiService.js';
 import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
+import AddLocalStorage from './AddLocalStorage.js';
 
 const {
   searchForm,
@@ -17,6 +18,9 @@ galleryBox.addEventListener('click', onGalleryClick);
 cardOverlay.addEventListener('click', onModalClose);
 
 let filmId = '';
+const refsModal = {};
+let queue = {};
+let watched = {};
 
 // функция получения значения инпута
 function getValue(e) {
@@ -45,10 +49,34 @@ function renderCardFilm(res) {
 //функция открытия модалки
 function openModal() {
   cardModal.classList.add('card__modal__lightbox__is-open');
+
+  refsModal.watched = document.querySelector('.card__btn__watched');
+  refsModal.queue = document.querySelector('.card__btn__queue');
+
+  queue = new AddLocalStorage('queue', filmId, refsModal.queue, 'is__active');
+  watched = new AddLocalStorage(
+    'watched',
+    filmId,
+    refsModal.watched,
+    'is__active',
+    queue,
+  );
+
+  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
+  refsModal.watched.addEventListener(
+    'click',
+    watched.addLocalStorage.bind(watched),
+  );
 }
 
 //функция закрытия модалки
 function onModalClose() {
   cardBox.innerHTML = '';
   cardModal.classList.remove('card__modal__lightbox__is-open');
+
+  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
+  refsModal.watched.addEventListener(
+    'click',
+    watched.addLocalStorage.bind(watched),
+  );
 }
