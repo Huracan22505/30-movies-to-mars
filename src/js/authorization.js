@@ -24,6 +24,7 @@ function openLoginForm() {
   loginFormOpenButtonDesktop.removeEventListener('click', openLoginForm);
   loginFormCloseButton.addEventListener('click', closeLoginForm);
   window.addEventListener('keydown', closeLoginFormOnEsc);
+  loginFormBackdrop.addEventListener('click', closeLoginFormOnBackdropClick);
 }
 
 function closeLoginForm() {
@@ -38,3 +39,8 @@ function closeLoginFormOnEsc(event) {
   if(event.code !== "Escape") return;
   closeLoginForm();
 };
+
+function closeLoginFormOnBackdropClick(event) {
+  if(event.target !== loginFormBackdrop) return;
+  closeLoginForm();
+}
