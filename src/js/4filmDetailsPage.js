@@ -83,3 +83,5 @@ function onModalClose() {
     watched.addLocalStorage.bind(watched),
   );
 }
+
+export { onGalleryClick };
