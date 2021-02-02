@@ -4,20 +4,20 @@ import galleryTemlate from '../templates/galleryPage.hbs';
 const { galleryBox, popularBtn, latestBtn, upcomingBtn } = refs;
 
 popularBtn.addEventListener('click', renderTopRated);
-latestBtn.addEventListener('click', renderLatest);
+latestBtn.addEventListener('click', renderPopular);
 upcomingBtn.addEventListener('click', renderUpcoming);
 
 function renderTopRated() {
   galleryBox.innerHTML = '';
-  apiService.getTopRated().then(result => renderGallery(result));
+  apiService.getRating().then(result => renderGallery(result));
 }
 function renderUpcoming() {
   galleryBox.innerHTML = '';
   apiService.getUpcoming().then(result => renderGallery(result));
 }
-function renderLatest() {
+function renderPopular() {
   galleryBox.innerHTML = '';
-  apiService.getLatest().then(result => renderGallery(result));
+  apiService.getPopular().then(result => renderGallery(result));
 }
 function renderGallery(result) {
   let items = galleryTemlate(result);
