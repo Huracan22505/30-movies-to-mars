@@ -13,4 +13,5 @@ export default {
   popularBtn: document.querySelector('.popularBtn'),
   latestBtn: document.querySelector('.latestBtn'),
   upcomingBtn: document.querySelector('.upcomingBtn'),
+  libraryList: document.querySelector('.library__list'),
 };
