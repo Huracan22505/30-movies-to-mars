@@ -33,11 +33,11 @@ function getValue(e) {
 // функция клика по элементу в галерее и
 // получение id фильма
 function onGalleryClick(ev) {
-  ev.preventDefault();
   const cardRef = ev.target;
   filmId = cardRef.getAttribute('data');
 
-  apiService.getFilmById(filmId).then(result => renderCardFilm(result));
+  if (filmId != null || filmId != undefined)
+    apiService.getFilmById(filmId).then(result => renderCardFilm(result));
 }
 
 //функция отрисовки карточки фильма по шаблону
