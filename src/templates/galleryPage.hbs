@@ -10,10 +10,10 @@
       {{title}}
     </h3>
 
-    <span class="gallery__film-category__light gallery__film-category__dark">{{#each genre_ids }} {{this}}
+    <span class="gallery__film-category__light gallery__film-category__dark">{{#each genres_id}} {{name}}
       {{/each}}</span>
 
-    <span class="gallery__release-date__light gallery__release-date__dark">| 2021</span>
+    <span class="gallery__release-date__light gallery__release-date__dark">| {{release_date}}</span>
   </div>
 </li>
 {{/each}}
