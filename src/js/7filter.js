@@ -24,6 +24,7 @@ function renderUpcoming() {
     popularBtn.classList.remove('is-active');
     topRatedBtn.classList.remove('is-active');
   }
+  getAllUpcomingFilmsByPage();
 }
 function renderPopular() {
   galleryBox.innerHTML = '';
