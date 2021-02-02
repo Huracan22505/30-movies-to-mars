@@ -70,7 +70,11 @@ body.darkTheme {
     url('../images/space-bcg.jpg');
   color: $dark-theme-primary-color;
 }
-
+.darkTheme h2 {
+  color: $accent-color;
+}
+.lightTheme h2 {
+  color: $primary-color;}
 //  Tag styles
 
 body.modal-open {
