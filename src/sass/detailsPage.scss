@@ -58,6 +58,7 @@
 .card__img {
   max-width: 100%;
   height: auto;
+  border-radius: 6px;
 
   @media screen and (min-width: 768px) {
     width: 294px;
@@ -90,8 +91,10 @@
   }
 }
 
+.flex-basis {
+  flex-basis: 40%;
+}
 .card__mainInfo__itemTitle {
-  flex-basis: 45%;
   color: #545454;
 }
 

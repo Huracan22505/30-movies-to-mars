@@ -1,6 +1,7 @@
 import request from '../js/apiService';
 import refs from './refs';
-import galleryTemlate from '../templates/galleryPage.hbs';
+import renderService from '../js/renderService.js';
+import modal from '../js/4filmDetailsPage';
 
 function getLenght() {
   const array = JSON.parse(localStorage.getItem('watched'));
@@ -58,16 +59,12 @@ async function getDataFromLocalStorage(ListName, page = 1) {
 
     const dataArr = await Promise.all(responseArr);
 
-    createGallery(dataArr);
+    renderService.renderGallery(dataArr);
+
     // isGalleryEmpty();
   } catch (error) {
     console.log(error);
   }
-}
-
-function createGallery(dataArr) {
-  const markup = galleryTemlate(dataArr);
-  refs.libraryList.insertAdjacentHTML('beforeend', markup);
 }
 
 function isGalleryEmpty() {

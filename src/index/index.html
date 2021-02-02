@@ -10,31 +10,19 @@
       href="./images/space-camera-favicon.png"
       type="image/png"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
     <div class="preloading-container">
-      <div class="container">
-        <div class="body">
-          <span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          <div class="base">
-            <span></span>
-            <div class="face"></div>
-          </div>
-        </div>
-        <div class="longfazers">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <h1>30 movies to Mars</h1>
-      </div>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div class="preloading-title"><p>30 MOVIES TO MARS</p></div>
     </div>
 
     <div class="hide-main-container">
@@ -66,7 +54,7 @@
               </svg>
             </button>
 
-            <a href="registration.html" class="desktopAuth">
+            <a href="#" class="desktopAuth">
               <svg>
                 <use href="../images/headersprite.svg#auth"></use>
               </svg>
@@ -145,7 +133,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="registration.html" class="authorization">
+                <a href="#" class="authorization">
                   <p>Sign in/Sign up</p>
                 </a>
                 <ul class="modalMenu list">
@@ -166,6 +154,7 @@
       <div class="login-form__backdrop is-hidden">
         <div class="login-form__wrap">
           <div class="login-form__html">
+            <button type="button" class="login-form__close-button"></button>
             <input
               id="sign-in"
               type="radio"
@@ -183,7 +172,13 @@
               <div class="login-form__signin-group">
                 <div class="login-form__field">
                   <label for="user" class="login-form_label">Username</label>
-                  <input id="user" type="text" class="login-form_input" />
+                  <input
+                    id="user"
+                    type="text"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label">Password</label>
@@ -192,6 +187,8 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
+                    placeholder=" "
+                    required
                   />
                 </div>
                 <div class="login-form__field">
@@ -208,7 +205,13 @@
               <div class="login-form__signup-group">
                 <div class="login-form__field">
                   <label for="user" class="login-form_label">Username</label>
-                  <input id="user" type="text" class="login-form_input" />
+                  <input
+                    id="user"
+                    type="text"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label">Password</label>
@@ -217,6 +220,8 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
+                    placeholder=" "
+                    required
                   />
                 </div>
                 <div class="login-form__field">
@@ -228,13 +233,21 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
+                    placeholder=" "
+                    required
                   />
                 </div>
                 <div class="login-form__field">
-                  <label for="pass" class="login-form_label"
+                  <label for="email" class="login-form_label"
                     >Email Address</label
                   >
-                  <input id="pass" type="text" class="login-form_input" />
+                  <input
+                    id="email"
+                    type="email"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
                 </div>
                 <div class="login-form__field">
                   <input
@@ -288,6 +301,7 @@
             </div>
           </section>
         </div>
+        
         <!-- Filter Buttons -->
         <div class="container">
           <div class="filterBtns">
@@ -337,7 +351,8 @@
       <footer>
         <div class="rights">
           <p class="rights__text">
-            &copy; <span id="year"></span> <span>|</span> All Rights Reserved <span>|</span>
+            &copy; <span id="year"></span> <span>|</span> All Rights Reserved
+            <span>|</span>
           </p>
           <p class="rights__text">
             Developed by
