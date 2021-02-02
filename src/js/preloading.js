@@ -1,9 +1,17 @@
 import refs from '../js/refs';
+checkPreloader();
 
-function deletePreloader() {
-  refs.preLoadPage.remove();
+function checkPreloader() {
+  if (sessionStorage.preload) {
+    refs.preLoadPage.remove();
+  } else {
+    deletePreloader();
+  }
 }
 
-setTimeout(() => {
-  deletePreloader();
-}, 5900);
+function deletePreloader() {
+  setTimeout(() => {
+    refs.preLoadPage.remove();
+    sessionStorage.setItem('preload', 'done');
+  }, 5900);
+}
