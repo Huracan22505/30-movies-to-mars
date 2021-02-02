@@ -41,4 +41,4 @@ function themeChecker() {
     bodyTheme.classList.add(Theme.LIGHT);
   }
 }
-refs.year.innerHTML = new Date().getFullYear();
+// refs.year.innerHTML = new Date().getFullYear();
