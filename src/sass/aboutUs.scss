@@ -2,49 +2,62 @@
 //    outline: 1px solid blue;
 // }
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
-// Styles for h1 - title of the page
+// Styles for h2 - title of the page
 .title_bg {
-   position: relative;
-   margin-bottom: 50px;
-   
-   overflow: hidden;
-   background: #ffff00a8;
-   text-align: center;
-   &:before {
-   top: 0;
-   border-color: #e9e96ab4 #e9e96ab4 #ffff00a8 #e9e96ab4;
-}
-    &:after {
-   bottom: 0;
-   border-color: #ffff00a8 #ffff00a8 #e9e96ab4 #ffff00a8;
-}
+  padding: 10px;
+  background: transparent;
+  display: flex;
+  &:before, &:after {
+  content: '';
+  margin: auto 2em;
+  border-bottom: solid 2px;
+  flex: 2;}
    @media screen and (max-width: 319) {
-      padding: 15px 0;
+      padding: 15px 0px;
    };
    @media screen and (min-width: 320) and (max-width: 767) {
-      padding: 20px 0;
+      padding: 20px 0px;
    };
     @media screen and (min-width: 768) and (max-width: 1223) {
-      padding: 30px 0;
+      padding: 30px 0px;
    };
     @media screen and (min-width: 1224) {
-      padding: 50px 0;
+      padding: 50px 0px;
    }
 }
-.title_bg:before, .title_bg:after {
-   content: "";
-   position: absolute;
-   left: 0;
-   border-width: 0 0 50px 100vw;
-   border-style: solid;
-   
+.lightTheme .title_bg {
+  &:before, &:after {
+  color: $primary-color;
+  content: '';
+  background-color: rgba(51, 0, 153, 0.3);
 }
+    &:after {
+  content: '';
+  margin: auto 2em;
+  border-bottom: solid 2px;
+  flex: 2;
+}
+  }
+.darkTheme .title_bg {
+  &:before, &:after {
+  color: $accent-color;
+  content: '';
+  background-color: rgba(51, 0, 153, 0.3);
+}
+    &:after {
+  content: '';
+  margin: auto 2em;
+  border-bottom: solid 2px;
+  flex: 2;
+}
+  }
 
+.team_section .container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 .team_title_card {
-   color: black ;
-   font-family: 'Raleway', Arial, sans-serif;
-   font-weight: 800;
-   padding: 15px ;
+   
     @media screen and (max-width: 319) {
       font-size: 14px;
    };
@@ -57,6 +70,54 @@
     @media screen and (min-width: 1224) {
       font-size: 40px;
    }
+}
+.lightTheme .team_title_card {
+  position: relative;
+  padding: 0.25em 2em;
+  color: $primary-color;
+  overflow: hidden;
+  font-family: 'Raleway', Arial, sans-serif;
+  background: linear-gradient($primary-color, $primary-color) no-repeat top center, linear-gradient($primary-color, $primary-color) no-repeat bottom center;
+  background-size: calc(100% - 1.6em) 2px;
+  &::before, &::after {
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid $primary-color;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(45deg)
+  }
+  &::after {
+    transform: skew(-45deg)
+
+}};
+.darkTheme .team_title_card {
+  position: relative;
+  padding: 0.25em 2em;
+  color: $accent-color;
+  overflow: hidden;
+  font-family: 'Raleway', Arial, sans-serif;
+  background: linear-gradient($accent-color, $accent-color) no-repeat top center, linear-gradient($accent-color, $accent-color) no-repeat bottom center;
+  background-size: calc(100% - 1.6em) 2px;
+  &::before, &::after {
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid $accent-color;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(45deg)
+  }
+  &::after {
+    transform: skew(-45deg)
+  }
 
 };
 // Styles for cards & container
@@ -175,7 +236,7 @@ figure.team_card_hover {
   bottom: 0;
   right: 0;
 }
-& h2 {
+& h3 {
   position: absolute;
   left: 40px;
   right: 40px;
@@ -228,8 +289,8 @@ figure.team_card_hover {
   transform: scale(1.1);
    }
 
-   & figure.team_card_hover h2,
-   & figure.team_card_hover h2 {
+   & figure.team_card_hover h3,
+   & figure.team_card_hover h3 {
   -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   
