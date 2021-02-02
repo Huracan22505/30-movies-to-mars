@@ -10,8 +10,8 @@ export default {
   cardOverlay: document.querySelector('.card__overlay'),
   cardBox: document.querySelector('.card__box'),
   preLoadPage: document.querySelector('.preloading-container'),
+  topRatedBtn: document.querySelector('.topRatedBtn'),
   popularBtn: document.querySelector('.popularBtn'),
-  latestBtn: document.querySelector('.latestBtn'),
   upcomingBtn: document.querySelector('.upcomingBtn'),
   libraryList: document.querySelector('.library__list'),
 };

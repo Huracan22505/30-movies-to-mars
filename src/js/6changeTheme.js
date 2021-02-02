@@ -1,20 +1,19 @@
 import refs from './refs.js';
 const { iconThemeDesktop, iconThemeMobile, bodyTheme } = refs;
-
+const STORAGE_KEY = 'theme';
 const Theme = {
   LIGHT: 'lightTheme',
   DARK: 'darkTheme',
 };
-
-const STORAGE_KEY = 'theme';
+themeChecker();
 iconThemeMobile.addEventListener('change', changeThemeMobile);
 iconThemeDesktop.addEventListener('change', changeThemeDesktop);
-defaultThemeMobile();
-defaultThemeDesktop();
 
 // Mobile\laptop Theme
-function defaultThemeMobile() {
+
+function changeThemeMobile() {
   const theme = localStorage.getItem(STORAGE_KEY);
+
   if (theme === 'true') {
     bodyTheme.classList.add(Theme.DARK);
     iconThemeMobile.checked = true;
@@ -23,16 +22,17 @@ function defaultThemeMobile() {
   }
 }
 
-function changeThemeMobile(e) {
-  if (e.target.checked) {
-    setTheme(Theme.LIGHT, Theme.DARK);
-  } else {
-    setTheme(Theme.DARK, Theme.LIGHT);
-  }
-}
-
 // Desktop Theme
-function defaultThemeDesktop() {
+function changeThemeDesktop(e) {
+  bodyTheme.classList.toggle(Theme.DARK);
+  bodyTheme.classList.toggle(Theme.LIGHT);
+
+  const theme = e.target.checked;
+
+  localStorage.setItem(STORAGE_KEY, theme);
+}
+// Check Theme
+function themeChecker() {
   const theme = localStorage.getItem(STORAGE_KEY);
   if (theme === 'true') {
     bodyTheme.classList.add(Theme.DARK);
@@ -40,16 +40,4 @@ function defaultThemeDesktop() {
   } else {
     bodyTheme.classList.add(Theme.LIGHT);
   }
-}
-function changeThemeDesktop(e) {
-  if (e.target.checked) {
-    setTheme(Theme.LIGHT, Theme.DARK);
-  } else {
-    setTheme(Theme.DARK, Theme.LIGHT);
-  }
-}
-function setTheme(oldTheme, newTheme) {
-  bodyTheme.classList.add(newTheme);
-  bodyTheme.classList.remove(oldTheme);
-  localStorage.setItem(STORAGE_KEY, newTheme);
 }
