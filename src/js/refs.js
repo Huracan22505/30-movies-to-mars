@@ -15,4 +15,7 @@ export default {
   upcomingBtn: document.querySelector('.upcomingBtn'),
   libraryList: document.querySelector('.library__list'),
   year: document.getElementById('year'),
+  loginFormBackdrop: document.querySelector('.login-form__backdrop'),
+  loginFormCloseButton: document.querySelector('.login-form__close-button'),
+  loginFormOpenButton: document.querySelector('.authorization')
 };
