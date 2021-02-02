@@ -17,5 +17,6 @@ export default {
   year: document.getElementById('year'),
   loginFormBackdrop: document.querySelector('.login-form__backdrop'),
   loginFormCloseButton: document.querySelector('.login-form__close-button'),
-  loginFormOpenButton: document.querySelector('.authorization')
+  loginFormOpenButton: document.querySelector('.authorization'),
+  loginFormOpenButtonDesktop: document.querySelector('.desktopAuth')
 };
