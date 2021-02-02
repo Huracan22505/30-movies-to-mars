@@ -66,7 +66,7 @@
               </svg>
             </button>
 
-            <a href="registration.html" class="desktopAuth">
+            <a href="#" class="desktopAuth">
               <svg>
                 <use href="../images/headersprite.svg#auth"></use>
               </svg>
@@ -145,7 +145,7 @@
                     </div>
                   </div>
                 </div>
-                <a href="registration.html" class="authorization">
+                <a href="#" class="authorization">
                   <p>Sign in/Sign up</p>
                 </a>
                 <ul class="modalMenu list">
@@ -166,6 +166,7 @@
       <div class="login-form__backdrop is-hidden">
         <div class="login-form__wrap">
           <div class="login-form__html">
+            <button type="button" class="login-form__close-button"></button>
             <input
               id="sign-in"
               type="radio"
@@ -183,7 +184,7 @@
               <div class="login-form__signin-group">
                 <div class="login-form__field">
                   <label for="user" class="login-form_label">Username</label>
-                  <input id="user" type="text" class="login-form_input" />
+                  <input id="user" type="text" class="login-form_input" placeholder=" " required />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label">Password</label>
@@ -192,6 +193,7 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
+                    placeholder=" " required
                   />
                 </div>
                 <div class="login-form__field">
@@ -208,7 +210,7 @@
               <div class="login-form__signup-group">
                 <div class="login-form__field">
                   <label for="user" class="login-form_label">Username</label>
-                  <input id="user" type="text" class="login-form_input" />
+                  <input id="user" type="text" class="login-form_input" placeholder=" " required />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label">Password</label>
@@ -217,24 +219,25 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
+                    placeholder=" " required
                   />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label"
-                    >Repeat Password</label
-                  >
+                    >Repeat Password</label>
                   <input
                     id="pass"
                     type="password"
                     class="login-form_input"
                     data-type="password"
+                    placeholder=" " required
                   />
                 </div>
                 <div class="login-form__field">
-                  <label for="pass" class="login-form_label"
+                  <label for="email" class="login-form_label"
                     >Email Address</label
                   >
-                  <input id="pass" type="text" class="login-form_input" />
+                  <input id="email" type="email" class="login-form_input" placeholder=" " required />
                 </div>
                 <div class="login-form__field">
                   <input
