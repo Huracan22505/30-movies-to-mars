@@ -10,31 +10,19 @@
       href="./images/space-camera-favicon.png"
       type="image/png"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
     <div class="preloading-container">
-      <div class="container">
-        <div class="body">
-          <span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-          <div class="base">
-            <span></span>
-            <div class="face"></div>
-          </div>
-        </div>
-        <div class="longfazers">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <h1>30 movies to Mars</h1>
-      </div>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div class="preloading-title"><p>30 MOVIES TO MARS</p></div>
     </div>
 
     <div class="hide-main-container">
@@ -184,7 +172,13 @@
               <div class="login-form__signin-group">
                 <div class="login-form__field">
                   <label for="user" class="login-form_label">Username</label>
-                  <input id="user" type="text" class="login-form_input" placeholder=" " required />
+                  <input
+                    id="user"
+                    type="text"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label">Password</label>
@@ -193,7 +187,8 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
-                    placeholder=" " required
+                    placeholder=" "
+                    required
                   />
                 </div>
                 <div class="login-form__field">
@@ -210,7 +205,13 @@
               <div class="login-form__signup-group">
                 <div class="login-form__field">
                   <label for="user" class="login-form_label">Username</label>
-                  <input id="user" type="text" class="login-form_input" placeholder=" " required />
+                  <input
+                    id="user"
+                    type="text"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label">Password</label>
@@ -219,25 +220,34 @@
                     type="password"
                     class="login-form_input"
                     data-type="password"
-                    placeholder=" " required
+                    placeholder=" "
+                    required
                   />
                 </div>
                 <div class="login-form__field">
                   <label for="pass" class="login-form_label"
-                    >Repeat Password</label>
+                    >Repeat Password</label
+                  >
                   <input
                     id="pass"
                     type="password"
                     class="login-form_input"
                     data-type="password"
-                    placeholder=" " required
+                    placeholder=" "
+                    required
                   />
                 </div>
                 <div class="login-form__field">
                   <label for="email" class="login-form_label"
                     >Email Address</label
                   >
-                  <input id="email" type="email" class="login-form_input" placeholder=" " required />
+                  <input
+                    id="email"
+                    type="email"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
                 </div>
                 <div class="login-form__field">
                   <input
@@ -292,17 +302,18 @@
           </section>
         </div>
         
+        <!-- Filter Buttons -->
         <div class="container">
           <div class="filterBtns">
             <ul class="list">
-            <li class="item">
-              <button type="radio" class="filterBtns-button popularBtn">
-                <span class="text">Popular</span>
+               <li class="item">
+              <button type="radio" class="filterBtns-button topRatedBtn">
+                <span class="text">Rated</span>
               </button>
             </li>
-               <li class="item">
-              <button type="radio" class="filterBtns-button topRatedBtn is-active">
-                <span class="text">Rated</span>
+            <li class="item">
+              <button type="radio" class="filterBtns-button popularBtn is-active">
+                <span class="text">Popular</span>
               </button>
             </li>
             <li class="item">
@@ -340,7 +351,8 @@
       <footer>
         <div class="rights">
           <p class="rights__text">
-            &copy; <span id="year"></span> <span>|</span> All Rights Reserved <span>|</span>
+            &copy; <span id="year"></span> <span>|</span> All Rights Reserved
+            <span>|</span>
           </p>
           <p class="rights__text">
             Developed by

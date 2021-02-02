@@ -12,8 +12,8 @@ const {
   cardBox,
 } = refs;
 
-searchForm.addEventListener('submit', getValue);
-searchFormMobile.addEventListener('submit', getValue);
+// searchForm.addEventListener('submit', getValue);
+// searchFormMobile.addEventListener('submit', getValue);
 galleryBox.addEventListener('click', onGalleryClick);
 cardOverlay.addEventListener('click', onModalClose);
 

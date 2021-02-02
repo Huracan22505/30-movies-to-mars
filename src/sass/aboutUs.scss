@@ -2,105 +2,176 @@
 //    outline: 1px solid blue;
 // }
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
-// Styles for h1 - title of the page
+// Styles for h2 - title of the page
 .title_bg {
-   position: relative;
-   margin-bottom: 50px;
-   
-   overflow: hidden;
-   background: #ffff00a8;
-   text-align: center;
-   &:before {
-   top: 0;
-   border-color: #e9e96ab4 #e9e96ab4 #ffff00a8 #e9e96ab4;
+  background: transparent;
+  display: flex;
+  &:before, &:after {
+  content: '';
+  margin: auto 2em;
+  border-bottom: solid 2px;
+  flex: 2;}
+   @media screen and (max-width: 319) {
+      padding: 15px 0px;
+   };
+   @media screen and (min-width: 320) and (max-width: 767) {
+      padding: 20px 0px;
+   };
+    @media screen and (min-width: 768) and (max-width: 1223) {
+      padding: 30px 0px;
+   };
+    @media screen and (min-width: 1224) {
+      padding: 50px 0px;
+   }
+}
+.lightTheme .title_bg {
+  &:before, &:after {
+  color: $primary-color;
+  content: '';
+  background-color: rgba(51, 0, 153, 0.3);
 }
     &:after {
-   bottom: 0;
-   border-color: #ffff00a8 #ffff00a8 #e9e96ab4 #ffff00a8;
+  content: '';
+  margin: auto 2em;
+  border-bottom: solid 2px;
+  flex: 2;
 }
-   @media screen and (max-width: 319) {
-      padding: 15px 0;
-   };
-   @media screen and (min-width: 320) and (max-width: 767) {
-      padding: 20px 0;
-   };
-    @media screen and (min-width: 768) and (max-width: 1223) {
-      padding: 30px 0;
-   };
-    @media screen and (min-width: 1224) {
-      padding: 50px 0;
-   }
+  }
+.darkTheme .title_bg {
+  &:before, &:after {
+  color: $accent-color;
+  content: '';
+  background-color: rgba(51, 0, 153, 0.3);
 }
-.title_bg:before, .title_bg:after {
-   content: "";
-   position: absolute;
-   left: 0;
-   border-width: 0 0 50px 100vw;
-   border-style: solid;
-   
+    &:after {
+  content: '';
+  margin: auto 2em;
+  border-bottom: solid 2px;
+  flex: 2;
 }
-
-.team_title_card {
-   color: black ;
-   font-family: 'Raleway', Arial, sans-serif;
-   font-weight: 800;
-   padding: 15px ;
-    @media screen and (max-width: 319) {
+  }
+.team_section {
+  padding-top: 20px;
+}
+.team_section .container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+body .team_title_card {
+  @media screen and (max-width: 319px) {
       font-size: 14px;
+      padding: 0.25em 1em;
    };
-   @media screen and (min-width: 320) and (max-width: 767) {
+   @media screen and (min-width: 320px) and (max-width: 767px) {
      font-size: 25px;
+     padding: 0.25em 2em;
    };
-    @media screen and (min-width: 768) and (max-width: 1223) {
+    @media screen and (min-width: 768px) and (max-width: 1223px) {
       font-size: 33px;
+      padding: 0.25em 2em;
    };
-    @media screen and (min-width: 1224) {
+    @media screen and (min-width: 1224px) {
       font-size: 40px;
+      padding: 0.25em 2em;
    }
-
+}
+.lightTheme .team_title_card {
+  padding: 0.25em 1.3em;
+  position: relative;
+  color: $primary-color;
+  overflow: hidden;
+  font-family: 'Raleway', Arial, sans-serif;
+  background: linear-gradient($primary-color, $primary-color) no-repeat top center, linear-gradient($primary-color, $primary-color) no-repeat bottom center;
+  background-size: calc(100% - 1.6em) 2px;
+  &::before, &::after {
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid $primary-color;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(45deg)
+  }
+  &::after {
+    transform: skew(-45deg)
+}
+};
+.darkTheme .team_title_card {
+  position: relative;
+  padding: 0.25em 2em;
+  color: $accent-color;
+  overflow: hidden;
+  font-family: 'Raleway', Arial, sans-serif;
+  background: linear-gradient($accent-color, $accent-color) no-repeat top center, linear-gradient($accent-color, $accent-color) no-repeat bottom center;
+  background-size: calc(100% - 1.6em) 2px;
+  &::before, &::after {
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid $accent-color;
+  border-top: none;
+  border-bottom: none;
+  transform: skew(45deg)
+  }
+  &::after {
+    transform: skew(-45deg)
+  }
+  
 };
 // Styles for cards & container
 .team_gallery {
    display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
    @media screen and (max-width: 767) {
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
    }
   @media screen and (min-width: 768px) {
-    margin: -10px;
+    justify-content: space-between;
+    margin: -20px;
   }
 }
-.team_card {
+.team_gallery .team_card {
+  min-height: 260px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 45px;
   background: transparent;
-  width: 280px;
-  min-height: 300px;
   position: relative;
   border: 1px solid transparent;
   overflow: hidden;
   outline: none;
-    align-items: center;
+  align-items: center;
 	box-shadow: 3px 5px 7px rgba(51, 0, 153, 0.4), 3px 3px 5px rgba(51, 0, 153, 0.4);
-   border-radius: 0px 0px 4px 4px;
-  
-    &_overlay {
-      padding-top: 10px;
-      background-image: linear-gradient(to bottom, white 0%, transparent 100%);
-    }
-  @media screen and (min-width: 768px) {
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-bottom: 15px;
+  border-radius: 0px 0px 4px 4px;
+  @media screen and (max-width: 500px) {
+    width: 300px;
   }
-
+  @media screen and (min-width: 501px) and  (max-width: 1223px) {
+    width: 220px;
+  }
+  @media screen and (min-width: 1224px) {
+    width: 200px;
+  }
   @media screen and (max-width: 767px) {
     & + .team__card {
-      margin-top: 25px;
+      margin-top: 35px;
     }
+  &_overlay { 
+   background-image: linear-gradient(to bottom, white 0%, transparent 100%);
+ }
 }
 }
 .team_desription {
+    padding-top: 20px;
+    padding-bottom: 10px;
    display: block;
    color: black ;
    font-family: 'Roboto', sans-serif;
@@ -175,7 +246,7 @@ figure.team_card_hover {
   bottom: 0;
   right: 0;
 }
-& h2 {
+& h3 {
   position: absolute;
   left: 40px;
   right: 40px;
@@ -228,8 +299,8 @@ figure.team_card_hover {
   transform: scale(1.1);
    }
 
-   & figure.team_card_hover h2,
-   & figure.team_card_hover h2 {
+   & figure.team_card_hover h3,
+   & figure.team_card_hover h3 {
   -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   
