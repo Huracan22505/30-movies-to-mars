@@ -74,8 +74,11 @@ function onModalClose() {
   cardBox.innerHTML = '';
   cardModal.classList.remove('card__modal__lightbox__is-open');
 
-  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
-  refsModal.watched.addEventListener(
+  refsModal.queue.removeEventListener(
+    'click',
+    queue.addLocalStorage.bind(queue),
+  );
+  refsModal.watched.removeEventListener(
     'click',
     watched.addLocalStorage.bind(watched),
   );
