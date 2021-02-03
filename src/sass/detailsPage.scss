@@ -33,14 +33,19 @@
   line-height: 1.33;
   background-color: white;
   transform: scale(1);
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 767px) {
+    max-width: 80%;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    max-width: 90%;
   }
 
   @media screen and (min-width: 1200px) {
     font-size: 16px;
+    height: 90%;
   }
 }
 .lightTheme .card__section__content {
@@ -66,13 +71,12 @@
   max-width: 100%;
   height: auto;
   border-radius: 6px;
-
   @media screen and (min-width: 768px) {
-    width: 294px;
+    width: 280px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 426px;
+    width: 400px;
   }
 }
 
