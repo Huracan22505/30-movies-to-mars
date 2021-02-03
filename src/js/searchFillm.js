@@ -3,9 +3,10 @@ import refs from './refs.js';
 import galleryTemlate from '../templates/galleryPage.hbs';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 
-const { searchForm } = refs;
+const { searchForm, searchFormMobile } = refs;
 
 searchForm.addEventListener('submit', getValue);
+searchFormMobile.addEventListener('submit', getValue);
 
 // функция получения значения инпута
 function getValue(e) {

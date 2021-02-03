@@ -3,17 +3,8 @@ import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 import AddLocalStorage from './AddLocalStorage.js';
 
-const {
-  searchForm,
-  searchFormMobile,
-  galleryBox,
-  cardModal,
-  cardOverlay,
-  cardBox,
-} = refs;
+const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
 
-// searchForm.addEventListener('submit', getValue);
-// searchFormMobile.addEventListener('submit', getValue);
 galleryBox.addEventListener('click', onGalleryClick);
 cardOverlay.addEventListener('click', onModalClose);
 
@@ -37,7 +28,10 @@ function onGalleryClick(ev) {
   filmId = cardRef.getAttribute('data');
 
   if (filmId != null || filmId != undefined)
-    apiService.getFilmById(filmId).then(result => renderCardFilm(result));
+    apiService.getFilmById(filmId).then(result => {
+      console.log(result);
+      renderCardFilm(result);
+    });
 }
 
 //функция отрисовки карточки фильма по шаблону

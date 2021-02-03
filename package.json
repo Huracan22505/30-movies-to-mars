@@ -69,6 +69,7 @@
     "basiclightbox": "^5.0.4",
     "core-js": "^3.7.0",
     "firebase": "^8.2.5",
+    "handlebars-dateformat": "^1.1.1",
     "tui-pagination": "^3.4.0"
   }
 }

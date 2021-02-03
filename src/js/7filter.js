@@ -15,7 +15,7 @@ function renderTopRated() {
     popularBtn.classList.remove('is-active');
     upcomingBtn.classList.remove('is-active');
   }
-  }
+}
 function renderUpcoming() {
   galleryBox.innerHTML = '';
   apiService.getUpcoming().then(result => renderGallery(result));
@@ -24,18 +24,18 @@ function renderUpcoming() {
     popularBtn.classList.remove('is-active');
     topRatedBtn.classList.remove('is-active');
   }
-  getAllUpcomingFilmsByPage();
 }
+
 function renderPopular() {
   galleryBox.innerHTML = '';
   apiService.getPopular().then(result => renderGallery(result));
-    if (!popularBtn.classList.contains('is-active')) {
-      popularBtn.classList.add('is-active');
-      topRatedBtn.classList.remove('is-active');
-      upcomingBtn.classList.remove('is-active');
-    }
+  if (!popularBtn.classList.contains('is-active')) {
+    popularBtn.classList.add('is-active');
+    topRatedBtn.classList.remove('is-active');
+    upcomingBtn.classList.remove('is-active');
+  }
 }
 function renderGallery(result) {
-  let items = galleryTemlate(result);
+  let items = galleryTemlate(result.results);
   galleryBox.insertAdjacentHTML('beforeend', items);
 }
