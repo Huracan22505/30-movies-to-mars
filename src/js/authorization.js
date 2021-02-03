@@ -1,13 +1,13 @@
-import firebase from 'firebase/app'
+/*import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/storage'
-import 'firebase/messaging'
+import 'firebase/messaging'*/
 
 import refs from './refs.js';
 const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop } = refs;
 
-const firebaseConfig = {
+/*const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
   authDomain: "thirty-movies-to-mars.firebaseapp.com",
   projectId: "thirty-movies-to-mars",
@@ -15,6 +15,33 @@ const firebaseConfig = {
   messagingSenderId: "663360674405",
   appId: "1:663360674405:web:a99b0fcd910e46b7d7848c"
 };
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const registrationData = auth.createUserWithEmailAndPassword(email, password); //create new user
+const signinData = auth.signInWithEmailAndPassword(email, password); // sign up registered user
+auth.onAuthStateChanged(firebaseUser => { }); // log in / log out
+
+async registration(email, password) {
+    try {
+        const registrationData = await firebase.auth().createUserWithEmailAndPassword(email, password)
+        console.log(userData.user.uid)
+    } catch (error) {
+        console.log(error.message)
+        throw error
+    }
+};
+
+async login(email, password) {
+    try {
+        const signinData = await firebase.auth().signInWithEmailAndPassword(email, password)
+        console.log(data.user.uid)
+    } catch (error) {
+        console.log(error.message)
+        throw error
+    }
+};*/
 
 loginFormOpenButton.addEventListener('click', openLoginForm);
 loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
