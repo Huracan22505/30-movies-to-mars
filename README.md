@@ -7,7 +7,7 @@
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Huracan22505&repo=30-movies-to-mars&theme=ayu-mirage&layout=compact" />
 </a>
 
-### 🛠 &nbsp;Tech Stack 🐱‍💻
+<h3 align="center"> 🛠 &nbsp;Tech Stack 🐱‍💻 </h3>
 
 🌐 &nbsp; </br>
 ![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
@@ -24,7 +24,7 @@
 ![Illustrator](https://img.shields.io/badge/-Illustrator-05122A?style=flat&logo=adobe-illustrator)&nbsp;
 ![Photoshop](https://img.shields.io/badge/-Photoshop-05122A?style=flat&logo=adobe-photoshop)&nbsp;
 
-### ℹ️ &nbsp; Team Members 🐾 🐱‍🚀
+<h3 align="center"> ℹ️ &nbsp; Team Members 🐾 🐱‍🚀 <h3>
 
 <a align="center" href="https://github.com/Huracan22505">![GitHub](https://img.shields.io/badge/-Huracan4ik-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Tat-Obmetitsa">![GitHub](https://img.shields.io/badge/-Tanyusha-05122A?style=flat&logo=github)</a>
