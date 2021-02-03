@@ -33,7 +33,6 @@
   line-height: 1.33;
   background-color: white;
   transform: scale(1);
-
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -43,6 +42,14 @@
   @media screen and (min-width: 1200px) {
     font-size: 16px;
   }
+}
+.lightTheme .card__section__content {
+  background-color: rgba(166, 155, 199, 0.9);
+  color: $accent-color;
+}
+.darkTheme .card__section__content {
+  background-color:  rgba(73, 59, 116, 0.9);
+  color: $accent-color;
 }
 
 .card__content {
@@ -94,9 +101,7 @@
 .flex-basis {
   flex-basis: 40%;
 }
-.card__mainInfo__itemTitle {
-  color: #545454;
-}
+
 
 .card__aboutInfo {
   margin-top: 20px;
