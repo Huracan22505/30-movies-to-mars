@@ -1,0 +1,48 @@
+// .scrollUp {
+//   color: #ffff00;
+//   opacity: 0;
+//   width: 42px;
+//   height: 42px;
+//   bottom: 26px;
+//   right: 15px;
+//   cursor: pointer;
+//   background-color: transparent;
+//   border: none;
+//   display: inline-block; /* or block */
+//   position: absolute;
+//   z-index: 1;
+//   border-color: #ffff00;
+//   text-decoration: none;
+//   transition: all 0.3s ease-out;
+
+//   &:before {
+//     content: '▲';
+//     font-size: 30px;
+//     position: absolute;
+//     top: 0;
+//     left: 10px;
+//     margin-left: -50%;
+//     border: solid 4px #ffff00;
+//     border-radius: 50%;
+//     width: 40px;
+//     height: 40px;
+//     line-height: 1;
+//     border-color: inherit;
+//     transition: transform 0.5s ease-in;
+//   }
+//   &:hover {
+//     color: #ffff00;
+//     border-color: #ffff00;
+//   }
+//   &:hover:before {
+//     @include for-size(desktop) {
+//       transform: rotate(360deg);
+//     }
+//   }
+//   &:focus:before {
+//     @include for-size(desktop) {
+//       transform: rotate(360deg);
+//       box-shadow: 0 0 15px 5px rgba(32, 188, 198, 0.68);
+//     }
+//   }
+// }

@@ -11,3 +11,4 @@ import '../js/7filter.js';
 import '../js/pagination.js';
 import '../js/renderService.js';
 import '../js/authorization.js';
+import '../js/scrollUp.js';

@@ -50,8 +50,17 @@ export default {
       .then(data => data.results.map(data => data));
   },
   // загружает все фильмы для указанной страницы
-  getAllFilmsByPage(pageNum = 1) {
+
+  getRatedFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/rated?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  getPopularFilmsByPage(pageNum = 1) {
     const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  getUpcomingFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/upcoming?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
     return fetch(url).then(response => response.json());
   },
 };
