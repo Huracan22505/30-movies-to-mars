@@ -15,12 +15,14 @@ export default {
   },
 
   // cписок фильмов как результат поиска
-  getSearchResult(searchQuery = '') {
+  getSearchResult(searchQuery) {
     const params = `search/movie?api_key=${myApiKey}&language=en-US&page=1&include_adult=false&query=${searchQuery}`;
+
     let url = baseUrl + params;
+    console.log(url);
     return fetch(url)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => buildModel(data));
   },
 
   // находит фильм по id
@@ -77,7 +79,6 @@ function buildModel(data) {
 }
 
 function bildModelById(data) {
-  console.log(data);
   return new FilmIdModel(
     data.id,
     data.poster_path,
