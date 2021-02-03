@@ -6,7 +6,8 @@
 <a href="https://github.com/Huracan22505/30-movies-to-mars">
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Huracan22505&repo=30-movies-to-mars&theme=ayu-mirage&layout=compact" />
 </a>
-
+<p style="text-align: center;">
+<span align="center">
 ### 🛠 &nbsp;Tech Stack 🐱‍💻
 
 🌐 &nbsp; </br>
@@ -34,4 +35,4 @@
 <a href="https://github.com/mhodunov">![GitHub](https://img.shields.io/badge/-Maksimka-05122A?style=flat&logo=github)</a>
 <a href="https://github.com/VitaGladka">![GitHub](https://img.shields.io/badge/-Vitusia-05122A?style=flat&logo=github)</a>
 <a href="https://github.com/Yuliya-Che">![GitHub](https://img.shields.io/badge/-Yule4ka-05122A?style=flat&logo=github)</a>
-</br>
+</br> </span>
