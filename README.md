@@ -6,8 +6,7 @@
 <a href="https://github.com/Huracan22505/30-movies-to-mars">
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Huracan22505&repo=30-movies-to-mars&theme=ayu-mirage&layout=compact" />
 </a>
-<p style="text-align: center;">
-<span align="center">
+
 ### 🛠 &nbsp;Tech Stack 🐱‍💻
 
 🌐 &nbsp; </br>
@@ -27,12 +26,14 @@
 
 ### ℹ️ &nbsp; Team Members 🐾 🐱‍🚀
 
-<a href="https://github.com/Huracan22505">![GitHub](https://img.shields.io/badge/-Huracan4ik-05122A?style=flat&logo=github)</a>
-<a href="https://github.com/Tat-Obmetitsa">![GitHub](https://img.shields.io/badge/-Tanyusha-05122A?style=flat&logo=github)</a>
-<a href="https://github.com/yaroslav-uaa">![GitHub](https://img.shields.io/badge/-Yari4ek-05122A?style=flat&logo=github)</a>
-<a href="https://github.com/Marinessa393">![GitHub](https://img.shields.io/badge/-Marinka-05122A?style=flat&logo=github)</a><br/>
-<a href="https://github.com/Feride-Sham">![GitHub](https://img.shields.io/badge/-Ferideshe4ka-05122A?style=flat&logo=github)</a>
-<a href="https://github.com/mhodunov">![GitHub](https://img.shields.io/badge/-Maksimka-05122A?style=flat&logo=github)</a>
-<a href="https://github.com/VitaGladka">![GitHub](https://img.shields.io/badge/-Vitusia-05122A?style=flat&logo=github)</a>
-<a href="https://github.com/Yuliya-Che">![GitHub](https://img.shields.io/badge/-Yule4ka-05122A?style=flat&logo=github)</a>
-</br> </span>
+<a align="center" href="https://github.com/Huracan22505">![GitHub](https://img.shields.io/badge/-Huracan4ik-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Tat-Obmetitsa">![GitHub](https://img.shields.io/badge/-Tanyusha-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/yaroslav-uaa">![GitHub](https://img.shields.io/badge/-Yari4ek-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Marinessa393">![GitHub](https://img.shields.io/badge/-Marinka-05122A?style=flat&logo=github)</a><br/>
+<a align="center" href="https://github.com/Feride-Sham">![GitHub](https://img.shields.io/badge/-Ferideshe4ka-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/mhodunov">![GitHub](https://img.shields.io/badge/-Maksimka-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/VitaGladka">![GitHub](https://img.shields.io/badge/-Vitusia-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Yuliya-Che">![GitHub](https://img.shields.io/badge/-Yule4ka-05122A?style=flat&logo=github)</a>
+</br>
+
+</center>
