@@ -1,12 +1,12 @@
 {{#each this}}
 <li class="gallery__card" data={{_id}}>
   <div class="gallery__image-wrapper">
-    <img src="{{_posterPath}}" alt="{{_originalTitle}}" class="gallery__image" data={{_id}} />
+    <img loading="lazy" src="{{_posterPath}}" alt="{{_originalTitle}}" class="gallery__image" data={{_id}} />
     <!-- <span class="gallery__average">9.8</span> -->
   </div>
   <div class="gallery__description" data={{_id}}>
     <h3 class="gallery__title__light gallery__title__dark" data={{_id}}>
-      {{_title}}
+      {{_originalTitle}}
     </h3>
 
     <span class="gallery__film-category__light gallery__film-category__dark" data={{_id}}>{{_genres}} </span>
