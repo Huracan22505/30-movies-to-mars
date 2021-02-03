@@ -18,5 +18,11 @@ export default {
   loginFormBackdrop: document.querySelector('.login-form__backdrop'),
   loginFormCloseButton: document.querySelector('.login-form__close-button'),
   loginFormOpenButton: document.querySelector('.authorization'),
-  loginFormOpenButtonDesktop: document.querySelector('.desktopAuth')
+  loginFormOpenButtonDesktop: document.querySelector('.desktopAuth'),
+  signinBtn: document.getElementById('signinBtn'),
+  signupBtn: document.getElementById('signupBtn'),
+  regEmail: document.getElementById('regEmail'),
+  regPass: document.getElementById('regPass'),
+  signupEmail: document.getElementById('signupEmail'),
+  signupPass: document.getElementById('signupPass')
 };

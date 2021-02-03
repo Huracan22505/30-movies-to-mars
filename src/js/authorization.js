@@ -1,13 +1,13 @@
-/*import firebase from 'firebase/app'
+import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/storage'
-import 'firebase/messaging'*/
+import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass } = refs;
 
-/*const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
   authDomain: "thirty-movies-to-mars.firebaseapp.com",
   projectId: "thirty-movies-to-mars",
@@ -18,31 +18,31 @@ const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormO
 
 firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const registrationData = auth.createUserWithEmailAndPassword(email, password); //create new user
-const signinData = auth.signInWithEmailAndPassword(email, password); // sign up registered user
-auth.onAuthStateChanged(firebaseUser => { }); // log in / log out
+// login event
+signinBtn.addEventListener('click', loginEvnt);
+signupBtn.addEventListener('click', signupEvnt);
 
-async registration(email, password) {
-    try {
-        const registrationData = await firebase.auth().createUserWithEmailAndPassword(email, password)
-        console.log(userData.user.uid)
-    } catch (error) {
-        console.log(error.message)
-        throw error
-    }
+function loginEvnt() {
+  //get email and password
+  const loginEmail = regEmail.value;
+  const loginPassword = regPass.value;
+  const auth = firebase.auth();
+  //sign in
+  const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
+  promise.catch(e => console.log(e.message));
 };
 
-async login(email, password) {
-    try {
-        const signinData = await firebase.auth().signInWithEmailAndPassword(email, password)
-        console.log(data.user.uid)
-    } catch (error) {
-        console.log(error.message)
-        throw error
-    }
-};*/
+function signupEvnt() {
+  //get email and password
+  const signEmail = signupEmail.value;
+  const signPassword = signupPass.value;
+  const auth = firebase.auth();
+  //create new user
+  const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
+  promise.catch(e => console.log(e.message));
+};
 
+//Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);
 loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
 
