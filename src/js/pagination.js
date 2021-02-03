@@ -13,14 +13,15 @@ apiService.getAllFilmsByPage().then(data => {
 
   //comment it later
   renderGallery(data.results);
-  totalPages = data.total_pages;
-  createPaginationButton(data.total_pages);
+  totalPages = data.totalPages;
+  createPaginationButton(data.totalPages);
   processPaginationButtons();
   checkLeftAndRightButtons();
 });
 
 // remove later and use 'import filmDetailsPage from './4filmDetailsPage.js';'
 function renderGallery(result) {
+  console.log(result);
   let items = galleryTemlate(result);
   galleryBox.insertAdjacentHTML('beforeend', items);
 }
@@ -43,6 +44,7 @@ function checkLeftAndRightButtons() {
 }
 
 function createPaginationButton(lastNumber) {
+  console.log(lastNumber);
   const paginationWrapper = document.querySelector('.pagination__wrapper');
 
   // стрелка влево
