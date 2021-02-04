@@ -1,3 +1,5 @@
+import image from '../../images/glideSlider/errorFilm.jpg';
+
 export default class FilmIdModel {
   // Собственные свойства класса размещаем в конструкторе
   constructor(
@@ -13,7 +15,7 @@ export default class FilmIdModel {
     releaseDate,
   ) {
     this.id = id;
-    this.posterPath = 'https://image.tmdb.org/t/p/w500' + posterPath;
+    this.posterPath = this.getCorrectImages(posterPath);
     this.title = title;
     this.originalTitle = originalTitle;
     this.genres = this.getCorrectGenres(genres);
@@ -25,7 +27,17 @@ export default class FilmIdModel {
   }
 
   getCorrectGenres(genresArray) {
+    if (genresArray.length === 0) {
+      return String.fromCodePoint(0x1f640);
+    }
     return genresArray.map(el => el.name).join(', ');
+  }
+
+  getCorrectImages(posterPath) {
+    if (posterPath === null) {
+      return image;
+    }
+    return 'https://image.tmdb.org/t/p/w500' + posterPath;
   }
 
   getReleaseDate(date) {
