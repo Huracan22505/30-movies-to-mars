@@ -7,6 +7,7 @@ const { galleryBox, cardBox } = refs;
 export default {
   // функция отрисовки галереи
   renderGallery(result) {
+    console.log('render service result: ', result);
     let items = galleryTemlate(result);
     galleryBox.insertAdjacentHTML('beforeend', items);
   },
