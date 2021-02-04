@@ -56,6 +56,35 @@ export default {
       .then(response => response.json())
       .then(data => buildModel(data));
   },
+  getRatedFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}trending/all/day?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  getPopularFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  getUpcomingFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/upcoming?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  buildModel(data) {
+    return new OuterResponceModel(
+      data.page,
+      data.total_pages,
+      data.results.map(
+        el =>
+          new InnerResponceModel(
+            el.id,
+            el.poster_path,
+            el.original_title,
+            el.genre_ids,
+            el.release_date,
+          ),
+      ),
+      data.total_results,
+    );
+  },
 };
 
 function buildModel(data) {
