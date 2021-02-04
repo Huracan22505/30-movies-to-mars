@@ -1,6 +1,6 @@
-import InnerResponceModel from './popularResponceModel.js';
-import OuterResponceModel from './popularResponseOuterModel.js';
-import FilmIdModel from './modelFilmById.js';
+import InnerResponceModel from './models/responceModel.js';
+import OuterResponceModel from './models/responseOuterModel.js';
+import FilmIdModel from './models/modelFilmById.js';
 const baseUrl = 'https://api.themoviedb.org/3/';
 const myApiKey = '2955876276611e1cc2d97a4794387b9d';
 
@@ -15,12 +15,14 @@ export default {
   },
 
   // cписок фильмов как результат поиска
-  getSearchResult(searchQuery = '') {
+  getSearchResult(searchQuery) {
     const params = `search/movie?api_key=${myApiKey}&language=en-US&page=1&include_adult=false&query=${searchQuery}`;
+
     let url = baseUrl + params;
+    console.log(url);
     return fetch(url)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => buildModel(data));
   },
 
   // находит фильм по id
@@ -56,6 +58,35 @@ export default {
       .then(response => response.json())
       .then(data => buildModel(data));
   },
+  getRatedFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}trending/all/day?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  getPopularFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  getUpcomingFilmsByPage(pageNum = 1) {
+    const url = `${baseUrl}movie/upcoming?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  buildModel(data) {
+    return new OuterResponceModel(
+      data.page,
+      data.total_pages,
+      data.results.map(
+        el =>
+          new InnerResponceModel(
+            el.id,
+            el.poster_path,
+            el.original_title,
+            el.genre_ids,
+            el.release_date,
+          ),
+      ),
+      data.total_results,
+    );
+  },
 };
 
 function buildModel(data) {
@@ -77,7 +108,6 @@ function buildModel(data) {
 }
 
 function bildModelById(data) {
-  console.log(data);
   return new FilmIdModel(
     data.id,
     data.poster_path,

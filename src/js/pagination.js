@@ -6,6 +6,7 @@ import galleryTemlate from '../templates/galleryPage.hbs';
 const { galleryBox } = refs;
 let currentPage = 1;
 let totalPages = 0;
+let type = 'rated';
 
 apiService.getAllFilmsByPage().then(data => {
   // use later as such:
@@ -15,19 +16,18 @@ apiService.getAllFilmsByPage().then(data => {
   renderGallery(data.results);
   totalPages = data.totalPages;
   createPaginationButton(data.totalPages);
-  processPaginationButtons();
+  addListenersForPaginationButtons();
   checkLeftAndRightButtons();
 });
 
 // remove later and use 'import filmDetailsPage from './4filmDetailsPage.js';'
 function renderGallery(result) {
-  console.log(result);
   let items = galleryTemlate(result);
   galleryBox.insertAdjacentHTML('beforeend', items);
 }
 
 function checkLeftAndRightButtons() {
-  if (currentPage == 1) {
+  if (currentPage === 1) {
     document.querySelector('.pagination__arrow-left').classList.add('hidden');
   } else {
     document
@@ -44,7 +44,6 @@ function checkLeftAndRightButtons() {
 }
 
 function createPaginationButton(lastNumber) {
-  console.log(lastNumber);
   const paginationWrapper = document.querySelector('.pagination__wrapper');
 
   // стрелка влево
@@ -52,17 +51,50 @@ function createPaginationButton(lastNumber) {
   arrowLeftButton.classList.add('pagination__arrow-left');
   arrowLeftButton.innerHTML = '&#8592;';
   arrowLeftButton.addEventListener('click', () => {
-    apiService.getAllFilmsByPage(currentPage - 1).then(data => {
-      document.querySelector('.gallery__wrapper').innerHTML = '';
-      renderGallery(data.results);
-      currentPage = currentPage - 1;
-      checkLeftAndRightButtons();
-      updateNumbersOfButtonsForPrevPage();
-    });
+    if (currentPage == totalPages) {
+      let buttons = Array.from(
+        document.querySelectorAll('.pagination__button'),
+      ).reverse();
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute('data-button-id', totalPages - (i + 1));
+        buttons[i].innerText = totalPages - (i + 1);
+      }
+    }
+
+    if (type === 'popular') {
+      apiService.getPopularFilmsByPage(currentPage - 1).then(data => {
+        data = apiService.buildModel(data);
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = currentPage - 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForPrevPage();
+      });
+    } else if (type === 'rated') {
+      apiService.getRatedFilmsByPage(currentPage - 1).then(data => {
+        data = apiService.buildModel(data);
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = currentPage - 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForPrevPage();
+      });
+    } else if (type === 'upcoming') {
+      apiService.getUpcomingFilmsByPage(currentPage - 1).then(data => {
+        data = apiService.buildModel(data);
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = currentPage - 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForPrevPage();
+      });
+    }
   });
   paginationWrapper.append(arrowLeftButton);
 
-  for (let i = 0; i < 5; i++) {
+  //     создание кнопок    //
+  for (let i = 0; i < 2; i++) {
     let newButton = document.createElement('button');
     newButton.classList.add('pagination__button');
     newButton.innerHTML = i + 1;
@@ -70,22 +102,37 @@ function createPaginationButton(lastNumber) {
     paginationWrapper.append(newButton);
   }
 
+  // создание кнопки '...'
   let threeDotsButton = document.createElement('button');
   threeDotsButton.classList.add('pagination__button-dots');
   threeDotsButton.innerHTML = '...';
   paginationWrapper.append(threeDotsButton);
 
+  //создание последней кнопки
   let lastButton = document.createElement('button');
   lastButton.classList.add('pagination__button-last');
   lastButton.innerHTML = lastNumber;
   lastButton.setAttribute('data-button-id', lastNumber);
   lastButton.addEventListener('click', function () {
     // elementId это pageNum в apiService
-    apiService.getAllFilmsByPage(lastNumber).then(data => {
-      document.querySelector('.gallery__wrapper').innerHTML = '';
-      renderGallery(data.results);
-      currentPage = lastNumber;
-      checkLeftAndRightButtons();
+    apiService.getPopularFilmsByPage(lastNumber).then(data => {
+      data = apiService.buildModel(data);
+      if (type === 'popular') {
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = lastNumber;
+        checkLeftAndRightButtons();
+      } else if (type === 'rated') {
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = lastNumber;
+        checkLeftAndRightButtons();
+      } else if (type === 'upcoming') {
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = lastNumber;
+        checkLeftAndRightButtons();
+      }
     });
   });
   paginationWrapper.append(lastButton);
@@ -95,17 +142,40 @@ function createPaginationButton(lastNumber) {
   arrowRightButton.classList.add('pagination__arrow-right');
   arrowRightButton.innerHTML = '&#8594;';
   arrowRightButton.addEventListener('click', () => {
-    apiService.getAllFilmsByPage(currentPage + 1).then(data => {
-      document.querySelector('.gallery__wrapper').innerHTML = '';
-      renderGallery(data.results);
-      currentPage = currentPage + 1;
-      checkLeftAndRightButtons();
-      updateNumbersOfButtonsForNextPage();
-    });
+    currentPage = parseInt(currentPage);
+    if (type === 'popular') {
+      apiService.getPopularFilmsByPage(currentPage + 1).then(data => {
+        data = apiService.buildModel(data);
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = currentPage + 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForNextPage();
+      });
+    } else if (type === 'rated') {
+      apiService.getRatedFilmsByPage(currentPage + 1).then(data => {
+        data = apiService.buildModel(data);
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = currentPage + 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForNextPage();
+      });
+    } else if (type === 'upcoming') {
+      data = apiService.buildModel(data);
+      apiService.getUpcomingFilmsByPage(currentPage + 1).then(data => {
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data.results);
+        currentPage = currentPage + 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForNextPage();
+      });
+    }
   });
   paginationWrapper.append(arrowRightButton);
 }
 
+// функция обновления следубщей кнопки
 function updateNumbersOfButtonsForNextPage() {
   let buttons = document.querySelectorAll('.pagination__button');
   buttons[0].remove();
@@ -120,8 +190,10 @@ function updateNumbersOfButtonsForNextPage() {
     newButton,
     buttons[buttons.length - 1].nextSibling,
   );
+  addListenersForPaginationButtons(true);
 }
 
+// функция обновления предыдущей кнопки
 function updateNumbersOfButtonsForPrevPage() {
   let buttons = document.querySelectorAll('.pagination__button');
   buttons[buttons.length - 1].remove();
@@ -133,23 +205,55 @@ function updateNumbersOfButtonsForPrevPage() {
 
   let parentOfLastElement = buttons[0].parentNode;
   parentOfLastElement.insertBefore(newButton, buttons[0]);
+  addListenersForPaginationButtons(true);
 }
 
-function processPaginationButtons() {
+// добавляем слушатели на кнопки динамично
+function addListenersForPaginationButtons(lastElement = false) {
+  let elements = document.querySelectorAll('.pagination__button');
+
+  if (lastElement) {
+    elements = [elements[elements.length - 1]];
+  }
   // доступ к кнопкам в хтмл
-  const elements = document.querySelectorAll('.pagination__button');
+
   for (let i = 0; i < elements.length; i++) {
     //слушатель событий клика на кнопку
     elements[i].addEventListener('click', function () {
       let elementId = elements[i].getAttribute('data-button-id');
 
       // elementId это pageNum в apiService
-      apiService.getAllFilmsByPage(elementId).then(data => {
-        document.querySelector('.gallery__wrapper').innerHTML = '';
-        renderGallery(data.results);
-        currentPage = elementId;
-        checkLeftAndRightButtons();
-      });
+      if (type === 'popular') {
+        apiService.getPopularFilmsByPage(elementId).then(data => {
+          data = apiService.buildModel(data);
+          document.querySelector('.gallery__wrapper').innerHTML = '';
+          renderGallery(data.results);
+          currentPage = elementId;
+          checkLeftAndRightButtons();
+        });
+      } else if (type === 'rated') {
+        apiService.getRatedFilmsByPage(elementId).then(data => {
+          data = apiService.buildModel(data);
+          document.querySelector('.gallery__wrapper').innerHTML = '';
+          renderGallery(data.results);
+          currentPage = elementId;
+          checkLeftAndRightButtons();
+        });
+      } else if (type === 'upcoming') {
+        apiService.getUpcomingFilmsByPage(elementId).then(data => {
+          data = apiService.buildModel(data);
+          document.querySelector('.gallery__wrapper').innerHTML = '';
+          renderGallery(data.results);
+          currentPage = elementId;
+          checkLeftAndRightButtons();
+        });
+      }
+      // apiService.getPopularFilmsByPage(elementId).then(data => {
+      //   document.querySelector('.gallery__wrapper').innerHTML = '';
+      //   renderGallery(data.results);
+      //   currentPage = elementId;
+      //   checkLeftAndRightButtons();
+      // });
     });
   }
 }

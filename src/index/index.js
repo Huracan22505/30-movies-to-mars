@@ -4,6 +4,7 @@ import '../js/glideSlider.js';
 import '../js/trailer.js';
 import '../js/refs.js';
 import '../js/apiService.js';
+import '../js/searchFillm.js';
 import '../js/pagination.js';
 import '../js/4filmDetailsPage.js';
 import '../js/3navigation.js';

@@ -12,30 +12,19 @@ export default class AddLocalStorage {
     this.queue = queue;
     this.button = button;
     this.classCSS = classCSS;
-    this._amountPage = Math.ceil(
-      JSON.parse(localStorage.getItem(this.listName)).length / 9,
-    );
     this.active();
   }
 
   active() {
     if (this.isActive) {
       this.button.classList.add(this.classCSS);
+      // this.button.innerText = 'REMOVE FROM ' + this.button.dataset.name;
       return this.active;
     }
     this.button.classList.remove(this.classCSS);
+    // this.button.innerText = 'ADD TO ' + this.button.dataset.name;
+
     return this.active;
-  }
-
-  get amountPage() {
-    return this._amountPage;
-  }
-
-  set amountPage(item) {
-    this._amountPage = Math.ceil(
-      JSON.parse(localStorage.getItem(item)).length / 9,
-    );
-    return this._amountPage;
   }
 
   checkQueue() {
