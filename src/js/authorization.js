@@ -18,9 +18,11 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-// login event
+//login event
 signinBtn.addEventListener('click', loginEvnt);
+//signup event
 signupBtn.addEventListener('click', signupEvnt);
+//logout event
 logoutBtn.addEventListener('click', logoutEvnt);
 
 function loginEvnt() {
@@ -45,8 +47,6 @@ function signupEvnt() {
 
 function logoutEvnt() {
   firebase.auth().signOut();
-  loginFields.classList.remove('is-hidden');
-  logoutBtn.classList.add('is-hidden');
 }
 
 //realtime listener
@@ -57,7 +57,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     loginFields.classList.add('is-hidden');
 
   } else {
-    console.log('Not logged in');
+    loginFields.classList.remove('is-hidden');
+    logoutBtn.classList.add('is-hidden');
   }
 
 });
