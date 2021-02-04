@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -21,6 +21,7 @@ firebase.initializeApp(firebaseConfig);
 // login event
 signinBtn.addEventListener('click', loginEvnt);
 signupBtn.addEventListener('click', signupEvnt);
+logoutBtn.addEventListener('click', logoutEvnt);
 
 function loginEvnt() {
   //get email and password
@@ -41,6 +42,25 @@ function signupEvnt() {
   const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
   promise.catch(e => console.log(e.message));
 };
+
+function logoutEvnt() {
+  firebase.auth().signOut();
+  loginFields.classList.remove('is-hidden');
+  logoutBtn.classList.add('is-hidden');
+}
+
+//realtime listener
+firebase.auth().onAuthStateChanged(firebaseUser => {
+
+  if(firebaseUser) {
+    logoutBtn.classList.remove('is-hidden');
+    loginFields.classList.add('is-hidden');
+
+  } else {
+    console.log('Not logged in');
+  }
+
+});
 
 //Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);

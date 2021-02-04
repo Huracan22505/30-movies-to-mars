@@ -1,3 +1,10 @@
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: all linear 300ms;
+}
+
 .login-form__backdrop {
   position: fixed;
   top: 0;
@@ -8,15 +15,9 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 1;
-  transition-property: opacity;
+  transition: all linear 300ms;
   overflow: scroll;
   z-index: 999;
-
-  &.is-hidden {
-    visibility: hidden;
-    pointer-events: none;
-    opacity: 0;
-  }
 }
 
 .login-form__wrap {

@@ -24,5 +24,7 @@ export default {
   regEmail: document.getElementById('regEmail'),
   regPass: document.getElementById('regPass'),
   signupEmail: document.getElementById('signupEmail'),
-  signupPass: document.getElementById('signupPass')
+  signupPass: document.getElementById('signupPass'),
+  logoutBtn: document.getElementById('logoutBtn'),
+  loginFields: document.getElementById('loginFields')
 };
