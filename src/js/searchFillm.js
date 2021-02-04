@@ -1,9 +1,7 @@
 import apiService from './apiService.js';
 import refs from './refs.js';
-import galleryTemlate from '../templates/galleryPage.hbs';
-import filmCardTemplate from '../templates/filmDetails.hbs';
 import renderService from './renderService.js';
-
+import showNotification from './errorPnotify.js';
 const { searchForm, searchFormMobile, galleryBox } = refs;
 
 searchForm.addEventListener('submit', getValue);
@@ -14,9 +12,13 @@ function getValue(e) {
   e.preventDefault();
 
   let queryValue = e.target.elements.query.value;
-  console.log(queryValue);
+
   galleryBox.innerHTML = '';
-  apiService
-    .getSearchResult(queryValue)
-    .then(res => renderService.renderGallery(res.results));
+  apiService.getSearchResult(queryValue).then(res => {
+    if (res.results.length === 0) {
+      showNotification('Movie not found');
+    }
+
+    renderService.renderGallery(res.results);
+  });
 }

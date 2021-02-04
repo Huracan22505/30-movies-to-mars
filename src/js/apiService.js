@@ -1,6 +1,6 @@
-import InnerResponceModel from './popularResponceModel.js';
-import OuterResponceModel from './popularResponseOuterModel.js';
-import FilmIdModel from './modelFilmById.js';
+import InnerResponceModel from './models/responceModel.js';
+import OuterResponceModel from './models/responseOuterModel.js';
+import FilmIdModel from './models/modelFilmById.js';
 const baseUrl = 'https://api.themoviedb.org/3/';
 const myApiKey = '2955876276611e1cc2d97a4794387b9d';
 
