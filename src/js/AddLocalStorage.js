@@ -21,9 +21,12 @@ export default class AddLocalStorage {
   active() {
     if (this.isActive) {
       this.button.classList.add(this.classCSS);
+      // this.button.innerText = 'REMOVE FROM ' + this.button.dataset.name;
       return this.active;
     }
     this.button.classList.remove(this.classCSS);
+    // this.button.innerText = 'ADD TO ' + this.button.dataset.name;
+
     return this.active;
   }
 
