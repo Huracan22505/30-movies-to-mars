@@ -3,12 +3,6 @@ import refs from './refs';
 import renderService from '../js/renderService.js';
 import modal from '../js/4filmDetailsPage';
 
-function getLenght() {
-  const array = JSON.parse(localStorage.getItem('watched'));
-  console.log(array.length);
-  return array.length;
-}
-
 const btnWatched = document.querySelector('#watched');
 const btnQueue = document.querySelector('#queue');
 
@@ -60,18 +54,8 @@ async function getDataFromLocalStorage(ListName, page = 1) {
     const dataArr = await Promise.all(responseArr);
 
     renderService.renderGallery(dataArr);
-
-    // isGalleryEmpty();
   } catch (error) {
     console.log(error);
-  }
-}
-
-function isGalleryEmpty() {
-  if (Number(refs.galleryList.childElementCount) !== 0) {
-    refs.emptyNotice.classList.add('is-hidden');
-  } else {
-    refs.emptyNotice.classList.remove('is-hidden');
   }
 }
 
