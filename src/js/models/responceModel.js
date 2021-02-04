@@ -1,20 +1,20 @@
-import genresList from '../genresList.json';
+import genresList from '../../genresList.json';
 
 export default class InnerResponceModel {
   // Собственные свойства класса размещаем в конструкторе
-  constructor(
-    id,
-    posterPath,
-    originalTitle,
-    genreIds,
-    releaseDate,
-    totalPages,
-  ) {
+  constructor(id, posterPath, originalTitle, genreIds, releaseDate) {
     this.id = id;
-    this.posterPath = 'https://image.tmdb.org/t/p/w500' + posterPath;
+    this.posterPath = this.getCorrectImages(posterPath);
     this.originalTitle = originalTitle;
     this.genres = this.getCorrectGenres(genreIds);
     this.releaseDate = this.getReleaseDate(releaseDate);
+  }
+
+  getCorrectImages(posterPath) {
+    if (posterPath === null) {
+      return '../images/glideSlider/errorFilm.jpg';
+    }
+    return 'https://image.tmdb.org/t/p/w500' + posterPath;
   }
 
   getCorrectGenres(genresArray) {
