@@ -1,4 +1,5 @@
 import genresList from '../../genresList.json';
+import image from '../../images/glideSlider/errorFilm.jpg';
 
 export default class InnerResponceModel {
   // Собственные свойства класса размещаем в конструкторе
@@ -12,12 +13,15 @@ export default class InnerResponceModel {
 
   getCorrectImages(posterPath) {
     if (posterPath === null) {
-      return '../images/glideSlider/errorFilm.jpg';
+      return image;
     }
     return 'https://image.tmdb.org/t/p/w500' + posterPath;
   }
 
   getCorrectGenres(genresArray) {
+    if (genresArray.length === 0) {
+      return String.fromCodePoint(0x1f640);
+    }
     let genres = [];
     genresList.map(el => {
       if (genresArray.includes(el.id)) {
