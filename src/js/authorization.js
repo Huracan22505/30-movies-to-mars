@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -32,7 +32,7 @@ function loginEvnt() {
   const auth = firebase.auth();
   //sign in
   const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
-  promise.catch(e => console.log(e.message));
+  promise.catch(e => loginError(e));
 };
 
 function signupEvnt() {
@@ -42,7 +42,7 @@ function signupEvnt() {
   const auth = firebase.auth();
   //create new user
   const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
-  promise.catch(e => console.log(e.message));
+  promise.catch(e => loginError(e));
 };
 
 function logoutEvnt() {
@@ -63,6 +63,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 });
 
+function loginError(e) {
+  regEmail.value = '';
+  regPass.value = '';
+  signupEmail.value = '';
+  signupPass.value = '';
+  loginErrorMessage.textContent = e;
+  loginErrorMessage.classList.remove('is-hidden');
+}
 //Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);
 loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
@@ -78,6 +86,7 @@ function openLoginForm() {
 
 function closeLoginForm() {
   loginFormBackdrop.classList.add('is-hidden');
+  loginErrorMessage.classList.add('is-hidden');
   loginFormCloseButton.removeEventListener('click', closeLoginForm);
   window.removeEventListener('keydown', closeLoginFormOnEsc);
   loginFormOpenButton.addEventListener('click', openLoginForm);

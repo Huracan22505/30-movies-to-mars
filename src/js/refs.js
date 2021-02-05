@@ -26,5 +26,6 @@ export default {
   signupEmail: document.getElementById('signupEmail'),
   signupPass: document.getElementById('signupPass'),
   logoutBtn: document.getElementById('logoutBtn'),
-  loginFields: document.getElementById('loginFields')
+  loginFields: document.getElementById('loginFields'),
+  loginErrorMessage: document.querySelector('.login-form__error-message')
 };
