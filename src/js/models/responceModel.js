@@ -2,7 +2,6 @@ import genresList from '../../genresList.json';
 import image from '../../images/glideSlider/errorFilm.jpg';
 
 export default class InnerResponceModel {
-  // Собственные свойства класса размещаем в конструкторе
   constructor(id, posterPath, originalTitle, genreIds, releaseDate) {
     this.id = id;
     this.posterPath = this.getCorrectImages(posterPath);

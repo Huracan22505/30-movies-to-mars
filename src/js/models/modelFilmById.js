@@ -1,7 +1,6 @@
 import image from '../../images/glideSlider/errorFilm.jpg';
 
 export default class FilmIdModel {
-  // Собственные свойства класса размещаем в конструкторе
   constructor(
     id,
     posterPath,

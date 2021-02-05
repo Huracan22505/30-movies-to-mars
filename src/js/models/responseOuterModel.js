@@ -1,5 +1,4 @@
 export default class OuterResponceModel {
-  // Собственные свойства класса размещаем в конструкторе
   constructor(page, totalPages, results, totalResults) {
     this.page = page;
     this.totalPages = totalPages;

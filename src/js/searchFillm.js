@@ -13,12 +13,12 @@ searchForm.addEventListener('submit', getValue);
 searchFormMobile.addEventListener('submit', getValue);
 openInputBtn.addEventListener('click', getValue);
 
-// функция получения значения инпута
+// function to get input value
 function updateQuery(e) {
   query = e.target.value;
 }
 
-// функция передачи значения инпута в запрос
+// function of passing input value to request
 function getValue(e) {
   e.preventDefault();
   if (query === '') {
