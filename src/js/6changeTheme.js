@@ -6,24 +6,10 @@ const Theme = {
   DARK: 'darkTheme',
 };
 themeChecker();
-iconThemeMobile.addEventListener('change', changeThemeMobile);
-iconThemeDesktop.addEventListener('change', changeThemeDesktop);
+iconThemeMobile.addEventListener('change', changeTheme);
+iconThemeDesktop.addEventListener('change', changeTheme);
 
-// Mobile\laptop Theme
-
-function changeThemeMobile() {
-  const theme = localStorage.getItem(STORAGE_KEY);
-
-  if (theme === 'true') {
-    bodyTheme.classList.add(Theme.DARK);
-    iconThemeMobile.checked = true;
-  } else {
-    bodyTheme.classList.add(Theme.LIGHT);
-  }
-}
-
-// Desktop Theme
-function changeThemeDesktop(e) {
+function changeTheme(e) {
   bodyTheme.classList.toggle(Theme.DARK);
   bodyTheme.classList.toggle(Theme.LIGHT);
 

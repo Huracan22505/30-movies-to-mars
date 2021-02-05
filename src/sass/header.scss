@@ -346,6 +346,7 @@
 .desktopSwitcher__toggle,
 .themeSwitch__toggle {
   position: absolute;
+  z-index: 20;
   left: 0;
   top: 0;
   margin: 0;
