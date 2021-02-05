@@ -9,10 +9,7 @@ upcomingBtn.addEventListener('click', renderUpcoming);
 
 function renderTopRated() {
   galleryBox.innerHTML = '';
-  apiService.getRating().then(result => {
-    console.log(result);
-    renderGallery(result);
-  });
+  apiService.getRating().then(result => renderGallery(result));
   if (!topRatedBtn.classList.contains('is-active')) {
     topRatedBtn.disabled = true;
     popularBtn.disabled = false;
