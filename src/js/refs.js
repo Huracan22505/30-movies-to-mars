@@ -27,6 +27,6 @@ export default {
   signupPass: document.getElementById('signupPass'),
   logoutBtn: document.getElementById('logoutBtn'),
   loginFields: document.getElementById('loginFields'),
-  loginErrorMessage: document.querySelector('.login-form__error-message')
+  loginErrorMessage: document.querySelector('.login-form__error-message'),
   openInputBtn: document.querySelector('.openInputBtn'),
 };
