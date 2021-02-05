@@ -2,10 +2,11 @@ import apiService from './apiService.js';
 import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 import AddLocalStorage from './AddLocalStorage.js';
+import debounce from 'lodash.debounce';
 
 const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
 
-galleryBox.addEventListener('click', onGalleryClick);
+galleryBox.addEventListener('click', debounce(onGalleryClick, 300));
 cardOverlay.addEventListener('click', onModalClose);
 
 let filmId = '';
@@ -13,7 +14,7 @@ const refsModal = {};
 let queue = {};
 let watched = {};
 
-// функция получения значения инпута
+// function to get input value
 function getValue(e) {
   e.preventDefault();
   let queryValue = e.target.elements.query.value;
@@ -21,26 +22,25 @@ function getValue(e) {
   apiService.getSearchResult();
 }
 
-// функция клика по элементу в галерее и
-// получение id фильма
+// function of clicking on an item in the gallery and
+// getting movie id
 function onGalleryClick(ev) {
   const cardRef = ev.target;
   filmId = cardRef.getAttribute('data');
 
   if (filmId != null || filmId != undefined)
     apiService.getFilmById(filmId).then(result => {
-      console.log(result);
       renderCardFilm(result);
     });
 }
 
-//функция отрисовки карточки фильма по шаблону
+//function of drawing a movie card by template
 function renderCardFilm(res) {
   cardBox.insertAdjacentHTML('beforeend', filmCardTemplate(res));
   openModal();
 }
 
-//функция открытия модалки
+//modal opening function
 function openModal() {
   cardModal.classList.add('card__modal__lightbox__is-open');
 
@@ -63,7 +63,7 @@ function openModal() {
   );
 }
 
-//функция закрытия модалки
+//close modal function
 function onModalClose() {
   cardBox.innerHTML = '';
   cardModal.classList.remove('card__modal__lightbox__is-open');
