@@ -1,6 +1,4 @@
 export default {
-  searchForm: document.getElementById('searchForm'),
-  searchFormMobile: document.getElementById('searchFormMobile'),
   galleryBox: document.querySelector('.gallery__wrapper'),
   genreList: document.querySelector('.gallery__film-category__light'),
   bodyTheme: document.querySelector('body'),
@@ -18,5 +16,15 @@ export default {
   loginFormBackdrop: document.querySelector('.login-form__backdrop'),
   loginFormCloseButton: document.querySelector('.login-form__close-button'),
   loginFormOpenButton: document.querySelector('.authorization'),
-  loginFormOpenButtonDesktop: document.querySelector('.desktopAuth')
+  loginFormOpenButtonDesktop: document.querySelector('.desktopAuth'),
+  // burger
+  openMenuBtn: document.querySelector('.openBurgerMenu'),   closeMenuBtn: document.querySelector('.closeBurgerMenu'),   menu: document.querySelector('.navBar'),
+  // searching
+  searchForm: document.getElementById('searchForm'),
+  searchFormMobile: document.getElementById('searchFormMobile'),
+  searchBtn: document.querySelector('.searchBtn'),
+  mobileSearchBtn: document.querySelector('.mobileSearchBtn'),
+  openInputBtn: document.querySelector('.openInputBtn'),
+  closeInputBtn: document.querySelector('.closeInputBtn'),
+  inputPanel: document.querySelector('.inputPanel')
 };

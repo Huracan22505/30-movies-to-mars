@@ -94,6 +94,7 @@
 
 .openBurgerMenu,
 .closeBurgerMenu,
+.searchBtn,
 .openInputBtn,
 .closeInputBtn,
 .mobileSearchBtn {
@@ -104,6 +105,7 @@
   color: #fff;
   border: 2px solid transparent;
   transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -124,14 +126,22 @@
   }
 }
 
+.searchBtn {
+  display: none;
+  @media screen and(min-width: 768px) {
+    border-bottom: 2px solid #fff;
+    display: block;
+  }
+}
+
 .openInputBtn {
   @media screen and(min-width: 768px) {
-    border-bottom: 2px solid;
+    display: none;
   }
 }
 
 .closeInputBtn, .mobileSearchBtn {
-  border-bottom: 2px solid silver;
+  border-bottom: 2px solid #ffffff;
 
   &:hover,
   &:focus {
@@ -140,18 +150,25 @@
 }
 
 .inputPanel {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  display: block;
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(51, 0, 153));
+  border-bottom: 2px solid #ffff00; 
+  transform: translateY(-80px);
+  transition: 350ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
   &.is-open {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 80px;
-    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(51, 0, 153));
+    transform: translateY(0);
     @media screen and(min-width: 768px) {
       display: none;
     }
+  }
+
+  .searchForm {
+    display: flex;
   }
 
   .headerForm {
@@ -229,7 +246,6 @@
 // ======================
 
 .navBar {
-  opacity: 0;
   pointer-events: none;
   position: fixed;
   top: 0;
@@ -239,12 +255,10 @@
   transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &.is-open {
-    opacity: 1;
     z-index: 120;
     pointer-events: initial;
     width: 100%;
     background-color: rgba(51, 0, 153, 0.7);
-    transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   @media screen and(min-width: 1200px) {
@@ -265,6 +279,12 @@
     rgba(0, 0, 0, 0.8)
   );
   background-color: rgba(51, 0, 153, 0.85);
+  transform: translateX(-100%) ;
+  transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  .navBar.is-open & {
+    transform: translateX(0);
+  }
 }
 
 .insideBurgerBtns {

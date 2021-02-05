@@ -24,8 +24,16 @@
               <li><a href="./aboutUs.html">About Us</a></li>
             </ul>
           </div>
-          <input type="text" class="desktopInput" />
-          <button class="searchBtn openInputBtn">
+          <form id="searchForm">
+            <input type="text" name="query" class="desktopInput" />
+          </form>
+          <button class="searchBtn">
+            <svg>
+              <use href="../images/headersprite.svg#search"></use>
+            </svg>
+          </button>
+
+          <button class="openInputBtn">
             <svg>
               <use href="../images/headersprite.svg#search"></use>
             </svg>
@@ -59,7 +67,7 @@
           </div>
 
           <!-- input for mobile version -->
-          <div class="inputPanel is-open">
+          <div class="inputPanel">
             <div class="headerForm">
               <button class="closeInputBtn">
                 <svg>
