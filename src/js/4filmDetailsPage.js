@@ -2,10 +2,11 @@ import apiService from './apiService.js';
 import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 import AddLocalStorage from './AddLocalStorage.js';
+import debounce from 'lodash.debounce';
 
 const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
 
-galleryBox.addEventListener('click', onGalleryClick);
+galleryBox.addEventListener('click', debounce(onGalleryClick, 300));
 cardOverlay.addEventListener('click', onModalClose);
 
 let filmId = '';
