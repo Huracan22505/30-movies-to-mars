@@ -155,6 +155,7 @@
         <div class="login-form__wrap">
           <div class="login-form__html">
             <button type="button" class="login-form__close-button"></button>
+            <div id="loginFields">
             <input
               id="sign-in"
               type="radio"
@@ -171,19 +172,19 @@
             <div class="login-form">
               <div class="login-form__signin-group">
                 <div class="login-form__field">
-                  <label for="user" class="login-form_label">Username</label>
+                  <label for="regEmail" class="login-form_label">E-mail</label>
                   <input
-                    id="user"
-                    type="text"
+                    id="regEmail"
+                    type="email"
                     class="login-form_input"
                     placeholder=" "
                     required
                   />
                 </div>
                 <div class="login-form__field">
-                  <label for="pass" class="login-form_label">Password</label>
+                  <label for="regPass" class="login-form_label">Password</label>
                   <input
-                    id="pass"
+                    id="regPass"
                     type="password"
                     class="login-form_input"
                     data-type="password"
@@ -193,6 +194,7 @@
                 </div>
                 <div class="login-form__field">
                   <input
+                    id="signinBtn"
                     type="submit"
                     class="login-form_button"
                     value="Sign In"
@@ -204,45 +206,9 @@
               </div>
               <div class="login-form__signup-group">
                 <div class="login-form__field">
-                  <label for="user" class="login-form_label">Username</label>
+                  <label for="signupEmail" class="login-form_label">Email</label>
                   <input
-                    id="user"
-                    type="text"
-                    class="login-form_input"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="pass" class="login-form_label">Password</label>
-                  <input
-                    id="pass"
-                    type="password"
-                    class="login-form_input"
-                    data-type="password"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="pass" class="login-form_label"
-                    >Repeat Password</label
-                  >
-                  <input
-                    id="pass"
-                    type="password"
-                    class="login-form_input"
-                    data-type="password"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="email" class="login-form_label"
-                    >Email Address</label
-                  >
-                  <input
-                    id="email"
+                    id="signupEmail"
                     type="email"
                     class="login-form_input"
                     placeholder=" "
@@ -250,7 +216,19 @@
                   />
                 </div>
                 <div class="login-form__field">
+                  <label for="signupPass" class="login-form_label">Password</label>
                   <input
+                    id="signupPass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+                <div class="login-form__field">
+                  <input
+                    id="signupBtn"
                     type="submit"
                     class="login-form_button"
                     value="Sign Up"
@@ -260,11 +238,12 @@
                   <label for="sign-in">Already Registered?</label>
                 </div>
               </div>
-              <!-- <div class="login-form__social-container">
-              <p>Or Login With</p>
-              <div class="login-form__social-icons"></div>
-            </div> -->
+              </div>
             </div>
+                      <div class="login-form__field">
+                        <input id="logoutBtn" type="submit" class="login-form_button is-hidden" value="Log Out" />
+                      </div>
+                      <p class="login-form__error-message is-hidden"></p>
           </div>
         </div>
       </div>
