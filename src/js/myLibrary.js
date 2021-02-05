@@ -54,8 +54,18 @@ async function getDataFromLocalStorage(ListName, page = 1) {
     const dataArr = await Promise.all(responseArr);
 
     renderService.renderGallery(dataArr);
+
+    isGalleryEmpty();
   } catch (error) {
     console.log(error);
+  }
+}
+
+function isGalleryEmpty() {
+  if (Number(refs.libraryList.childElementCount) !== 0) {
+    refs.emptyNotice.classList.add('hidden');
+  } else {
+    refs.emptyNotice.classList.remove('hidden');
   }
 }
 
