@@ -1,54 +1,53 @@
 <div class="card__section__content container ">
-  <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" class="card__img" />
+  <img src="{{_posterPath}}" alt="{{_title}}" class="card__img" />
   <div class="card__content">
-    <h2 class="card__title">{{title}}</h2>
+    <h2 class="card__title">{{_title}}</h2>
     <div class="card__mainInfo">
       <ul class="card__mainInfo__list list">
         <li class="card__mainInfo__item">
           <p class="card__mainInfo__itemTitle flex-basis">
             Vote <span> /</span> Votes
           </p>
-          <p class="card__mainInfo__item__vote">{{vote_average}}</p>
+          <p class="card__mainInfo__item__vote">{{_voteAverage}}</p>
           <span> / </span>
-          <p class="card__mainInfo__item__votes ">{{vote_count}}</p>
+          <p class="card__mainInfo__item__votes ">{{_voteCount}}</p>
         </li>
         <li class="card__mainInfo__item">
           <p class="card__mainInfo__itemTitle flex-basis">Popularity</p>
-          <p class="card__mainInfo__item__popularity flex-basis">{{popularity}}</p>
+          <p class="card__mainInfo__item__popularity flex-basis">{{_popularity}}</p>
         </li>
         <li class="card__mainInfo__item">
           <p class="card__mainInfo__itemTitle flex-basis">Original title</p>
-          <p class="card__mainInfo__item__film flex-basis">{{original_title}}</p>
+          <p class="card__mainInfo__item__film flex-basis">{{_originalTitle}}</p>
         </li>
         <li class="card__mainInfo__item">
           <p class="card__mainInfo__itemTitle flex-basis">Genre</p>
-          <p class="card__mainInfo__item__genre flex-basis">{{#each genres}}
-            {{name}}{{#unless @last}},{{/unless}} {{/each}}</p>
+          <p class="card__mainInfo__item__genre flex-basis">{{ _genres}}</p>
         </li>
       </ul>
     </div>
     <div class="card__aboutInfo">
       <h3 class="card__aboutInfo__title">ABOUT</h3>
       <p class="card__aboutInfo__text">
-        {{overview}}
+        {{_overview}}
       </p>
     </div>
     <div class="card__checkbox">
       <ul class="card__button__list list">
         <li>
-          <button type="button" class="card__btn__watched button" id="btn_watched" data-id={{id}}>
+          <button type="button" class="card__btn__watched button" id="btn_watched" data-id={{_id}} data-name="WATCHED">
             {{!-- <svg class="card__btn__watched__icon" width="20px" height="20px">
               <use href="../images/detailsPage/card-page.svg#icon-film"></use>
             </svg> --}}
-            add to Watched
+            Watched
           </button>
         </li>
         <li>
-          <button type="button" class="card__btn__queue button" id="btn_queue" data-id={{id}}>
+          <button type="button" class="card__btn__queue button" id="btn_queue" data-id={{_id}} data-name="QUEUE">
             {{!-- <svg class="card__btn__queue__icon" width="20px" height="20px">
               <use href="../images/detailsPage/card-page.svg#icon-rocket"></use>
             </svg> --}}
-            add to Queue
+            Queue
           </button>
         </li>
       </ul>
