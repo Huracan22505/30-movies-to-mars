@@ -64,14 +64,27 @@
           </div>
 
           <!-- input for mobile version -->
-          <div class="inputPanel">
+          <div class="inputPanel is-open">
             <div class="headerForm">
-              <input type="text" class="mobileInput" />
               <button class="closeInputBtn">
                 <svg>
-                  <use href="../images/sprite.svg#inputClose"></use>
+                  <use href="../images/headersprite.svg#inputClose"></use>
                 </svg>
               </button>
+              <form id="searchFormMobile">
+                <input
+                  type="text"
+                  name="query"
+                  class="mobileInput"
+                  id="searchFormMobile"
+                />
+              </form>
+                <button class="mobileSearchBtn">
+                <svg>
+                  <use href="../images/headersprite.svg#telescope"></use>
+                </svg>
+              </button>
+              </ul>
             </div>
           </div>
 

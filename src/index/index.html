@@ -18,6 +18,7 @@
   </head>
 
   <body>
+    <!-- preloader -->
     <div class="preloading-container">
       <div id="stars"></div>
       <div id="stars2"></div>
@@ -26,6 +27,8 @@
     </div>
 
     <div class="hide-main-container">
+
+      <!-- header -->
       <header class="pageHeader">
         <div class="container">
           <div class="headerNavigation">
@@ -82,8 +85,13 @@
             </div>
 
             <!-- input for mobile version -->
-            <div class="inputPanel">
+            <div class="inputPanel is-open">
               <div class="headerForm">
+                <button class="closeInputBtn">
+                  <svg>
+                    <use href="../images/headersprite.svg#inputClose"></use>
+                  </svg>
+                </button>
                 <form id="searchFormMobile">
                   <input
                     type="text"
@@ -92,12 +100,12 @@
                     id="searchFormMobile"
                   />
                 </form>
-
-                <button class="closeInputBtn">
+                  <button class="mobileSearchBtn">
                   <svg>
-                    <use href="../images/sprite.svg#inputClose"></use>
+                    <use href="../images/headersprite.svg#telescope"></use>
                   </svg>
                 </button>
+                </ul>
               </div>
             </div>
 

@@ -95,7 +95,8 @@
 .openBurgerMenu,
 .closeBurgerMenu,
 .openInputBtn,
-.closeInputBtn {
+.closeInputBtn,
+.mobileSearchBtn {
   width: 40px;
   height: 40px;
   padding: 5px;
@@ -129,7 +130,7 @@
   }
 }
 
-.closeInputBtn {
+.closeInputBtn, .mobileSearchBtn {
   border-bottom: 2px solid silver;
 
   &:hover,
@@ -165,6 +166,9 @@
 
   & input {
     width: calc(100% - 40px);
+    @media screen and(max-width: 767px) {
+      width:100%;
+    }
     height: 40px;
     margin-right: auto;
     padding-left: 16px;
