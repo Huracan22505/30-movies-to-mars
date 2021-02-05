@@ -7,8 +7,8 @@ import debounce from 'lodash.debounce';
 const { searchForm, searchFormMobile, galleryBox, openInputBtn } = refs;
 let query = '';
 
-searchForm.addEventListener('input', debounce(updateQuery, 1000));
-searchFormMobile.addEventListener('input', debounce(updateQuery, 1000));
+searchForm.addEventListener('input', updateQuery);
+searchFormMobile.addEventListener('input', updateQuery);
 searchForm.addEventListener('submit', getValue);
 searchFormMobile.addEventListener('submit', getValue);
 openInputBtn.addEventListener('click', getValue);
@@ -21,7 +21,9 @@ function updateQuery(e) {
 // функция передачи значения инпута в запрос
 function getValue(e) {
   e.preventDefault();
-
+  if (query === '') {
+    return;
+  }
   galleryBox.innerHTML = '';
   apiService.getSearchResult(query).then(res => {
     if (res.results.length === 0) {

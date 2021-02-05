@@ -6,9 +6,15 @@ export default class InnerResponceModel {
   constructor(id, posterPath, originalTitle, genreIds, releaseDate) {
     this.id = id;
     this.posterPath = this.getCorrectImages(posterPath);
-    this.originalTitle = originalTitle;
+    this.originalTitle = this.getOriginalTitle(originalTitle);
     this.genres = this.getCorrectGenres(genreIds);
     this.releaseDate = this.getReleaseDate(releaseDate);
+  }
+  getOriginalTitle(originalTitle) {
+    if (originalTitle === undefined) {
+      return String.fromCodePoint(0x1f640);
+    }
+    return originalTitle;
   }
 
   getCorrectImages(posterPath) {
@@ -32,7 +38,9 @@ export default class InnerResponceModel {
   }
 
   getReleaseDate(date) {
-    if (date === null || date === undefined) return;
+    if (date === null || date === undefined) {
+      return String.fromCodePoint(0x1f640);
+    }
     return date.slice(0, 4);
   }
 

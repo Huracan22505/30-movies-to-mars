@@ -30,7 +30,6 @@ function onGalleryClick(ev) {
 
   if (filmId != null || filmId != undefined)
     apiService.getFilmById(filmId).then(result => {
-      console.log(result);
       renderCardFilm(result);
     });
 }

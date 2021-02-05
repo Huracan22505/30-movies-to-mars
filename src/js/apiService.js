@@ -27,7 +27,6 @@ export default {
 
   // находит фильм по id
   getFilmById(filmId) {
-    console.log(filmId);
     const params = `movie/${filmId}?api_key=${myApiKey}&language=en-US`;
     let url = baseUrl + params;
     return fetch(url)
@@ -52,42 +51,29 @@ export default {
       .then(data => buildModel(data));
   },
   // загружает все фильмы для указанной страницы
+  // ДУБЛИРУЕТ getPopular(pageNum = 1)
   getAllFilmsByPage(pageNum = 1) {
     const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
     return fetch(url)
       .then(response => response.json())
       .then(data => buildModel(data));
   },
+  // используется для слайдера
   getRatedFilmsByPage() {
     const url = `${baseUrl}trending/all/day?api_key=${myApiKey}`;
     return fetch(url)
       .then(response => response.json())
       .then(({ results }) => results);
   },
+  // ДУБЛИРУЕТ функицю getPopular(pageNum = 1)
   getPopularFilmsByPage(pageNum = 1) {
     const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
     return fetch(url).then(response => response.json());
   },
+  // ДУБЛИРУЕТ функцию getUpcoming(pageNum = 1)
   getUpcomingFilmsByPage(pageNum = 1) {
     const url = `${baseUrl}movie/upcoming?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
     return fetch(url).then(response => response.json());
-  },
-  buildModel(data) {
-    return new OuterResponceModel(
-      data.page,
-      data.total_pages,
-      data.results.map(
-        el =>
-          new InnerResponceModel(
-            el.id,
-            el.poster_path,
-            el.original_title,
-            el.genre_ids,
-            el.release_date,
-          ),
-      ),
-      data.total_results,
-    );
   },
 };
 
