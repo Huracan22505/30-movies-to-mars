@@ -24,11 +24,13 @@ function getValue(e) {
   if (query === '') {
     return;
   }
-  galleryBox.innerHTML = '';
+
   apiService.getSearchResult(query).then(res => {
     if (res.results.length === 0) {
       showNotification('Movie not found');
+    } else {
+      galleryBox.innerHTML = '';
+      renderService.renderGallery(res.results);
     }
-    renderService.renderGallery(res.results);
   });
 }
