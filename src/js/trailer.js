@@ -1,4 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
+const apiKey = '2955876276611e1cc2d97a4794387b9d';
 
 function createTrailerLink(elementRef) {
   const trailer = elementRef;
@@ -10,8 +11,7 @@ function createTrailerLink(elementRef) {
   );
 
   function markupModalForTrailer(id) {
-    const ApiKey = '2955876276611e1cc2d97a4794387b9d';
-    const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${ApiKey}&language=en-US`;
+    const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -19,14 +19,6 @@ function createTrailerLink(elementRef) {
         const youtubeVideo = basicLightbox.create(`
   <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 `);
-        youtubeVideo.show();
-        toModalTrailer(youtubeVideo);
-      })
-      .catch(() => {
-        const youtubeVideo = basicLightbox.create(`
-    <iframe width="560" height="315" src='http://www.youtube.com/embed/zwBpUdZ0lrQ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      `);
-
         youtubeVideo.show();
         toModalTrailer(youtubeVideo);
       });

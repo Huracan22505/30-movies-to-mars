@@ -58,9 +58,11 @@ export default {
       .then(response => response.json())
       .then(data => buildModel(data));
   },
-  getRatedFilmsByPage(pageNum = 1) {
-    const url = `${baseUrl}trending/all/day?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
-    return fetch(url).then(response => response.json());
+  getRatedFilmsByPage() {
+    const url = `${baseUrl}trending/all/day?api_key=${myApiKey}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ results }) => results);
   },
   getPopularFilmsByPage(pageNum = 1) {
     const url = `${baseUrl}movie/popular?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
