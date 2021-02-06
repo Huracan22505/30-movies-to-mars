@@ -27,18 +27,21 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-@media screen and(max-width: 767px) {
   .card__box {
     width: 100%;
     padding: 0;
-    height: 95%;
+    max-height: 95%;
     overflow-y: scroll;
-
+    @media screen and(min-width: 768px) {
+      max-width: 728px
+    }
+    @media screen and(min-width:1200px) {
+      max-width: 1060px;
+    }
     &::-webkit-scrollbar {
       width: 0;
     }
   }
-}
 
 .card__section__content {
   padding: 20px;
@@ -58,11 +61,9 @@
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     max-width: 90%;
   }
-
   @media screen and (min-width: 1200px) {
     font-size: 16px;
-    height: 90%;
-    max-width: 1200px;
+    height: 90%; 
   }
 
   .lightTheme &{
@@ -83,7 +84,6 @@
   }
   @media screen and(min-width: 1200px) {
    width: 370px;
-  //  height: 100%;
   }
 }
 
@@ -111,12 +111,10 @@ h2.card__title {
   font-size: 20px;
   text-transform: uppercase;
   color: #330099;
-
   @media screen and (min-width: 768px) {
     margin-top: 0px;
     font-size: 30px;
   }
-
   .darkTheme & {
     color: #ffff00;
   }
@@ -194,7 +192,6 @@ h2.card__title {
   line-height: 1.33;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
   @media screen and (min-width: 1200px) {
     font-weight: 700;
     letter-spacing: 0.06em;
