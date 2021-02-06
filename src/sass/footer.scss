@@ -44,3 +44,18 @@
     color: #ffff00;
   }
 }
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.gallery__section {
+  min-height: 77vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
