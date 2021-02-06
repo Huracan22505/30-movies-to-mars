@@ -42,6 +42,34 @@
   }
 }
 
+.darkTheme .library__filters__btn {
+  color: #ffff00;
+  &:hover {
+    color: #330099;
+  }
+}
+
 .is__active {
   background-color: silver;
+  &:hover {
+    background-color: silver;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.darkTheme .is__active {
+  color: #330099;
+}
+
+.empty__notice {
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+.darkTheme .empty__notice {
+  color: #ffff00;
 }

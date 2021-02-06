@@ -19,13 +19,21 @@
           /></a>
           <div class="desktopNav">
             <ul class="desktopNav-list list">
-              <li><a href="../index.html">Home</a></li>
+              <li><a href="./index.html">Home</a></li>
               <li><a href="./library.html">My Library</a></li>
               <li><a href="./aboutUs.html">About Us</a></li>
             </ul>
           </div>
-          <input type="text" class="desktopInput" />
-          <button class="searchBtn openInputBtn">
+          <form id="searchForm">
+            <input type="text" name="query" class="desktopInput" />
+          </form>
+          <button class="searchBtn">
+            <svg>
+              <use href="../images/headersprite.svg#search"></use>
+            </svg>
+          </button>
+
+          <button class="openInputBtn">
             <svg>
               <use href="../images/headersprite.svg#search"></use>
             </svg>
@@ -61,12 +69,25 @@
           <!-- input for mobile version -->
           <div class="inputPanel">
             <div class="headerForm">
-              <input type="text" class="mobileInput" />
               <button class="closeInputBtn">
                 <svg>
-                  <use href="../images/sprite.svg#inputClose"></use>
+                  <use href="../images/headersprite.svg#inputClose"></use>
                 </svg>
               </button>
+              <form id="searchFormMobile">
+                <input
+                  type="text"
+                  name="query"
+                  class="mobileInput"
+                  id="searchFormMobile"
+                />
+              </form>
+                <button class="mobileSearchBtn">
+                <svg>
+                  <use href="../images/headersprite.svg#telescope"></use>
+                </svg>
+              </button>
+              </ul>
             </div>
           </div>
 
@@ -135,6 +156,8 @@
             </li>
           </ul>
           <ul class="library__list gallery__wrapper list"></ul>
+          <p class="empty__notice">BRO! ADD SOMETHING PLS!</p>
+
           <div class="card__modal__lightbox container">
             <div class="card__overlay"></div>
             <div class="card__box"></div>

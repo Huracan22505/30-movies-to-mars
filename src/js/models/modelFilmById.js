@@ -1,7 +1,6 @@
 import image from '../../images/glideSlider/errorFilm.jpg';
 
 export default class FilmIdModel {
-  // Собственные свойства класса размещаем в конструкторе
   constructor(
     id,
     posterPath,
@@ -41,7 +40,9 @@ export default class FilmIdModel {
   }
 
   getReleaseDate(date) {
-    if (date === null || date === undefined) return;
+    if (date === null || date === undefined) {
+      return String.fromCodePoint(0x1f640);
+    }
     return date.slice(0, 4);
   }
 

@@ -18,6 +18,7 @@
   </head>
 
   <body>
+    <!-- preloader -->
     <div class="preloading-container">
       <div id="stars"></div>
       <div id="stars2"></div>
@@ -26,6 +27,8 @@
     </div>
 
     <div class="hide-main-container">
+
+      <!-- header -->
       <header class="pageHeader">
         <div class="container">
           <div class="headerNavigation">
@@ -34,7 +37,7 @@
                 <use href="../images/headersprite.svg#burger"></use>
               </svg>
             </button>
-            <a href="../index.html" id="home"
+            <a href="./index.html" id="home"
               ><img src="../images/logo.png" alt="logo"
             /></a>
             <div class="desktopNav">
@@ -47,8 +50,13 @@
             <form id="searchForm">
               <input type="text" name="query" class="desktopInput" />
             </form>
+            <button class="searchBtn">
+              <svg>
+                <use href="../images/headersprite.svg#search"></use>
+              </svg>
+            </button>
 
-            <button class="searchBtn openInputBtn">
+            <button class="openInputBtn">
               <svg>
                 <use href="../images/headersprite.svg#search"></use>
               </svg>
@@ -84,6 +92,11 @@
             <!-- input for mobile version -->
             <div class="inputPanel">
               <div class="headerForm">
+                <button class="closeInputBtn">
+                  <svg>
+                    <use href="../images/headersprite.svg#inputClose"></use>
+                  </svg>
+                </button>
                 <form id="searchFormMobile">
                   <input
                     type="text"
@@ -92,12 +105,12 @@
                     id="searchFormMobile"
                   />
                 </form>
-
-                <button class="closeInputBtn">
+                  <button class="mobileSearchBtn">
                   <svg>
-                    <use href="../images/sprite.svg#inputClose"></use>
+                    <use href="../images/headersprite.svg#telescope"></use>
                   </svg>
                 </button>
+                </ul>
               </div>
             </div>
 
@@ -155,6 +168,7 @@
         <div class="login-form__wrap">
           <div class="login-form__html">
             <button type="button" class="login-form__close-button"></button>
+            <div id="loginFields">
             <input
               id="sign-in"
               type="radio"
@@ -171,19 +185,19 @@
             <div class="login-form">
               <div class="login-form__signin-group">
                 <div class="login-form__field">
-                  <label for="user" class="login-form_label">Username</label>
+                  <label for="regEmail" class="login-form_label">E-mail</label>
                   <input
-                    id="user"
-                    type="text"
+                    id="regEmail"
+                    type="email"
                     class="login-form_input"
                     placeholder=" "
                     required
                   />
                 </div>
                 <div class="login-form__field">
-                  <label for="pass" class="login-form_label">Password</label>
+                  <label for="regPass" class="login-form_label">Password</label>
                   <input
-                    id="pass"
+                    id="regPass"
                     type="password"
                     class="login-form_input"
                     data-type="password"
@@ -193,6 +207,7 @@
                 </div>
                 <div class="login-form__field">
                   <input
+                    id="signinBtn"
                     type="submit"
                     class="login-form_button"
                     value="Sign In"
@@ -204,45 +219,9 @@
               </div>
               <div class="login-form__signup-group">
                 <div class="login-form__field">
-                  <label for="user" class="login-form_label">Username</label>
+                  <label for="signupEmail" class="login-form_label">Email</label>
                   <input
-                    id="user"
-                    type="text"
-                    class="login-form_input"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="pass" class="login-form_label">Password</label>
-                  <input
-                    id="pass"
-                    type="password"
-                    class="login-form_input"
-                    data-type="password"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="pass" class="login-form_label"
-                    >Repeat Password</label
-                  >
-                  <input
-                    id="pass"
-                    type="password"
-                    class="login-form_input"
-                    data-type="password"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="email" class="login-form_label"
-                    >Email Address</label
-                  >
-                  <input
-                    id="email"
+                    id="signupEmail"
                     type="email"
                     class="login-form_input"
                     placeholder=" "
@@ -250,7 +229,19 @@
                   />
                 </div>
                 <div class="login-form__field">
+                  <label for="signupPass" class="login-form_label">Password</label>
                   <input
+                    id="signupPass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+                <div class="login-form__field">
+                  <input
+                    id="signupBtn"
                     type="submit"
                     class="login-form_button"
                     value="Sign Up"
@@ -260,11 +251,12 @@
                   <label for="sign-in">Already Registered?</label>
                 </div>
               </div>
-              <!-- <div class="login-form__social-container">
-              <p>Or Login With</p>
-              <div class="login-form__social-icons"></div>
-            </div> -->
+              </div>
             </div>
+                      <div class="login-form__field">
+                        <input id="logoutBtn" type="submit" class="login-form_button is-hidden" value="Log Out" />
+                      </div>
+                      <p class="login-form__error-message is-hidden"></p>
           </div>
         </div>
       </div>

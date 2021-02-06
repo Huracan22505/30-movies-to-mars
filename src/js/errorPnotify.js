@@ -22,7 +22,7 @@ function showNotification(text) {
     styling: 'angeler',
     text: text,
     stack: myStack,
-    delay: 500,
+    delay: 1000,
   });
 }
 

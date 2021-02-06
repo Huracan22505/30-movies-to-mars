@@ -74,7 +74,8 @@ body.darkTheme {
   color: $accent-color;
 }
 .lightTheme h2 {
-  color: $primary-color;}
+  color: $primary-color;
+}
 //  Tag styles
 
 body.modal-open {
@@ -102,6 +103,10 @@ img {
 
 textarea {
   resize: none;
+}
+
+button {
+  outline: none;
 }
 
 .hidden {
