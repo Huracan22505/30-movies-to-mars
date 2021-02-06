@@ -77,10 +77,10 @@ loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
 
 function openLoginForm() {
   loginFormBackdrop.classList.remove('is-hidden');
-  document.body.classList.remove('modal-open');
-  menu.classList.remove('is-open');
   loginFormOpenButton.removeEventListener('click', openLoginForm);
   loginFormOpenButtonDesktop.removeEventListener('click', openLoginForm);
+  menu.classList.remove('is-open');
+  document.querySelector('html').style.overflow = 'hidden';
   loginFormCloseButton.addEventListener('click', closeLoginForm);
   window.addEventListener('keydown', closeLoginFormOnEsc);
   loginFormBackdrop.addEventListener('click', closeLoginFormOnBackdropClick);
@@ -93,6 +93,7 @@ function closeLoginForm() {
   window.removeEventListener('keydown', closeLoginFormOnEsc);
   loginFormOpenButton.addEventListener('click', openLoginForm);
   loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
+  document.querySelector('html').style.overflow = '';
 }
 
 function closeLoginFormOnEsc(event) {
