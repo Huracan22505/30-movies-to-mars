@@ -1,6 +1,6 @@
 import refs from './refs.js'
 
-const {openMenuBtn, closeMenuBtn, menu, openInputBtn, closeInputBtn, inputPanel, burger, switcher} = refs;
+const {openMenuBtn, closeMenuBtn, menu, openInputBtn, closeInputBtn, inputPanel, switcher} = refs;
 
 openMenuBtn.addEventListener('click', onOpenBurger);
 openInputBtn.addEventListener('click', onSearch);
