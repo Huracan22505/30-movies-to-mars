@@ -5,7 +5,7 @@ const {openMenuBtn, closeMenuBtn, menu, openInputBtn, closeInputBtn, inputPanel,
 openMenuBtn.addEventListener('click', onOpenBurger);
 openInputBtn.addEventListener('click', onSearch);
 closeInputBtn.addEventListener('click', onSearch);
-menu.addEventListener('click', (e)=>{ if(e.target === switcher) { menu.classList.remove('is-open'); document.querySelector('html').style.overflow = 'hidden'}
+menu.addEventListener('click', (e)=>{ if(e.target === switcher) { menu.classList.remove('is-open'); document.querySelector('html').style.overflow = ''}
 })
   
 
