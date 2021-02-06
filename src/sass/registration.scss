@@ -26,6 +26,7 @@
   transition: all linear 300ms;
   overflow: scroll;
   z-index: 999;
+  transform: scale(1);
 }
 
 .login-form__wrap {
