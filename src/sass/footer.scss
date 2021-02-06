@@ -51,7 +51,7 @@ body {
 }
 
 .gallery__section {
-  min-height: 77vh;
+  min-height: calc(100vh - 100px);
 }
 
 footer {
