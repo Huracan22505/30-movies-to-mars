@@ -109,16 +109,15 @@ button {
   outline: none;
 }
 
-.hidden {
+.is-hidden {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px 1px 1px 1px);
-  padding: 0 !important;
-  border: 0 !important;
-
-  height: 0 !important;
-  width: 0 !important;
   overflow: hidden;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: all linear 300ms !important;
 }
 
 .container {
