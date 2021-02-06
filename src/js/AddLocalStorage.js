@@ -37,7 +37,7 @@ export default class AddLocalStorage {
     );
     this.queue.button.classList.remove(this.classCSS);
     this.queue.isActive = false;
-    this.queue.button.innerText = 'ADD TO ' + this.button.dataset.name;
+    this.queue.button.innerText = 'ADD TO ' + this.queue.button.dataset.name;
   }
 
   addLocalStorage() {
