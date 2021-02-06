@@ -3,6 +3,8 @@ import refs from './refs';
 import renderService from '../js/renderService.js';
 import modal from '../js/4filmDetailsPage';
 
+let dataArr;
+
 const btnWatched = document.querySelector('#watched');
 const btnQueue = document.querySelector('#queue');
 
@@ -51,7 +53,7 @@ async function getDataFromLocalStorage(ListName, page = 1) {
       return request.getFilmById(id);
     });
 
-    const dataArr = await Promise.all(responseArr);
+    dataArr = await Promise.all(responseArr);
 
     renderService.renderGallery(dataArr);
 
