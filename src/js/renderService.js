@@ -5,14 +5,14 @@ import filmCardTemplate from '../templates/filmDetails.hbs';
 const { galleryBox, cardBox } = refs;
 
 export default {
-  // функция отрисовки галереи
+  // gallery rendering function
   renderGallery(result) {
     console.log('render service result: ', result);
     let items = galleryTemlate(result);
     galleryBox.insertAdjacentHTML('beforeend', items);
   },
 
-  // функция отрисовки карточки фильма
+  // movie card drawing function
   renderCardFilm(res) {
     cardBox.insertAdjacentHTML('beforeend', filmCardTemplate(res));
     openModal();

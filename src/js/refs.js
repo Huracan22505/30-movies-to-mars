@@ -17,8 +17,10 @@ export default {
   loginFormCloseButton: document.querySelector('.login-form__close-button'),
   loginFormOpenButton: document.querySelector('.authorization'),
   loginFormOpenButtonDesktop: document.querySelector('.desktopAuth'),
+  
   // burger
   openMenuBtn: document.querySelector('.openBurgerMenu'),   closeMenuBtn: document.querySelector('.closeBurgerMenu'),   menu: document.querySelector('.navBar'),
+  
   // searching
   searchForm: document.getElementById('searchForm'),
   searchFormMobile: document.getElementById('searchFormMobile'),
@@ -26,5 +28,16 @@ export default {
   mobileSearchBtn: document.querySelector('.mobileSearchBtn'),
   openInputBtn: document.querySelector('.openInputBtn'),
   closeInputBtn: document.querySelector('.closeInputBtn'),
-  inputPanel: document.querySelector('.inputPanel')
+  inputPanel: document.querySelector('.inputPanel'),
+  signinBtn: document.getElementById('signinBtn'),
+  signupBtn: document.getElementById('signupBtn'),
+  regEmail: document.getElementById('regEmail'),
+  regPass: document.getElementById('regPass'),
+  signupEmail: document.getElementById('signupEmail'),
+  signupPass: document.getElementById('signupPass'),
+  logoutBtn: document.getElementById('logoutBtn'),
+  loginFields: document.getElementById('loginFields'),
+  loginErrorMessage: document.querySelector('.login-form__error-message'),
+  openInputBtn: document.querySelector('.openInputBtn'),
+  emptyNotice: document.querySelector('.empty__notice'),
 };

@@ -1,3 +1,18 @@
+#logoutBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: all linear 300ms;
+}
+
 .login-form__backdrop {
   position: fixed;
   top: 0;
@@ -8,15 +23,9 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 1;
-  transition-property: opacity;
+  transition: all linear 300ms;
   overflow: scroll;
   z-index: 999;
-
-  &.is-hidden {
-    visibility: hidden;
-    pointer-events: none;
-    opacity: 0;
-  }
 }
 
 .login-form__wrap {
@@ -43,7 +52,7 @@
   height: 100%;
   border-radius: 5px;
   position: absolute;
-  padding: 90px 70px 50px 70px;
+  padding: 90px 70px 0px 70px;
   background: $primary-color;
   @media screen and (max-width: 767px) {
     padding: 60px 15px 0px 15px;
@@ -192,4 +201,24 @@
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
+}
+
+.login-form__error-message {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  text-align: center;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  background-color: red;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: opacity linear 200ms;
 }
