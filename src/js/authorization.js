@@ -25,8 +25,9 @@ signupBtn.addEventListener('click', signupEvnt);
 //logout event
 logoutBtn.addEventListener('click', logoutEvnt);
 
-function loginEvnt() {
+function loginEvnt(e) {
   //get email and password
+  e.preventDefault();
   const loginEmail = regEmail.value;
   const loginPassword = regPass.value;
   const auth = firebase.auth();
@@ -35,8 +36,9 @@ function loginEvnt() {
   promise.catch(e => loginError(e));
 };
 
-function signupEvnt() {
+function signupEvnt(e) {
   //get email and password
+  e.preventDefault();
   const signEmail = signupEmail.value;
   const signPassword = signupPass.value;
   const auth = firebase.auth();
@@ -64,9 +66,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 });
 
 function loginError(e) {
-  regEmail.value = '';
   regPass.value = '';
-  signupEmail.value = '';
   signupPass.value = '';
   loginErrorMessage.textContent = e;
   loginErrorMessage.classList.remove('is-hidden');
