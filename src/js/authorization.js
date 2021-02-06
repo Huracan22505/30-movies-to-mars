@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -77,6 +77,8 @@ loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
 
 function openLoginForm() {
   loginFormBackdrop.classList.remove('is-hidden');
+  document.body.classList.remove('modal-open');
+  menu.classList.remove('is-open');
   loginFormOpenButton.removeEventListener('click', openLoginForm);
   loginFormOpenButtonDesktop.removeEventListener('click', openLoginForm);
   loginFormCloseButton.addEventListener('click', closeLoginForm);
