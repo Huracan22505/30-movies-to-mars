@@ -114,3 +114,5 @@ function closeLoginFormOnBackdropClick(event) {
   if(event.target !== loginFormBackdrop) return;
   closeLoginForm();
 }
+
+export default { firebase, openLoginForm };

@@ -3,7 +3,9 @@ import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 import AddLocalStorage from './AddLocalStorage.js';
 import debounce from 'lodash.debounce';
+import auth from './authorization.js';
 
+const {firebase, openLoginForm} = auth;
 const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
 
 galleryBox.addEventListener('click', debounce(onGalleryClick, 300));
@@ -46,6 +48,21 @@ function openModal() {
   document.querySelector('html').style.overflow = 'hidden';
   refsModal.watched = document.querySelector('.card__btn__watched');
   refsModal.queue = document.querySelector('.card__btn__queue');
+  firebase.auth().onAuthStateChanged(firebaseUser => {  
+  if(firebaseUser) {
+  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
+  refsModal.watched.addEventListener(
+    'click',
+    watched.addLocalStorage.bind(watched),
+  );
+} else {
+  refsModal.queue.addEventListener('click', openLoginForm);
+  refsModal.watched.addEventListener(
+    'click',
+    openLoginForm
+  );
+};
+});
 
   window.addEventListener('keydown', onEscDown);
 
@@ -56,12 +73,6 @@ function openModal() {
     refsModal.watched,
     'is__active',
     queue,
-  );
-
-  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
-  refsModal.watched.addEventListener(
-    'click',
-    watched.addLocalStorage.bind(watched),
   );
 }
 
