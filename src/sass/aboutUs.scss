@@ -53,6 +53,7 @@
 }
 .team_section {
   padding-top: 20px;
+  padding-bottom: 25px;
   &  .container {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -133,6 +134,7 @@ body .team_title_card {
 // Styles for cards & container
 .team_gallery {
   display: flex;
+  padding-bottom: 20px;
   flex-wrap: wrap;
   justify-content: center;
   @media screen and (max-width: 767) {
@@ -197,6 +199,7 @@ body .team_title_card {
     background-color: #fff000;
     border-radius: 50%;
     background-position: center;
+    cursor: pointer;
     fill: black;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
@@ -223,7 +226,7 @@ body .team_title_card {
   fill: black;
 }
 // Styles for card hover
-figure.team_card_hover {
+.team_card_hover {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
   overflow: hidden;
@@ -241,17 +244,10 @@ figure.team_card_hover {
     -webkit-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
   }
-  & picture {
+  & img {
     max-width: 100%;
     position: relative;
     opacity: 0.2;
-  }
-  & figcaption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
   }
   & h3 {
     position: absolute;
@@ -300,21 +296,21 @@ figure.team_card_hover {
 .team_card:focus {
   transition: 850ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 0px 15px 10px rgb(51, 0, 153, 0.5);
-  & figure.team_card_hover picture,
-  & figure.team_card_hover picture {
+  & .team_card_hover img,
+  & .team_card_hover img {
     opacity: 1;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
 
-  & figure.team_card_hover h3,
-  & figure.team_card_hover h3 {
+  & .team_card_hover h3,
+  & .team_card_hover h3 {
     -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
     transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   }
 
-  & figure.team_card_hover:before,
-  & .figure.team_card_hover:before {
+  & .team_card_hover:before,
+  & .team_card_hover:before {
     -webkit-transform: rotate(110deg) translateY(-150%);
     transform: rotate(110deg) translateY(-150%);
   }
