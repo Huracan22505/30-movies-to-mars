@@ -15,8 +15,8 @@ export default {
   },
 
   // request by the entered value in the search (searchform)
-  getSearchResult(searchQuery) {
-    const params = `search/movie?api_key=${myApiKey}&language=en-US&page=1&include_adult=false&query=${searchQuery}`;
+  getSearchResult(searchQuery, page = 1) {
+    const params = `search/movie?api_key=${myApiKey}&language=en-US&page=${page}&include_adult=false&query=${searchQuery}`;
 
     let url = baseUrl + params;
     console.log(url);
@@ -78,6 +78,27 @@ export default {
   getUpcomingFilmsByPage(pageNum = 1) {
     const url = `${baseUrl}movie/upcoming?api_key=${myApiKey}&language=en-US&page=${pageNum}`;
     return fetch(url).then(response => response.json());
+  },
+  getRatedFilmsByPagePagination(pageNum = 1) {
+    const url = `${baseUrl}trending/all/day?api_key=${myApiKey}&page=${pageNum}`;
+    return fetch(url).then(response => response.json());
+  },
+  buildModel(data) {
+    return new OuterResponceModel(
+      data.page,
+      data.total_pages,
+      data.results.map(
+        el =>
+          new InnerResponceModel(
+            el.id,
+            el.poster_path,
+            el.original_title,
+            el.genre_ids,
+            el.release_date,
+          ),
+      ),
+      data.total_results,
+    );
   },
 };
 

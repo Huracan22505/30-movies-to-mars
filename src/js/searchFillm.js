@@ -41,6 +41,11 @@ function getValue(e) {
     } else {
       galleryBox.innerHTML = '';
       renderService.renderGallery(res.results);
+
+      // generated search event
+      document.body.dispatchEvent(
+        new CustomEvent('search', { detail: { data: res, query: query } }),
+      );
     }
   });
 }
