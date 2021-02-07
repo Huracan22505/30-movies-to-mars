@@ -7,7 +7,7 @@
     <title>30 movies to Mars</title>
     <link
       rel="shortcut icon"
-      href="./images/space-camera-favicon.png"
+      href="/src/images/camera-favicon.png"
       type="image/png"
     />
     <link
@@ -42,7 +42,7 @@
             <div class="desktopNav">
               <ul class="desktopNav-list list">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./library.html">My Library</a></li>
+                <li><a href="./library.html" id="libraryRef">My Library</a></li>
                 <li><a href="./aboutUs.html">About Us</a></li>
               </ul>
             </div>
@@ -151,7 +151,9 @@
                 <ul class="modalMenu list">
                   <li class="modalItem"><a href="../index.html">Home</a></li>
                   <li class="modalItem">
-                    <a href="./library.html">My Library</a>
+                    <a href="./library.html" id="libraryRefMobile"
+                      >My Library</a
+                    >
                   </li>
                   <li class="modalItem">
                     <a href="./aboutUs.html">About Us</a>
@@ -260,12 +262,17 @@
                 </form>
               </div>
             </div>
-            
-                      <div class="login-form__field">
-                        <p class="login-form__welcome-message is-hidden"></p>
-                        <input id="logoutBtn" type="submit" class="login-form_button is-hidden" value="Log Out" />
-                      </div>
-                      <p class="login-form__error-message is-hidden"></p>
+
+            <div class="login-form__field">
+              <p class="login-form__welcome-message is-hidden"></p>
+              <input
+                id="logoutBtn"
+                type="submit"
+                class="login-form_button is-hidden"
+                value="Log Out"
+              />
+            </div>
+            <p class="login-form__error-message is-hidden"></p>
           </div>
         </div>
       </div>
