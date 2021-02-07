@@ -43,7 +43,7 @@ function renderCardFilm(res) {
 //modal opening function
 function openModal() {
   cardModal.classList.add('card__modal__lightbox__is-open');
-
+  document.querySelector('html').style.overflow = 'hidden';
   refsModal.watched = document.querySelector('.card__btn__watched');
   refsModal.queue = document.querySelector('.card__btn__queue');
 
@@ -67,7 +67,7 @@ function openModal() {
 function onModalClose() {
   cardBox.innerHTML = '';
   cardModal.classList.remove('card__modal__lightbox__is-open');
-
+  document.querySelector('html').style.overflow = '';
   refsModal.queue.removeEventListener(
     'click',
     queue.addLocalStorage.bind(queue),

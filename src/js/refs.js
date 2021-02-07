@@ -19,7 +19,10 @@ export default {
   loginFormOpenButtonDesktop: document.querySelector('.desktopAuth'),
   
   // burger
-  openMenuBtn: document.querySelector('.openBurgerMenu'),   closeMenuBtn: document.querySelector('.closeBurgerMenu'),   menu: document.querySelector('.navBar'),
+  openMenuBtn: document.querySelector('.openBurgerMenu'),   closeMenuBtn: document.querySelector('.closeBurgerMenu'),  
+  burger: document.querySelector('.modal'),
+  menu: document.querySelector('.navBar'),
+  switcher: document.querySelector('.burger-overlay'),
   
   // searching
   searchForm: document.getElementById('searchForm'),
@@ -29,6 +32,8 @@ export default {
   openInputBtn: document.querySelector('.openInputBtn'),
   closeInputBtn: document.querySelector('.closeInputBtn'),
   inputPanel: document.querySelector('.inputPanel'),
+
+  // =====
   signinBtn: document.getElementById('signinBtn'),
   signupBtn: document.getElementById('signupBtn'),
   regEmail: document.getElementById('regEmail'),

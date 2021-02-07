@@ -1,6 +1,5 @@
 .pagination__wrapper {
   margin: auto;
-  margin-bottom: 100px;
   padding-top: 44px;
   padding-bottom: 60px;
   display: flex;
@@ -10,7 +9,6 @@
 
   @media screen and (min-width: 768px) {
     width: 375px;
-    margin-bottom: 77px;
   }
 }
 

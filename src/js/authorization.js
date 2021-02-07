@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -25,8 +25,9 @@ signupBtn.addEventListener('click', signupEvnt);
 //logout event
 logoutBtn.addEventListener('click', logoutEvnt);
 
-function loginEvnt() {
+function loginEvnt(e) {
   //get email and password
+  e.preventDefault();
   const loginEmail = regEmail.value;
   const loginPassword = regPass.value;
   const auth = firebase.auth();
@@ -35,8 +36,9 @@ function loginEvnt() {
   promise.catch(e => loginError(e));
 };
 
-function signupEvnt() {
+function signupEvnt(e) {
   //get email and password
+  e.preventDefault();
   const signEmail = signupEmail.value;
   const signPassword = signupPass.value;
   const auth = firebase.auth();
@@ -64,9 +66,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 });
 
 function loginError(e) {
-  regEmail.value = '';
   regPass.value = '';
-  signupEmail.value = '';
   signupPass.value = '';
   loginErrorMessage.textContent = e;
   loginErrorMessage.classList.remove('is-hidden');
@@ -79,6 +79,8 @@ function openLoginForm() {
   loginFormBackdrop.classList.remove('is-hidden');
   loginFormOpenButton.removeEventListener('click', openLoginForm);
   loginFormOpenButtonDesktop.removeEventListener('click', openLoginForm);
+  menu.classList.remove('is-open');
+  document.querySelector('html').style.overflow = 'hidden';
   loginFormCloseButton.addEventListener('click', closeLoginForm);
   window.addEventListener('keydown', closeLoginFormOnEsc);
   loginFormBackdrop.addEventListener('click', closeLoginFormOnBackdropClick);
@@ -91,6 +93,7 @@ function closeLoginForm() {
   window.removeEventListener('keydown', closeLoginFormOnEsc);
   loginFormOpenButton.addEventListener('click', openLoginForm);
   loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
+  document.querySelector('html').style.overflow = '';
 }
 
 function closeLoginFormOnEsc(event) {

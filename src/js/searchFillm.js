@@ -4,14 +4,15 @@ import renderService from './renderService.js';
 import showNotification from './errorPnotify.js';
 import debounce from 'lodash.debounce';
 
-const { searchForm, searchFormMobile, galleryBox, openInputBtn } = refs;
+const { searchForm, searchFormMobile, galleryBox, openInputBtn, searchBtn, mobileSearchBtn } = refs;
 let query = '';
 
 searchForm.addEventListener('input', updateQuery);
-searchFormMobile.addEventListener('input', updateQuery);
 searchForm.addEventListener('submit', getValue);
+searchBtn.addEventListener('click', getValue);
+searchFormMobile.addEventListener('input', updateQuery);
 searchFormMobile.addEventListener('submit', getValue);
-openInputBtn.addEventListener('click', getValue);
+mobileSearchBtn.addEventListener('click', getValue)
 
 // function to get input value
 function updateQuery(e) {
