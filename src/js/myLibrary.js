@@ -1,12 +1,13 @@
 import request from '../js/apiService';
 import refs from './refs';
 import renderService from '../js/renderService.js';
-import modal from '../js/4filmDetailsPage';
 
 let dataArr;
 
 const btnWatched = document.querySelector('#watched');
+console.dir(btnWatched);
 const btnQueue = document.querySelector('#queue');
+console.dir(btnQueue);
 
 getDataFromLocalStorage('watched', 1);
 btnSwitch(btnWatched, btnQueue);
@@ -78,4 +79,13 @@ function currentListName() {
   if (btnQueue.hasAttributes('disabled')) {
     return 'queue';
   }
+}
+refs.cardOverlay.addEventListener('click', onModalCloseLibrary);
+
+function onModalCloseLibrary() {
+  refs.libraryList.innerHTML = '';
+  refs.cardModal.classList.remove('card__modal__lightbox__is-open');
+  document.querySelector('html').style.overflow = '';
+  if (btnWatched.disabled) getDataFromLocalStorage('watched');
+  if (btnQueue.disabled) getDataFromLocalStorage('queue');
 }

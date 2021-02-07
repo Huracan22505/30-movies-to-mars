@@ -68,7 +68,6 @@ function onModalClose() {
   cardBox.innerHTML = '';
   cardModal.classList.remove('card__modal__lightbox__is-open');
   document.querySelector('html').style.overflow = '';
-
   refsModal.queue.removeEventListener(
     'click',
     queue.addLocalStorage.bind(queue),
