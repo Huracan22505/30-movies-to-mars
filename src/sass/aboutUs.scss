@@ -1,6 +1,3 @@
-// * {
-//    outline: 1px solid blue;
-// }
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
 // Styles for h2 - title of the page
 .title_bg {
@@ -56,11 +53,12 @@
 }
 .team_section {
   padding-top: 20px;
-}
-.team_section .container {
+  &  .container {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+}
+
 body .team_title_card {
   @media screen and (max-width: 319px) {
     font-size: 14px;
