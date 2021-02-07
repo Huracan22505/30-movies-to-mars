@@ -45,6 +45,7 @@
     background-color: transparent;
     border-radius: 45px;
     transition: all 350ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    cursor: pointer;
     @media screen and(max-width: 767px){
     font-size: 12px;
     font-weight: 400;
