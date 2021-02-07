@@ -6,7 +6,7 @@
     <title>Our Team</title>
     <link
       rel="shortcut icon"
-      href="./images/space-camera-favicon.png"
+      href="/src/images/camera-favicon.png"
       type="image/png"
     />
   </head>
@@ -87,7 +87,7 @@
                   id="searchFormMobile"
                 />
               </form>
-                <button class="mobileSearchBtn">
+              <button class="mobileSearchBtn">
                 <svg>
                   <use href="../images/headersprite.svg#telescope"></use>
                 </svg>
@@ -151,95 +151,104 @@
         <div class="login-form__html">
           <button type="button" class="login-form__close-button"></button>
           <div id="loginFields">
-          <input
-            id="sign-in"
-            type="radio"
-            name="tab"
-            class="login-form__signin"
-            checked
-          /><label for="sign-in" class="login-form__tab">Sign In</label>
-          <input
-            id="sign-up"
-            type="radio"
-            name="tab"
-            class="login-form__signup"
-          /><label for="sign-up" class="login-form__tab">Sign Up</label>
-          <div class="login-form">
-            <form class="login-form__signin-group">
-              <div class="login-form__field">
-                <label for="regEmail" class="login-form_label">E-mail</label>
-                <input
-                  id="regEmail"
-                  type="email"
-                  class="login-form_input"
-                  placeholder=" "
-                  required
-                />
-              </div>
-              <div class="login-form__field">
-                <label for="regPass" class="login-form_label">Password</label>
-                <input
-                  id="regPass"
-                  type="password"
-                  class="login-form_input"
-                  data-type="password"
-                  placeholder=" "
-                  required
-                />
-              </div>
-              <div class="login-form__field">
-                <input
-                  id="signinBtn"
-                  type="submit"
-                  class="login-form_button"
-                  value="Sign In"
-                />
-              </div>
-              <div class="login-form__foot-lnk">
-                <a href="#" class="forgot-password">Forgot Password?</a>
-              </div>
-            </form>
-            <form class="login-form__signup-group">
-              <div class="login-form__field">
-                <label for="signupEmail" class="login-form_label">Email</label>
-                <input
-                  id="signupEmail"
-                  type="email"
-                  class="login-form_input"
-                  placeholder=" "
-                  required
-                />
-              </div>
-              <div class="login-form__field">
-                <label for="signupPass" class="login-form_label">Password</label>
-                <input
-                  id="signupPass"
-                  type="password"
-                  class="login-form_input"
-                  data-type="password"
-                  placeholder=" "
-                  required
-                />
-              </div>
-              <div class="login-form__field">
-                <input
-                  id="signupBtn"
-                  type="submit"
-                  class="login-form_button"
-                  value="Sign Up"
-                />
-              </div>
-              <div class="login-form__foot-lnk">
-                <label for="sign-in">Already Registered?</label>
-              </div>
-            </form>
+            <input
+              id="sign-in"
+              type="radio"
+              name="tab"
+              class="login-form__signin"
+              checked
+            /><label for="sign-in" class="login-form__tab">Sign In</label>
+            <input
+              id="sign-up"
+              type="radio"
+              name="tab"
+              class="login-form__signup"
+            /><label for="sign-up" class="login-form__tab">Sign Up</label>
+            <div class="login-form">
+              <form class="login-form__signin-group">
+                <div class="login-form__field">
+                  <label for="regEmail" class="login-form_label">E-mail</label>
+                  <input
+                    id="regEmail"
+                    type="email"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+                <div class="login-form__field">
+                  <label for="regPass" class="login-form_label">Password</label>
+                  <input
+                    id="regPass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+                <div class="login-form__field">
+                  <input
+                    id="signinBtn"
+                    type="submit"
+                    class="login-form_button"
+                    value="Sign In"
+                  />
+                </div>
+                <div class="login-form__foot-lnk">
+                  <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+              </form>
+              <form class="login-form__signup-group">
+                <div class="login-form__field">
+                  <label for="signupEmail" class="login-form_label"
+                    >Email</label
+                  >
+                  <input
+                    id="signupEmail"
+                    type="email"
+                    class="login-form_input"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+                <div class="login-form__field">
+                  <label for="signupPass" class="login-form_label"
+                    >Password</label
+                  >
+                  <input
+                    id="signupPass"
+                    type="password"
+                    class="login-form_input"
+                    data-type="password"
+                    placeholder=" "
+                    required
+                  />
+                </div>
+                <div class="login-form__field">
+                  <input
+                    id="signupBtn"
+                    type="submit"
+                    class="login-form_button"
+                    value="Sign Up"
+                  />
+                </div>
+                <div class="login-form__foot-lnk">
+                  <label for="sign-in">Already Registered?</label>
+                </div>
+              </form>
             </div>
           </div>
-                    <div class="login-form__field">
-                      <p class="login-form__welcome-message is-hidden"></p>
-                      <input id="logoutBtn" type="submit" class="login-form_button is-hidden" value="Log Out" />
-                    </div>
-                    <p class="login-form__error-message is-hidden"></p>
+          <div class="login-form__field">
+            <p class="login-form__welcome-message is-hidden"></p>
+            <input
+              id="logoutBtn"
+              type="submit"
+              class="login-form_button is-hidden"
+              value="Log Out"
+            />
+          </div>
+          <p class="login-form__error-message is-hidden"></p>
         </div>
       </div>
     </div>
@@ -252,11 +261,11 @@
           <ul class="team_gallery">
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/huracan-cat.jpg"
-                    alt="Huracan's photo"
-                  />
-                  <h3>Hura<span>can</span></h3>
+                <img
+                  src="../images/team-images/huracan-cat.jpg"
+                  alt="Huracan's photo"
+                />
+                <h3>Hura<span>can</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Team Lead</p>
@@ -311,11 +320,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/julia-cat.jpg"
-                    alt="Julia's photo"
-                  />
-                  <h3>Yulia <span>Che</span></h3>
+                <img
+                  src="../images/team-images/julia-cat.jpg"
+                  alt="Julia's photo"
+                />
+                <h3>Yulia <span>Che</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Scrum Master</p>
@@ -370,11 +379,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/ya-cat.jpg"
-                    alt="Yaroslav's photo"
-                  />
-                  <h3>Yaroslav<span>_Ua</span></h3>
+                <img
+                  src="../images/team-images/ya-cat.jpg"
+                  alt="Yaroslav's photo"
+                />
+                <h3>Yaroslav<span>_Ua</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Tech Lead</p>
@@ -429,11 +438,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/ferika-cat.jpg"
-                    alt="Ferika's photo"
-                  />
-                  <h3>Feri<span>ka</span></h3>
+                <img
+                  src="../images/team-images/ferika-cat.jpg"
+                  alt="Ferika's photo"
+                />
+                <h3>Feri<span>ka</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Leading developer</p>
@@ -488,11 +497,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/max-cat.jpg"
-                    alt="Max's photo"
-                  />
-                  <h3>Maksym <span>Hodunov</span></h3>
+                <img
+                  src="../images/team-images/max-cat.jpg"
+                  alt="Max's photo"
+                />
+                <h3>Maksym <span>Hodunov</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Leading developer</p>
@@ -547,11 +556,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/trinka-cat.jpg"
-                    alt="Trinka's photo"
-                  />
-                  <h3>Trin<span>ka</span></h3>
+                <img
+                  src="../images/team-images/trinka-cat.jpg"
+                  alt="Trinka's photo"
+                />
+                <h3>Trin<span>ka</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Leading developer</p>
@@ -606,11 +615,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/mari-cat.jpg"
-                    alt="Marinessa's photo"
-                  />
-                  <h3>Mari<span>nessa</span></h3>
+                <img
+                  src="../images/team-images/mari-cat.jpg"
+                  alt="Marinessa's photo"
+                />
+                <h3>Mari<span>nessa</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Leading developer</p>
@@ -665,11 +674,11 @@
             </li>
             <li class="team_card">
               <div class="team_card_hover">
-                  <img
-                    src="../images/team-images/vita-cat.jpg"
-                    alt="Vita's photo"
-                  />
-                  <h3>Vita <span>Hladka</span></h3>
+                <img
+                  src="../images/team-images/vita-cat.jpg"
+                  alt="Vita's photo"
+                />
+                <h3>Vita <span>Hladka</span></h3>
               </div>
               <div class="team_card_overlay">
                 <p class="team_desription">Leading developer</p>
@@ -729,7 +738,8 @@
     <footer>
       <div class="rights">
         <p class="rights__text">
-          &copy; <span id="year"></span> <span>|</span> All Rights Reserved <span>|</span>
+          &copy; <span id="year"></span> <span>|</span> All Rights Reserved
+          <span>|</span>
         </p>
         <p class="rights__text">
           Developed by
