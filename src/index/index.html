@@ -27,7 +27,6 @@
     </div>
 
     <div class="hide-main-container">
-
       <!-- header -->
       <header class="pageHeader">
         <div class="container">
@@ -105,7 +104,7 @@
                     id="searchFormMobile"
                   />
                 </form>
-                  <button class="mobileSearchBtn">
+                <button class="mobileSearchBtn">
                   <svg>
                     <use href="../images/headersprite.svg#telescope"></use>
                   </svg>
@@ -169,94 +168,107 @@
           <div class="login-form__html">
             <button type="button" class="login-form__close-button"></button>
             <div id="loginFields">
-            <input
-              id="sign-in"
-              type="radio"
-              name="tab"
-              class="login-form__signin"
-              checked
-            /><label for="sign-in" class="login-form__tab">Sign In</label>
-            <input
-              id="sign-up"
-              type="radio"
-              name="tab"
-              class="login-form__signup"
-            /><label for="sign-up" class="login-form__tab">Sign Up</label>
-            <div class="login-form">
-              <form class="login-form__signin-group">
-                <div class="login-form__field">
-                  <label for="regEmail" class="login-form_label">E-mail</label>
-                  <input
-                    id="regEmail"
-                    type="email"
-                    class="login-form_input"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="regPass" class="login-form_label">Password</label>
-                  <input
-                    id="regPass"
-                    type="password"
-                    class="login-form_input"
-                    data-type="password"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <input
-                    id="signinBtn"
-                    type="submit"
-                    class="login-form_button"
-                    value="Sign In"
-                  />
-                </div>
-                <div class="login-form__foot-lnk">
-                  <a href="#" class="forgot-password">Forgot Password?</a>
-                </div>
-              </form>
-              <form class="login-form__signup-group">
-                <div class="login-form__field">
-                  <label for="signupEmail" class="login-form_label">Email</label>
-                  <input
-                    id="signupEmail"
-                    type="email"
-                    class="login-form_input"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <label for="signupPass" class="login-form_label">Password</label>
-                  <input
-                    id="signupPass"
-                    type="password"
-                    class="login-form_input"
-                    data-type="password"
-                    placeholder=" "
-                    required
-                  />
-                </div>
-                <div class="login-form__field">
-                  <input
-                    id="signupBtn"
-                    type="submit"
-                    class="login-form_button"
-                    value="Sign Up"
-                  />
-                </div>
-                <div class="login-form__foot-lnk">
-                  <label for="sign-in">Already Registered?</label>
-                </div>
-              </form>
+              <input
+                id="sign-in"
+                type="radio"
+                name="tab"
+                class="login-form__signin"
+                checked
+              /><label for="sign-in" class="login-form__tab">Sign In</label>
+              <input
+                id="sign-up"
+                type="radio"
+                name="tab"
+                class="login-form__signup"
+              /><label for="sign-up" class="login-form__tab">Sign Up</label>
+              <div class="login-form">
+                <form class="login-form__signin-group">
+                  <div class="login-form__field">
+                    <label for="regEmail" class="login-form_label"
+                      >E-mail</label
+                    >
+                    <input
+                      id="regEmail"
+                      type="email"
+                      class="login-form_input"
+                      placeholder=" "
+                      required
+                    />
+                  </div>
+                  <div class="login-form__field">
+                    <label for="regPass" class="login-form_label"
+                      >Password</label
+                    >
+                    <input
+                      id="regPass"
+                      type="password"
+                      class="login-form_input"
+                      data-type="password"
+                      placeholder=" "
+                      required
+                    />
+                  </div>
+                  <div class="login-form__field">
+                    <input
+                      id="signinBtn"
+                      type="submit"
+                      class="login-form_button"
+                      value="Sign In"
+                    />
+                  </div>
+                  <div class="login-form__foot-lnk">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                  </div>
+                </form>
+                <form class="login-form__signup-group">
+                  <div class="login-form__field">
+                    <label for="signupEmail" class="login-form_label"
+                      >Email</label
+                    >
+                    <input
+                      id="signupEmail"
+                      type="email"
+                      class="login-form_input"
+                      placeholder=" "
+                      required
+                    />
+                  </div>
+                  <div class="login-form__field">
+                    <label for="signupPass" class="login-form_label"
+                      >Password</label
+                    >
+                    <input
+                      id="signupPass"
+                      type="password"
+                      class="login-form_input"
+                      data-type="password"
+                      placeholder=" "
+                      required
+                    />
+                  </div>
+                  <div class="login-form__field">
+                    <input
+                      id="signupBtn"
+                      type="submit"
+                      class="login-form_button"
+                      value="Sign Up"
+                    />
+                  </div>
+                  <div class="login-form__foot-lnk">
+                    <label for="sign-in">Already Registered?</label>
+                  </div>
+                </form>
               </div>
             </div>
-                      <div class="login-form__field">
-                        <input id="logoutBtn" type="submit" class="login-form_button is-hidden" value="Log Out" />
-                      </div>
-                      <p class="login-form__error-message is-hidden"></p>
+            <div class="login-form__field">
+              <input
+                id="logoutBtn"
+                type="submit"
+                class="login-form_button is-hidden"
+                value="Log Out"
+              />
+            </div>
+            <p class="login-form__error-message is-hidden"></p>
           </div>
         </div>
       </div>
@@ -297,8 +309,8 @@
         <!-- Filter Buttons -->
         <div class="container">
           <div class="filterBtns">
-            <ul class="list ">
-              <li class="item ">
+            <ul class="list">
+              <li class="item">
                 <button type="radio" class="filterBtns-button topRatedBtn">
                   <span class="text">Rated</span>
                 </button>
@@ -324,17 +336,7 @@
           <div class="container">
             <ul class="gallery__wrapper"></ul>
 
-            <div class="pagination__wrapper">
-              <!-- <button class="pagination__arrow-left">&#8592;</button> -->
-              <!-- <button class="pagination__button" data-button-id="1">1</button>
-            <button class="pagination__button" data-button-id="2">2</button>
-            <button class="pagination__button" data-button-id="3">3</button>
-            <button class="pagination__button" data-button-id="4">4</button>
-            <button class="pagination__button" data-button-id="5">5</button>
-            <button class="pagination__button">...</button>
-            <button class="pagination__button">500</button> -->
-              <!-- <button class="pagination__arrow-right">&#8594;</button> -->
-            </div>
+            <div class="pagination__wrapper"></div>
             <!-- modal cardFilm details -->
             <div class="card__modal__lightbox container">
               <div class="card__overlay"></div>
