@@ -6,3 +6,4 @@ import '../js/4filmDetailsPage.js';
 import '../js/myLibrary.js';
 import '../js/refs.js';
 import '../js/authorization.js';
+import '../js/pagination.js';

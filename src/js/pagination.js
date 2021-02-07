@@ -6,7 +6,70 @@ import galleryTemlate from '../templates/galleryPage.hbs';
 const { galleryBox } = refs;
 let currentPage = 1;
 let totalPages = 0;
-let type = 'rated';
+let type = 'popular';
+let userQuery = '';
+
+document.body.addEventListener(
+  'search',
+  function (e) {
+    // clear old pagination
+    document.querySelector('.pagination__wrapper').innerHTML = '';
+    type = 'search';
+    userQuery = e.detail.query;
+    currentPage = 1;
+    // totalPages = data._totalPages;
+    createPaginationButton(e.detail.data._totalPages);
+    addListenersForPaginationButtons();
+    checkLeftAndRightButtons();
+  },
+  false,
+);
+
+document.querySelector('.popularBtn').addEventListener('click', function () {
+  type = 'popular';
+  currentPage = 1;
+  resetPaginationForFirstPage();
+});
+
+document.querySelector('.topRatedBtn').addEventListener('click', function () {
+  type = 'rated';
+  currentPage = 1;
+  resetPaginationForFirstPage();
+});
+
+document.querySelector('.upcomingBtn').addEventListener('click', function () {
+  type = 'upcoming';
+  currentPage = 1;
+  resetPaginationForFirstPage();
+});
+
+function resetPaginationForFirstPage() {
+  let buttons = document.querySelectorAll('.pagination__button');
+  buttons[0].remove();
+  buttons[1].remove();
+  let firstButton = document.createElement('button');
+  firstButton.classList.add('pagination__button');
+  firstButton.innerHTML = 1;
+  firstButton.setAttribute('data-button-id', 1);
+
+  let secondButton = document.createElement('button');
+  secondButton.classList.add('pagination__button');
+  secondButton.innerHTML = 2;
+  secondButton.setAttribute('data-button-id', 2);
+
+  let parentOfLastElement = document.querySelector('.pagination__wrapper');
+
+  parentOfLastElement.insertBefore(
+    firstButton,
+    document.querySelector('.pagination__button-dots'),
+  );
+
+  parentOfLastElement.insertBefore(
+    secondButton,
+    document.querySelector('.pagination__button-dots'),
+  );
+  addListenersForPaginationButtons(true);
+}
 
 apiService.getAllFilmsByPage().then(data => {
   // use later as such:
@@ -18,6 +81,7 @@ apiService.getAllFilmsByPage().then(data => {
   createPaginationButton(data.totalPages);
   addListenersForPaginationButtons();
   checkLeftAndRightButtons();
+  currentPage = 1;
 });
 
 // remove later and use 'import filmDetailsPage from './4filmDetailsPage.js';'
@@ -51,6 +115,7 @@ function createPaginationButton(lastNumber) {
   arrowLeftButton.classList.add('pagination__arrow-left');
   arrowLeftButton.innerHTML = '&#8592;';
   arrowLeftButton.addEventListener('click', () => {
+    // если страница 500 (последняя)
     if (currentPage == totalPages) {
       let buttons = Array.from(
         document.querySelectorAll('.pagination__button'),
@@ -67,16 +132,22 @@ function createPaginationButton(lastNumber) {
         data = apiService.buildModel(data);
         document.querySelector('.gallery__wrapper').innerHTML = '';
         renderGallery(data.results);
-        currentPage = currentPage - 1;
+        if (currentPage != totalPages) {
+          currentPage = currentPage - 1;
+        }
+
         checkLeftAndRightButtons();
         updateNumbersOfButtonsForPrevPage();
       });
     } else if (type === 'rated') {
-      apiService.getRatedFilmsByPage(currentPage - 1).then(data => {
+      apiService.getRatedFilmsByPagePagination(currentPage - 1).then(data => {
         data = apiService.buildModel(data);
         document.querySelector('.gallery__wrapper').innerHTML = '';
         renderGallery(data.results);
-        currentPage = currentPage - 1;
+        if (currentPage != totalPages) {
+          currentPage = currentPage - 1;
+        }
+
         checkLeftAndRightButtons();
         updateNumbersOfButtonsForPrevPage();
       });
@@ -85,7 +156,21 @@ function createPaginationButton(lastNumber) {
         data = apiService.buildModel(data);
         document.querySelector('.gallery__wrapper').innerHTML = '';
         renderGallery(data.results);
-        currentPage = currentPage - 1;
+        if (currentPage != totalPages) {
+          currentPage = currentPage - 1;
+        }
+
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForPrevPage();
+      });
+    } else if (type === 'search') {
+      apiService.getSearchResult(userQuery, currentPage - 1).then(data => {
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data._results);
+        if (currentPage != totalPages) {
+          currentPage = currentPage - 1;
+        }
+
         checkLeftAndRightButtons();
         updateNumbersOfButtonsForPrevPage();
       });
@@ -93,7 +178,7 @@ function createPaginationButton(lastNumber) {
   });
   paginationWrapper.append(arrowLeftButton);
 
-  //     создание кнопок    //
+  //     создание кнопок 1 и 2 в начале    //
   for (let i = 0; i < 2; i++) {
     let newButton = document.createElement('button');
     newButton.classList.add('pagination__button');
@@ -108,7 +193,7 @@ function createPaginationButton(lastNumber) {
   threeDotsButton.innerHTML = '...';
   paginationWrapper.append(threeDotsButton);
 
-  //создание последней кнопки
+  // создание последней кнопки (500 например)
   let lastButton = document.createElement('button');
   lastButton.classList.add('pagination__button-last');
   lastButton.innerHTML = lastNumber;
@@ -153,7 +238,7 @@ function createPaginationButton(lastNumber) {
         updateNumbersOfButtonsForNextPage();
       });
     } else if (type === 'rated') {
-      apiService.getRatedFilmsByPage(currentPage + 1).then(data => {
+      apiService.getRatedFilmsByPagePagination(currentPage + 1).then(data => {
         data = apiService.buildModel(data);
         document.querySelector('.gallery__wrapper').innerHTML = '';
         renderGallery(data.results);
@@ -162,10 +247,18 @@ function createPaginationButton(lastNumber) {
         updateNumbersOfButtonsForNextPage();
       });
     } else if (type === 'upcoming') {
-      data = apiService.buildModel(data);
       apiService.getUpcomingFilmsByPage(currentPage + 1).then(data => {
+        data = apiService.buildModel(data);
         document.querySelector('.gallery__wrapper').innerHTML = '';
         renderGallery(data.results);
+        currentPage = currentPage + 1;
+        checkLeftAndRightButtons();
+        updateNumbersOfButtonsForNextPage();
+      });
+    } else if (type === 'search') {
+      apiService.getSearchResult(userQuery, currentPage + 1).then(data => {
+        document.querySelector('.gallery__wrapper').innerHTML = '';
+        renderGallery(data._results);
         currentPage = currentPage + 1;
         checkLeftAndRightButtons();
         updateNumbersOfButtonsForNextPage();
@@ -196,16 +289,36 @@ function updateNumbersOfButtonsForNextPage() {
 // функция обновления предыдущей кнопки
 function updateNumbersOfButtonsForPrevPage() {
   let buttons = document.querySelectorAll('.pagination__button');
-  buttons[buttons.length - 1].remove();
-  let newButton = document.createElement('button');
-  newButton.classList.add('pagination__button');
   let newId = buttons[0].getAttribute('data-button-id');
-  newButton.innerHTML = parseInt(newId) - 1;
-  newButton.setAttribute('data-button-id', parseInt(newId) - 1);
 
-  let parentOfLastElement = buttons[0].parentNode;
-  parentOfLastElement.insertBefore(newButton, buttons[0]);
-  addListenersForPaginationButtons(true);
+  if (currentPage == totalPages) {
+    currentPage = currentPage - 1;
+    document.querySelector('.pagination__button-dots').remove();
+    return;
+  }
+
+  if (currentPage == totalPages - 2) {
+    const paginationWrapper = document.querySelector('.pagination__wrapper');
+    const paginationLastElement = document.querySelector(
+      '.pagination__button-last',
+    );
+    //
+    let threeDotsButton = document.createElement('button');
+    threeDotsButton.classList.add('pagination__button-dots');
+    threeDotsButton.innerHTML = '...';
+    paginationWrapper.insertBefore(threeDotsButton, paginationLastElement);
+  }
+
+  if (newId - 1 !== 0) {
+    buttons[buttons.length - 1].remove();
+    let newButton = document.createElement('button');
+    newButton.classList.add('pagination__button');
+    newButton.innerHTML = parseInt(newId) - 1;
+    newButton.setAttribute('data-button-id', parseInt(newId) - 1);
+    let parentOfLastElement = buttons[0].parentNode;
+    parentOfLastElement.insertBefore(newButton, buttons[0]);
+    addListenersForPaginationButtons(true);
+  }
 }
 
 // добавляем слушатели на кнопки динамично
@@ -232,7 +345,7 @@ function addListenersForPaginationButtons(lastElement = false) {
           checkLeftAndRightButtons();
         });
       } else if (type === 'rated') {
-        apiService.getRatedFilmsByPage(elementId).then(data => {
+        apiService.getRatedFilmsByPagePagination(elementId).then(data => {
           data = apiService.buildModel(data);
           document.querySelector('.gallery__wrapper').innerHTML = '';
           renderGallery(data.results);
@@ -248,12 +361,6 @@ function addListenersForPaginationButtons(lastElement = false) {
           checkLeftAndRightButtons();
         });
       }
-      // apiService.getPopularFilmsByPage(elementId).then(data => {
-      //   document.querySelector('.gallery__wrapper').innerHTML = '';
-      //   renderGallery(data.results);
-      //   currentPage = elementId;
-      //   checkLeftAndRightButtons();
-      // });
     });
   }
 }
