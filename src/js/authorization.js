@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -55,12 +55,15 @@ function logoutEvnt() {
 firebase.auth().onAuthStateChanged(firebaseUser => {
 
   if(firebaseUser) {
-    logoutBtn.classList.remove('is-hidden');
     loginFields.classList.add('is-hidden');
+    logoutBtn.classList.remove('is-hidden');
+    addWelcomeMessage();
+    closeLoginForm();
 
   } else {
     loginFields.classList.remove('is-hidden');
     logoutBtn.classList.add('is-hidden');
+    welcomeMeassage.classList.add('is-hidden');
   }
 
 });
@@ -71,6 +74,12 @@ function loginError(e) {
   loginErrorMessage.textContent = e;
   loginErrorMessage.classList.remove('is-hidden');
 }
+
+function addWelcomeMessage() {
+  welcomeMeassage.classList.remove('is-hidden');
+  welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email}`;
+}
+
 //Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);
 loginFormOpenButtonDesktop.addEventListener('click', openLoginForm);
