@@ -4,7 +4,15 @@ import renderService from './renderService.js';
 import showNotification from './errorPnotify.js';
 import debounce from 'lodash.debounce';
 
-const { searchForm, searchFormMobile, galleryBox, openInputBtn, searchBtn, mobileSearchBtn } = refs;
+const {
+  searchForm,
+  searchFormMobile,
+  galleryBox,
+  openInputBtn,
+  searchBtn,
+  mobileSearchBtn,
+  closeInputBtn,
+} = refs;
 let query = '';
 
 searchForm.addEventListener('input', updateQuery);
@@ -12,7 +20,8 @@ searchForm.addEventListener('submit', getValue);
 searchBtn.addEventListener('click', getValue);
 searchFormMobile.addEventListener('input', updateQuery);
 searchFormMobile.addEventListener('submit', getValue);
-mobileSearchBtn.addEventListener('click', getValue)
+mobileSearchBtn.addEventListener('click', getValue);
+// closeInputBtn.addEventListener('click',  )
 
 // function to get input value
 function updateQuery(e) {
@@ -32,6 +41,11 @@ function getValue(e) {
     } else {
       galleryBox.innerHTML = '';
       renderService.renderGallery(res.results);
+
+      // generated search event
+      document.body.dispatchEvent(
+        new CustomEvent('search', { detail: { data: res, query: query } }),
+      );
     }
   });
 }
