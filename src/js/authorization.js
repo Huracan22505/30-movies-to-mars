@@ -33,8 +33,8 @@ function loginEvnt(e) {
   const auth = firebase.auth();
   //sign in
   const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
-  promise.then(addEvntListenerOnModal())
-  .catch(e => loginError(e));
+  promise.then(addEvntListenerOnModal)
+  .catch(error => loginError(error));
 };
 
 function signupEvnt(e) {
@@ -45,7 +45,8 @@ function signupEvnt(e) {
   const auth = firebase.auth();
   //create new user
   const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
-  promise.catch(e => loginError(e));
+  promise.then(addEvntListenerOnModal)
+  .catch(error => loginError(error));
 };
 
 function logoutEvnt() {
@@ -76,10 +77,10 @@ function libraryAuth(e) {
   openLoginForm();
 }
 
-function loginError(e) {
+function loginError(err) {
   regPass.value = '';
   signupPass.value = '';
-  loginErrorMessage.textContent = e;
+  loginErrorMessage.textContent = err;
   loginErrorMessage.classList.remove('is-hidden');
 }
 
@@ -95,8 +96,15 @@ function addEvntListenerOnModal() {
   const addToQueue = document.querySelector('.card__btn__queue');
   addToQueue.removeEventListener('click', openLoginForm);
   addToWatched.removeEventListener('click', openLoginForm);
-  addToQueue.addEventListener('click', queue.addLocalStorage.bind(queue));
-  addToWatched.addEventListener('click', watched.addLocalStorage.bind(watched));
+  const refsModal = {};
+  let queue = {};
+  let watched = {};
+  refsModal.watched = document.querySelector('.card__btn__watched');
+  refsModal.queue = document.querySelector('.card__btn__queue');
+  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
+  refsModal.watched.addEventListener('click', watched.addLocalStorage.bind(watched));
+  queue = new AddLocalStorage('queue', filmId, refsModal.queue, 'is__active');
+  watched = new AddLocalStorage('watched', filmId, refsModal.watched, 'is__active', queue);
   } 
   else {return}
 };
