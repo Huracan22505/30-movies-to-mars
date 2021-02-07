@@ -47,6 +47,8 @@ function openModal() {
   refsModal.watched = document.querySelector('.card__btn__watched');
   refsModal.queue = document.querySelector('.card__btn__queue');
 
+  window.addEventListener('keydown', onEscDown);
+
   queue = new AddLocalStorage('queue', filmId, refsModal.queue, 'is__active');
   watched = new AddLocalStorage(
     'watched',
@@ -67,6 +69,8 @@ function openModal() {
 function onModalClose() {
   cardBox.innerHTML = '';
   cardModal.classList.remove('card__modal__lightbox__is-open');
+  window.removeEventListener('keydown', onEscDown);
+
   document.querySelector('html').style.overflow = '';
 
   refsModal.queue.removeEventListener(
@@ -77,6 +81,12 @@ function onModalClose() {
     'click',
     watched.addLocalStorage.bind(watched),
   );
+}
+
+function onEscDown(ev) {
+  if (ev.code === 'Escape') {
+    onModalClose();
+  }
 }
 
 export { onGalleryClick };
