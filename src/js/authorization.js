@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, libraryRef, cardModal } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, libraryRef, cardModal, libraryRefMobile } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -60,11 +60,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     loginFields.classList.add('is-hidden');
     logoutBtn.classList.remove('is-hidden');
     libraryRef.removeEventListener('click', libraryAuth);
+    libraryRefMobile.removeEventListener('click', libraryAuth);
     addWelcomeMessage();
     closeLoginForm();
 
   } else {
     libraryRef.addEventListener('click', libraryAuth);
+    libraryRefMobile.addEventListener('click', libraryAuth);
     loginFields.classList.remove('is-hidden');
     logoutBtn.classList.add('is-hidden');
     welcomeMeassage.classList.add('is-hidden');

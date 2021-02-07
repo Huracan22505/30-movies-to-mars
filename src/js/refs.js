@@ -46,5 +46,6 @@ export default {
   openInputBtn: document.querySelector('.openInputBtn'),
   emptyNotice: document.querySelector('.empty__notice'),
   welcomeMeassage: document.querySelector('.login-form__welcome-message'),
-  libraryRef: document.getElementById('libraryRef')
+  libraryRef: document.getElementById('libraryRef'),
+  libraryRefMobile: document.getElementById('libraryRefMobile')
 };
