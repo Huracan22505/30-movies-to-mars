@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, libraryRef, cardModal, libraryRefMobile } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -33,7 +33,8 @@ function loginEvnt(e) {
   const auth = firebase.auth();
   //sign in
   const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
-  promise.catch(e => loginError(e));
+  promise.then(addEvntListenerOnModal)
+  .catch(error => loginError(error));
 };
 
 function signupEvnt(e) {
@@ -44,7 +45,8 @@ function signupEvnt(e) {
   const auth = firebase.auth();
   //create new user
   const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
-  promise.catch(e => loginError(e));
+  promise.then(addEvntListenerOnModal)
+  .catch(error => loginError(error));
 };
 
 function logoutEvnt() {
@@ -57,10 +59,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     loginFields.classList.add('is-hidden');
     logoutBtn.classList.remove('is-hidden');
+    libraryRef.removeEventListener('click', libraryAuth);
+    libraryRefMobile.removeEventListener('click', libraryAuth);
     addWelcomeMessage();
     closeLoginForm();
 
   } else {
+    libraryRef.addEventListener('click', libraryAuth);
+    libraryRefMobile.addEventListener('click', libraryAuth);
     loginFields.classList.remove('is-hidden');
     logoutBtn.classList.add('is-hidden');
     welcomeMeassage.classList.add('is-hidden');
@@ -68,10 +74,15 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 });
 
-function loginError(e) {
+function libraryAuth(e) {
+  e.preventDefault();
+  openLoginForm();
+}
+
+function loginError(err) {
   regPass.value = '';
   signupPass.value = '';
-  loginErrorMessage.textContent = e;
+  loginErrorMessage.textContent = err;
   loginErrorMessage.classList.remove('is-hidden');
 }
 
@@ -79,6 +90,26 @@ function addWelcomeMessage() {
   welcomeMeassage.classList.remove('is-hidden');
   welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email}`;
 }
+
+function addEvntListenerOnModal() {
+  if (cardModal.classList.contains('card__modal__lightbox__is-open')) {
+  
+  const addToWatched = document.querySelector('.card__btn__watched');
+  const addToQueue = document.querySelector('.card__btn__queue');
+  addToQueue.removeEventListener('click', openLoginForm);
+  addToWatched.removeEventListener('click', openLoginForm);
+  const refsModal = {};
+  let queue = {};
+  let watched = {};
+  refsModal.watched = document.querySelector('.card__btn__watched');
+  refsModal.queue = document.querySelector('.card__btn__queue');
+  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
+  refsModal.watched.addEventListener('click', watched.addLocalStorage.bind(watched));
+  queue = new AddLocalStorage('queue', filmId, refsModal.queue, 'is__active');
+  watched = new AddLocalStorage('watched', filmId, refsModal.watched, 'is__active', queue);
+  } 
+  else {return}
+};
 
 //Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);
@@ -114,3 +145,5 @@ function closeLoginFormOnBackdropClick(event) {
   if(event.target !== loginFormBackdrop) return;
   closeLoginForm();
 }
+
+export default { firebase, openLoginForm };
