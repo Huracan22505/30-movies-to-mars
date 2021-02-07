@@ -21,7 +21,10 @@ searchBtn.addEventListener('click', getValue);
 searchFormMobile.addEventListener('input', updateQuery);
 searchFormMobile.addEventListener('submit', getValue);
 mobileSearchBtn.addEventListener('click', getValue);
-// closeInputBtn.addEventListener('click',  )
+
+closeInputBtn.addEventListener('click', e => {
+  searchFormMobile.value = '';
+});
 
 // function to get input value
 function updateQuery(e) {
