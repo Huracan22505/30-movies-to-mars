@@ -18,11 +18,11 @@ export default class AddLocalStorage {
   active() {
     if (this.isActive) {
       this.button.classList.add(this.classCSS);
-      // this.button.innerText = 'REMOVE FROM ' + this.button.dataset.name;
+      this.button.innerText = 'REMOVE FROM ' + this.button.dataset.name;
       return this.active;
     }
     this.button.classList.remove(this.classCSS);
-    // this.button.innerText = 'ADD TO ' + this.button.dataset.name;
+    this.button.innerText = 'ADD TO ' + this.button.dataset.name;
 
     return this.active;
   }
@@ -37,6 +37,7 @@ export default class AddLocalStorage {
     );
     this.queue.button.classList.remove(this.classCSS);
     this.queue.isActive = false;
+    this.queue.button.innerText = 'ADD TO ' + this.queue.button.dataset.name;
   }
 
   addLocalStorage() {

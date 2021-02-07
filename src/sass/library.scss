@@ -14,6 +14,7 @@
 }
 
 .library__filters__btn {
+  cursor: pointer;
   display: inline-block;
 
   width: 130px;
@@ -29,8 +30,8 @@
   letter-spacing: 3px;
   font-weight: 600;
   color: #ffffff;
-  background: #330099;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background: silver;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
   transition: 0.3s;
 
   &:hover {
@@ -43,31 +44,44 @@
 }
 
 .darkTheme .library__filters__btn {
-  color: #ffff00;
+  color: white;
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.349);
+
   &:hover {
     color: #330099;
   }
 }
 
 .is__active {
-  background-color: silver;
+  background-color: #330099;
   &:hover {
-    background-color: silver;
+    color: #ffff00;
+    background-color: #330099;
     border-color: transparent;
     box-shadow: none;
   }
 }
 
 .darkTheme .is__active {
-  color: #330099;
+  color: #ffff00;
+
+  &:hover {
+    color: #ffff00;
+  }
 }
 
 .empty__notice {
+  margin-top: 7vh;
+
   font-size: 50px;
   letter-spacing: 3px;
   font-weight: 600;
 
   text-align: center;
+
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+  }
 }
 
 .darkTheme .empty__notice {

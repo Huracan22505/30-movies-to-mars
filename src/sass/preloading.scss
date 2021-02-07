@@ -8,7 +8,7 @@
   height: 100vh;
   z-index: 10;
 
-  animation: 6s opacity;
+  animation: 3s opacity;
 }
 
 #stars {
@@ -579,7 +579,7 @@
   letter-spacing: 10px;
   margin-top: -60px;
   padding-left: 10px;
-  animation: 6s fadein-fadeout;
+  animation: 3s fadein-fadeout;
 
   & p {
     background: -webkit-linear-gradient(white, #38495a);
@@ -588,55 +588,53 @@
   }
 }
 
-
-
 @keyframes opacity {
-0% {
-opacity: 1;
-}
+  0% {
+    opacity: 1;
+  }
 
-35% {
-opacity: 1;
-}
+  35% {
+    opacity: 1;
+  }
 
-60% {
-opacity: 1;
-}
+  60% {
+    opacity: 1;
+  }
 
-80% {
-opacity: 1;
-}
+  80% {
+    opacity: 1;
+  }
 
-100% {
-opacity: 0;
-}
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes fadein-fadeout {
-0% {
-opacity: 0;
-transform: scale(0.8);
-}
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 
-35% {
-opacity: 1;
-transform: scale(1);
-}
+  35% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-60% {
-opacity: 1;
-transform: scale(1);
-}
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-80% {
-opacity: 1;
-transform: scale(1);
-}
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-100% {
-opacity: 0;
-transform: scale(0);
-}
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 @keyframes animStar {
