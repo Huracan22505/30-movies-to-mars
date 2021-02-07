@@ -1,13 +1,25 @@
-import refs from './refs.js'
+import refs from './refs.js';
 
-const {openMenuBtn, closeMenuBtn, menu, openInputBtn, closeInputBtn, inputPanel, switcher} = refs;
+const {
+  openMenuBtn,
+  closeMenuBtn,
+  menu,
+  openInputBtn,
+  closeInputBtn,
+  inputPanel,
+  switcher,
+  searchFormMobile,
+} = refs;
 
 openMenuBtn.addEventListener('click', onOpenBurger);
 openInputBtn.addEventListener('click', onSearch);
 closeInputBtn.addEventListener('click', onSearch);
-menu.addEventListener('click', (e)=>{ if(e.target === switcher) { menu.classList.remove('is-open'); document.querySelector('html').style.overflow = ''}
-})
-  
+menu.addEventListener('click', e => {
+  if (e.target === switcher) {
+    menu.classList.remove('is-open');
+    document.querySelector('html').style.overflow = '';
+  }
+});
 
 function onOpenBurger() {
   menu.classList.add('is-open');
@@ -19,7 +31,7 @@ function onCloseBurger() {
   menu.classList.remove('is-open');
   document.querySelector('html').style.overflow = '';
 }
-        
+
 function onSearch() {
-  inputPanel.classList.toggle('is-open')
-} 
+  inputPanel.classList.toggle('is-open');
+}

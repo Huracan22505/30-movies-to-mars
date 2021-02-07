@@ -11,6 +11,7 @@ const {
   openInputBtn,
   searchBtn,
   mobileSearchBtn,
+  closeInputBtn,
 } = refs;
 let query = '';
 
@@ -19,7 +20,8 @@ searchForm.addEventListener('submit', getValue);
 searchBtn.addEventListener('click', getValue);
 searchFormMobile.addEventListener('input', updateQuery);
 searchFormMobile.addEventListener('submit', getValue);
-mobileSearchBtn.addEventListener('click', getValue)
+mobileSearchBtn.addEventListener('click', getValue);
+// closeInputBtn.addEventListener('click',  )
 
 // function to get input value
 function updateQuery(e) {

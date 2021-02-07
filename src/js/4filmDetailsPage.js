@@ -3,6 +3,8 @@ import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 import AddLocalStorage from './AddLocalStorage.js';
 import debounce from 'lodash.debounce';
+import trailer from './trailer.js';
+import * as basicLightbox from 'basiclightbox';
 
 const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
 
@@ -22,8 +24,8 @@ function getValue(e) {
   apiService.getSearchResult();
 }
 
-// function of clicking on an item in the gallery and
-// getting movie id
+// function of clicking on an item in the gallery
+// and getting movie id
 function onGalleryClick(ev) {
   const cardRef = ev.target;
   filmId = cardRef.getAttribute('data');
@@ -62,6 +64,12 @@ function openModal() {
   refsModal.watched.addEventListener(
     'click',
     watched.addLocalStorage.bind(watched),
+  );
+
+  //=======> trailer rendering function
+  const movieImg = document.querySelector('.card__img');
+  movieImg.addEventListener('click', () =>
+    trailer.markupModalForTrailer(filmId),
   );
 }
 
