@@ -5,9 +5,8 @@ import AddLocalStorage from './AddLocalStorage.js';
 import debounce from 'lodash.debounce';
 import trailer from './trailer.js';
 import * as basicLightbox from 'basiclightbox';
-const myApiKey = '2955876276611e1cc2d97a4794387b9d';
-const { galleryBox, cardModal, cardOverlay, cardBox, sliderContainer } = refs;
-console.log(basicLightbox);
+
+const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
 
 galleryBox.addEventListener('click', debounce(onGalleryClick, 300));
 cardOverlay.addEventListener('click', onModalClose);
@@ -25,8 +24,8 @@ function getValue(e) {
   apiService.getSearchResult();
 }
 
-// function of clicking on an item in the gallery and
-// getting movie id
+// function of clicking on an item in the gallery
+// and getting movie id
 function onGalleryClick(ev) {
   const cardRef = ev.target;
   filmId = cardRef.getAttribute('data');
@@ -67,9 +66,11 @@ function openModal() {
     watched.addLocalStorage.bind(watched),
   );
 
+  //=======> trailer rendering function
   const movieImg = document.querySelector('.card__img');
-  movieImg.addEventListener('click', () => markupModalForTrailer(filmId));
-  // markupModalForTrailer(filmId);
+  movieImg.addEventListener('click', () =>
+    trailer.markupModalForTrailer(filmId),
+  );
 }
 
 //close modal function
@@ -93,21 +94,6 @@ function onEscDown(ev) {
   if (ev.code === 'Escape') {
     onModalClose();
   }
-}
-
-function markupModalForTrailer(id) {
-  console.log(id);
-  const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${myApiKey}&language=en-US`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const id = data.results[0].key;
-      const youtubeVideo = basicLightbox.create(`
-  <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-`);
-      youtubeVideo.show();
-      toModalTrailer(youtubeVideo);
-    });
 }
 
 export { onGalleryClick };
