@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
   if(firebaseUser) {
     logoutBtn.classList.remove('is-hidden');
     loginFields.classList.add('is-hidden');
+    closeLoginForm();
 
   } else {
     loginFields.classList.remove('is-hidden');
