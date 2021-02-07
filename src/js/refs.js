@@ -45,4 +45,5 @@ export default {
   loginErrorMessage: document.querySelector('.login-form__error-message'),
   openInputBtn: document.querySelector('.openInputBtn'),
   emptyNotice: document.querySelector('.empty__notice'),
+  welcomeMeassage: document.querySelector('.login-form__welcome-message')
 };
