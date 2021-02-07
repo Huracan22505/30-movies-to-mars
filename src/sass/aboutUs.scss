@@ -198,6 +198,7 @@ body .team_title_card {
     background-color: #fff000;
     border-radius: 50%;
     background-position: center;
+    cursor: pointer;
     fill: black;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {
