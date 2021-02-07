@@ -33,6 +33,7 @@ function loginEvnt(e) {
   const auth = firebase.auth();
   //sign in
   const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
+  promise.then(addEvntListenerOnModal());
   promise.catch(e => loginError(e));
 };
 
@@ -78,6 +79,15 @@ function loginError(e) {
 function addWelcomeMessage() {
   welcomeMeassage.classList.remove('is-hidden');
   welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email}`;
+}
+
+function addEvntListenerOnModal() {
+  const addToWatched = document.querySelector('.card__btn__watched');
+  const addToQueue = document.querySelector('.card__btn__queue');
+  addToQueue.removeEventListener('click', openLoginForm);
+  addToWatched.removeEventListener('click', openLoginForm);
+  addToQueue.addEventListener('click', queue.addLocalStorage.bind(queue));
+  addToWatched.addEventListener('click', watched.addLocalStorage.bind(watched));
 }
 
 //Open and close login form on click/esc/side click/close button click
