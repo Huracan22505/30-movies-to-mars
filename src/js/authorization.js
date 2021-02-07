@@ -5,7 +5,7 @@ import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, libraryRef } = refs;
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, libraryRef, cardModal } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -33,8 +33,8 @@ function loginEvnt(e) {
   const auth = firebase.auth();
   //sign in
   const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
-  promise.then(addEvntListenerOnModal());
-  promise.catch(e => loginError(e));
+  promise.then(addEvntListenerOnModal())
+  .catch(e => loginError(e));
 };
 
 function signupEvnt(e) {
@@ -89,13 +89,17 @@ function addWelcomeMessage() {
 }
 
 function addEvntListenerOnModal() {
+  if (cardModal.classList.contains('card__modal__lightbox__is-open')) {
+  
   const addToWatched = document.querySelector('.card__btn__watched');
   const addToQueue = document.querySelector('.card__btn__queue');
   addToQueue.removeEventListener('click', openLoginForm);
   addToWatched.removeEventListener('click', openLoginForm);
   addToQueue.addEventListener('click', queue.addLocalStorage.bind(queue));
   addToWatched.addEventListener('click', watched.addLocalStorage.bind(watched));
-}
+  } 
+  else {return}
+};
 
 //Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);
