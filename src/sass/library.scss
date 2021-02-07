@@ -45,7 +45,7 @@
 
 .darkTheme .library__filters__btn {
   color: white;
-  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.349);
+  box-shadow: 0 8px 30px rgba(15, 15, 15, 0.452);
 
   &:hover {
     color: #330099;
@@ -63,6 +63,8 @@
 }
 
 .darkTheme .is__active {
+  box-shadow: 0 12px 15px rgba(255, 252, 252, 0.349);
+
   color: #ffff00;
 
   &:hover {
