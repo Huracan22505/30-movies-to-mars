@@ -1,5 +1,8 @@
 <div class="card__section__content">
-  <img src="{{_posterPath}}" alt="{{_title}}" class="card__img" />
+  <div class="overlay-btn-text" data-id='{{_id}}'>
+    {{!-- <h2 class="btn-text-slider" data-id='{{id}}'>Trailer</h2> --}}
+    <img src="{{_posterPath}}" alt="{{_title}}" class="card__img" />
+  </div>
   <div class="card__content">
     <h2 class="card__title">{{_title}}</h2>
     <div class="card__mainInfo">
@@ -50,6 +53,7 @@
             Queue
           </button>
         </li>
+
       </ul>
     </div>
   </div>

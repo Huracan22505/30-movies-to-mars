@@ -3,8 +3,11 @@ import refs from './refs.js';
 import filmCardTemplate from '../templates/filmDetails.hbs';
 import AddLocalStorage from './AddLocalStorage.js';
 import debounce from 'lodash.debounce';
-
-const { galleryBox, cardModal, cardOverlay, cardBox } = refs;
+import trailer from './trailer.js';
+import * as basicLightbox from 'basiclightbox';
+const myApiKey = '2955876276611e1cc2d97a4794387b9d';
+const { galleryBox, cardModal, cardOverlay, cardBox, sliderContainer } = refs;
+console.log(basicLightbox);
 
 galleryBox.addEventListener('click', debounce(onGalleryClick, 300));
 cardOverlay.addEventListener('click', onModalClose);
@@ -63,6 +66,10 @@ function openModal() {
     'click',
     watched.addLocalStorage.bind(watched),
   );
+
+  const movieImg = document.querySelector('.card__img');
+  movieImg.addEventListener('click', () => markupModalForTrailer(filmId));
+  // markupModalForTrailer(filmId);
 }
 
 //close modal function
@@ -86,6 +93,21 @@ function onEscDown(ev) {
   if (ev.code === 'Escape') {
     onModalClose();
   }
+}
+
+function markupModalForTrailer(id) {
+  console.log(id);
+  const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${myApiKey}&language=en-US`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const id = data.results[0].key;
+      const youtubeVideo = basicLightbox.create(`
+  <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+`);
+      youtubeVideo.show();
+      toModalTrailer(youtubeVideo);
+    });
 }
 
 export { onGalleryClick };
