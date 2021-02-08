@@ -2,6 +2,7 @@ const paths = require('./paths');
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+new HtmlWebpackPlugin({ favicon: 'src/images/favicon.png' });
 
 module.exports = {
   // Where webpack looks to start building the bundle
