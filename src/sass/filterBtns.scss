@@ -28,7 +28,7 @@
   }
 }
 
-.filterBtns-button  {
+body .filterBtns-button  {
     display: inline-block;
    width: 85%;
     margin-left: auto;
@@ -40,7 +40,6 @@
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 0.1em;
-    color: #ffffff;
     border: 2px solid;
     background-color: transparent;
     border-radius: 45px;
@@ -58,4 +57,13 @@
       box-shadow: 0 15px 20px rgba(226, 229, 46, 0.4);
       transform: translateY(-7px);
     }
+}
+.darkTheme .filterBtns-button  {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.lightTheme .filterBtns-button {
+  color:  #ffff00;
+  background-color: rgba(0, 0, 255, 0.3);
+  border-color: #ffff00;
 }
