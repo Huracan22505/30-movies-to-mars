@@ -79,7 +79,11 @@ function openModal() {
 
   //=======> trailer rendering function
   const movieImg = document.querySelector('.card__img');
+  const moviePlayBtn = document.querySelector('.btn_card_play');
   movieImg.addEventListener('click', () =>
+    trailer.markupModalForTrailer(filmId),
+  );
+  moviePlayBtn.addEventListener('click', () =>
     trailer.markupModalForTrailer(filmId),
   );
 }
