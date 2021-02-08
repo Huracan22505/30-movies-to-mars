@@ -218,9 +218,13 @@ body .team_title_card {
 
 .team_icon {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
   fill: black;
+  &.github {
+    padding-left: 5px;
+    padding-top: 4px;
+  }
 }
 // Styles for card hover
 .team_card_hover {
