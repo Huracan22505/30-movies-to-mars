@@ -1,4 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
+import errorUrl from '../images/glideSlider/errorYoutube.jpg';
 const apiKey = '2955876276611e1cc2d97a4794387b9d';
 
 function createTrailerLink(elementRef) {
@@ -22,6 +23,13 @@ function markupModalForTrailer(id) {
 `);
       youtubeVideo.show();
       toModalTrailer(youtubeVideo);
+    })
+    .catch(() => {
+      const youtubeError = basicLightbox.create(`
+    <image class="catch-error-video" src='${errorUrl}' />
+      `);
+
+      youtubeError.show();
     });
 }
 
