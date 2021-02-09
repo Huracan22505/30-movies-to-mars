@@ -47,5 +47,7 @@ export default {
   emptyNotice: document.querySelector('.empty__notice'),
   welcomeMeassage: document.querySelector('.login-form__welcome-message'),
   libraryRef: document.getElementById('libraryRef'),
-  libraryRefMobile: document.getElementById('libraryRefMobile')
+  libraryRefMobile: document.getElementById('libraryRefMobile'),
+  googleAuth: document.getElementById('googleAuth'),
+  phoneAuth: document.getElementById('phoneAuth')
 };
