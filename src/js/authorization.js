@@ -130,7 +130,7 @@ function loginError(err) {
 
 function addWelcomeMessage() {
   welcomeMeassage.classList.remove('is-hidden');
-  welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email}`;
+  welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email || firebase.auth().currentUser.phoneNumber}`;
 }
 
 function addEvntListenerOnModal() {
