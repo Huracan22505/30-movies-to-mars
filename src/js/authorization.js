@@ -1,4 +1,6 @@
 import firebase from 'firebase/app'
+import 'firebaseui'
+import 'firebaseui/dist/firebaseui.css'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/storage'
@@ -19,11 +21,16 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.auth().useDeviceLanguage();
 
 //login event
 signinBtn.addEventListener('click', loginEvnt);
 //signup event
 signupBtn.addEventListener('click', signupEvnt);
+//Google auth event
+googleAuth.addEventListener('click', googleLogin);
+//Phone auth event
+phoneAuth.addEventListener('click', phoneLogin);
 //logout event
 logoutBtn.addEventListener('click', logoutEvnt);
 
@@ -49,6 +56,35 @@ function signupEvnt(e) {
   const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
   promise.then(addEvntListenerOnModal)
   .catch(error => loginError(error));
+};
+
+function googleLogin() {
+const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(function (result) {
+      userExists(result.user);
+    })
+    .then(addEvntListenerOnModal)
+    .catch(error => loginError(error));
+};
+
+function phoneLogin() {
+const ui = new firebaseui.auth.AuthUI(firebase.auth());
+ui.start('#phoneAuth', {
+  signInOptions: [
+    {
+      provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+      recaptchaParameters: {
+        type: 'image',
+        size: 'normal',
+        badge: 'bottomleft'
+      },
+      defaultCountry: 'UA',
+      defaultNationalNumber: '0991234567',
+      loginHint: '+380991234567'
+    }
+  ]
+});
 };
 
 function logoutEvnt() {

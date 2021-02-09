@@ -297,3 +297,13 @@
   font-size: 14px;
   letter-spacing: 0.2px;
 }
+
+.firebaseui-container {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 525px !important;
+  height: 600px;
+}
