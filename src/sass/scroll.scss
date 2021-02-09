@@ -1,0 +1,28 @@
+
+// создаем добавляем стили кнокпи вверх
+.scroll__up {
+    z-index: 999;
+    position: fixed;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 50%;
+    display: none;
+    height: 50px;
+    right: 20px;
+    width: 50px;
+    bottom: 40px;
+    background-color: #330099;
+    color: #ffff00;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+    
+  }
+  
+  .back__to__top:hover {
+    opacity: 1;
+  }
+  
+  .back__to__top-show {
+    display: block;
+  }
