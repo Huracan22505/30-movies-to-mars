@@ -1,11 +1,16 @@
 import firebase from 'firebase/app'
+import 'firebaseui'
+import 'firebaseui/dist/firebaseui.css'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/storage'
 import 'firebase/messaging'
 
 import refs from './refs.js';
-const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, libraryRef, cardModal, libraryRefMobile } = refs;
+
+const { loginFormBackdrop, loginFormCloseButton, loginFormOpenButton, loginFormOpenButtonDesktop, signinBtn, signupBtn, 
+        regEmail, regPass, signupEmail, signupPass, logoutBtn, loginFields, loginErrorMessage, menu, welcomeMeassage, 
+        libraryRef, libraryRefMobile, googleAuth, phoneAuth } = refs;
 
 const firebaseConfig = {
   apiKey: "AIzaSyABHgMmII0_xvD9k6iq4L1Mf5KdyZM-ZFY",
@@ -17,11 +22,16 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.auth().useDeviceLanguage();
 
 //login event
 signinBtn.addEventListener('click', loginEvnt);
 //signup event
 signupBtn.addEventListener('click', signupEvnt);
+//Google auth event
+googleAuth.addEventListener('click', googleLogin);
+//Phone auth event
+phoneAuth.addEventListener('click', phoneLogin);
 //logout event
 logoutBtn.addEventListener('click', logoutEvnt);
 
@@ -33,8 +43,7 @@ function loginEvnt(e) {
   const auth = firebase.auth();
   //sign in
   const promise = auth.signInWithEmailAndPassword(loginEmail, loginPassword);
-  promise.then(addEvntListenerOnModal)
-  .catch(error => loginError(error));
+  promise.catch(error => loginError(error));
 };
 
 function signupEvnt(e) {
@@ -45,12 +54,41 @@ function signupEvnt(e) {
   const auth = firebase.auth();
   //create new user
   const promise = auth.createUserWithEmailAndPassword(signEmail, signPassword);
-  promise.then(addEvntListenerOnModal)
-  .catch(error => loginError(error));
+  promise.catch(error => loginError(error));
+};
+
+function googleLogin() {
+const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(function (result) {
+      userExists(result.user);
+    })
+    .then(addEvntListenerOnModal)
+    .catch(error => loginError(error));
+};
+
+function phoneLogin() {
+const ui = new firebaseui.auth.AuthUI(firebase.auth());
+ui.start('#phoneAuth', {
+  signInOptions: [
+    {
+      provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+      recaptchaParameters: {
+        type: 'image',
+        size: 'normal',
+        badge: 'bottomleft'
+      },
+      defaultCountry: 'UA',
+      defaultNationalNumber: '0991234567',
+      loginHint: '+380991234567'
+    }
+  ]
+});
 };
 
 function logoutEvnt() {
   firebase.auth().signOut();
+  onModalClose();
 }
 
 //realtime listener
@@ -58,6 +96,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
   if(firebaseUser) {
     loginFields.classList.add('is-hidden');
+    googleAuth.classList.add('is-hidden');
+    phoneAuth.classList.add('is-hidden');
     logoutBtn.classList.remove('is-hidden');
     libraryRef.removeEventListener('click', libraryAuth);
     libraryRefMobile.removeEventListener('click', libraryAuth);
@@ -68,6 +108,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     libraryRef.addEventListener('click', libraryAuth);
     libraryRefMobile.addEventListener('click', libraryAuth);
     loginFields.classList.remove('is-hidden');
+    googleAuth.classList.remove('is-hidden');
+    phoneAuth.classList.remove('is-hidden');
     logoutBtn.classList.add('is-hidden');
     welcomeMeassage.classList.add('is-hidden');
   }
@@ -88,28 +130,8 @@ function loginError(err) {
 
 function addWelcomeMessage() {
   welcomeMeassage.classList.remove('is-hidden');
-  welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email}`;
+  welcomeMeassage.textContent = `Hi! You logged in under ${firebase.auth().currentUser.email || firebase.auth().currentUser.phoneNumber}`;
 }
-
-function addEvntListenerOnModal() {
-  if (cardModal.classList.contains('card__modal__lightbox__is-open')) {
-  
-  const addToWatched = document.querySelector('.card__btn__watched');
-  const addToQueue = document.querySelector('.card__btn__queue');
-  addToQueue.removeEventListener('click', openLoginForm);
-  addToWatched.removeEventListener('click', openLoginForm);
-  const refsModal = {};
-  let queue = {};
-  let watched = {};
-  refsModal.watched = document.querySelector('.card__btn__watched');
-  refsModal.queue = document.querySelector('.card__btn__queue');
-  refsModal.queue.addEventListener('click', queue.addLocalStorage.bind(queue));
-  refsModal.watched.addEventListener('click', watched.addLocalStorage.bind(watched));
-  queue = new AddLocalStorage('queue', filmId, refsModal.queue, 'is__active');
-  watched = new AddLocalStorage('watched', filmId, refsModal.watched, 'is__active', queue);
-  } 
-  else {return}
-};
 
 //Open and close login form on click/esc/side click/close button click
 loginFormOpenButton.addEventListener('click', openLoginForm);

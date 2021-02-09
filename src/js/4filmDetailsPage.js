@@ -61,8 +61,8 @@ function openModal() {
         watched.addLocalStorage.bind(watched),
       );
     } else {
-      refsModal.queue.addEventListener('click', openLoginForm);
-      refsModal.watched.addEventListener('click', openLoginForm);
+      refsModal.queue.addEventListener('click', openLoginFormOnModal);
+      refsModal.watched.addEventListener('click', openLoginFormOnModal);
     }
   });
 
@@ -109,6 +109,11 @@ function onEscDown(ev) {
   if (ev.code === 'Escape') {
     onModalClose();
   }
+}
+
+function openLoginFormOnModal() {
+  openLoginForm();
+  onModalClose();
 }
 
 export { onGalleryClick };
