@@ -216,19 +216,20 @@
 .login-form__error-message {
   display: block;
   position: absolute;
-  bottom: 40px;
+  width: 70%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
   text-align: center;
   padding-right: 15px;
   padding-left: 15px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-radius: 5px;
   background-color: red;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   transition: opacity linear 200ms;
 }
